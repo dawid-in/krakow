@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kraków Trip Dashboard | Oct 7–11, 2026</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .tab-btn.active { border-bottom: 3px solid #2563eb; color: #2563eb; font-weight: bold; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 min-h-screen">
+
+    <!-- Header -->
+    <header class="bg-slate-900 text-white py-6 px-4 shadow-md">
+        <div class="max-w-4xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+            <div>
+                <h1 class="text-2xl font-bold"><i class="fa-solid fa-plane-arrival mr-2 text-blue-400"></i> Kraków 2026 Trip Dashboard</h1>
+                <p class="text-slate-300 text-sm">Wed 7 Oct – Sun 11 Oct 2026 | 4 Travelers | Edinburgh (EDI) ↔ Kraków (KRK)</p>
+            </div>
+            <div class="bg-slate-800 border border-slate-700 px-4 py-2 rounded-lg text-xs">
+                <p class="font-semibold text-blue-400">Hotel Base:</p>
+                <p>ibis budget Stare Miasto (ul. Pawia 11)</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation Tabs -->
+    <div class="bg-white border-b sticky top-0 z-50 shadow-sm">
+        <div class="max-w-4xl mx-auto flex overflow-x-auto text-sm">
+            <button onclick="showTab('day1')" class="tab-btn active px-4 py-3 whitespace-nowrap" id="btn-day1">Day 1: Wed 7 Oct</button>
+            <button onclick="showTab('day2')" class="tab-btn px-4 py-3 whitespace-nowrap" id="btn-day2">Day 2: Thu 8 Oct</button>
+            <button onclick="showTab('day3')" class="tab-btn px-4 py-3 whitespace-nowrap" id="btn-day3">Day 3: Fri 9 Oct</button>
+            <button onclick="showTab('day4')" class="tab-btn px-4 py-3 whitespace-nowrap" id="btn-day4">Day 4: Sat 10 Oct</button>
+            <button onclick="showTab('day5')" class="tab-btn px-4 py-3 whitespace-nowrap" id="btn-day5">Day 5: Sun 11 Oct</button>
+            <button onclick="showTab('food')" class="tab-btn px-4 py-3 whitespace-nowrap text-amber-700 font-semibold" id="btn-food"><i class="fa-solid fa-utensils mr-1"></i> Food & Drink Map</button>
+        </div>
+    </div>
+
+    <main class="max-w-4xl mx-auto p-4">
+
+        <!-- DAY 1 -->
+        <div id="day1" class="tab-content space-y-4">
+            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center bg-white p-4 rounded-lg shadow-sm border-l-4 border-blue-600 gap-2">
+                <div>
+                    <h2 class="text-xl font-bold">Day 1: Wednesday 7 Oct — Arrival</h2>
+                    <p class="text-xs text-slate-500">Flight FR6624 & Airport Transit</p>
+                </div>
+                <a href="https://www.google.com/maps/dir/John+Paul+II+International+Airport+Krak%C3%B3w-Balice/Krak%C3%B3w+G%C5%82%C3%B3wny/ibis+budget+Krakow+Stare+Miasto/Kie%C5%82baski+z+Niebieskiej+Nyski" target="_blank" class="bg-blue-600 text-white px-3 py-1.5 rounded text-xs hover:bg-blue-700 flex items-center gap-1 font-medium">
+                    <i class="fa-solid fa-map-location-dot"></i> Full Day 1 Route
+                </a>
+            </div>
+
+            <div class="bg-white rounded-lg shadow p-4 space-y-4">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between border-b pb-3 gap-2">
+                    <div class="flex gap-3 items-start">
+                        <span class="font-mono text-xs bg-slate-100 px-2 py-1 rounded text-slate-700 font-bold">19:00</span>
+                        <div><p class="font-semibold text-sm">Departs Edinburgh (EDI)</p><p class="text-xs text-slate-500">Ryanair FR6624</p></div>
+                    </div>
+                </div>
+
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between border-b pb-3 gap-2">
+                    <div class="flex gap-3 items-start">
+                        <span class="font-mono text-xs bg-slate-100 px-2 py-1 rounded text-slate-700 font-bold">22:40</span>
+                        <div><p class="font-semibold text-sm">Land at Kraków Airport (KRK)</p></div>
+                    </div>
+                </div>
+
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between border-b pb-3 gap-2">
+                    <div class="flex gap-3 items-start">
+                        <span class="font-mono text-xs bg-slate-100 px-2 py-1 rounded text-slate-700 font-bold">23:17</span>
+                        <div><p class="font-semibold text-sm">SKA1 Train to Kraków Główny</p><p class="text-xs text-slate-500">17 min travel time (~20 PLN)</p></div>
+                    </div>
+                    <a href="https://www.google.com/maps/dir/John+Paul+II+International+Airport+Krak%C3%B3w-Balice/Krak%C3%B3w+G%C5%82%C3%B3wny" target="_blank" class="text-xs text-blue-600 hover:underline flex items-center gap-1">
+                        <i class="fa-solid fa-diamond-turn-right"></i> Route: Airport → Station
+                    </a>
+                </div>
+
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between border-b pb-3 gap-2">
+                    <div class="flex gap-3 items-start">
+                        <span class="font-mono text-xs bg-slate-100 px-2 py-1 rounded text-slate-700 font-bold">23:45</span>
+                        <div><p class="font-semibold text-sm">Check-in at ibis budget Kraków Stare Miasto</p><p class="text-xs text-slate-500">ul. Pawia 11 (7 min walk from station)</p></div>
+                    </div>
+                    <a href="https://www.google.com/maps/dir/Krak%C3%B3w+G%C5%82%C3%B3wny/ibis+budget+Krakow+Stare+Miasto,+Pawia+11" target="_blank" class="text-xs text-blue-600 hover:underline flex items-center gap-1">
+                        <i class="fa-solid fa-person-walking"></i> Route: Station → Hotel
+                    </a>
+                </div>
+
+                <!-- De-emphasized Food Item -->
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between text-slate-600 pt-1 gap-2">
+                    <div class="flex gap-3 items-start">
+                        <span class="font-mono text-xs bg-slate-100 text-slate-500 px-2 py-1 rounded">Late</span>
+                        <div><p class="text-sm font-medium text-slate-700">Optional Food: Sausages from Blue Nysa Van</p><p class="text-xs text-slate-400">Grzegórzecka 4 | Open until 03:00 | Cash only</p></div>
+                    </div>
+                    <a href="https://www.google.com/maps/dir/ibis+budget+Krakow+Stare+Miasto,+Pawia+11/Kie%C5%82baski+z+Niebieskiej+Nyski,+Grzeg%C3%B3rzecka+4" target="_blank" class="text-xs text-slate-500 hover:text-blue-600 hover:underline flex items-center gap-1">
+                        <i class="fa-solid fa-person-walking"></i> Walk: Hotel → Nysa
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- DAY 2 -->
+        <div id="day2" class="tab-content hidden space-y-4">
+            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center bg-white p-4 rounded-lg shadow-sm border-l-4 border-red-600 gap-2">
+                <div>
+                    <h2 class="text-xl font-bold">Day 2: Thursday 8 Oct — Auschwitz-Birkenau</h2>
+                    <p class="text-xs text-slate-500">Memorial Visit & Evening in Kazimierz</p>
+                </div>
+                <a href="https://www.google.com/maps/dir/ibis+budget+Krakow+Stare+Miasto/Dobra+P%C4%85czkarnia,+Floria%C5%84ska+24/Krak%C3%B3w+G%C5%82%C3%B3wny/O%C5%9Bwi%C4%99cim+Station/Auschwitz-Birkenau+State+Museum/Starka+Restaurant" target="_blank" class="bg-blue-600 text-white px-3 py-1.5 rounded text-xs hover:bg-blue-700 flex items-center gap-1 font-medium">
+                    <i class="fa-solid fa-map-location-dot"></i> Full Day 2 Route
+                </a>
+            </div>
+
+            <div class="bg-white rounded-lg shadow p-4 space-y-4">
+                <!-- De-emphasized Food Item -->
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between border-b pb-3 text-slate-600 gap-2">
+                    <div class="flex gap-3 items-start">
+                        <span class="font-mono text-xs bg-slate-100 text-slate-600 px-2 py-1 rounded">08:15</span>
+                        <div><p class="text-sm font-medium text-slate-700">Quick stop: Dobra Pączkarnia (Floriańska 24)</p><p class="text-xs text-slate-400">Grab pączki for train</p></div>
+                    </div>
+                    <a href="https://www.google.com/maps/dir/ibis+budget+Krakow+Stare+Miasto/Dobra+P%C4%85czkarnia,+Floria%C5%84ska+24" target="_blank" class="text-xs text-slate-500 hover:text-blue-600 hover:underline flex items-center gap-1">
+                        <i class="fa-solid fa-person-walking"></i> Walk
+                    </a>
+                </div>
+
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between border-b pb-3 gap-2">
+                    <div class="flex gap-3 items-start">
+                        <span class="font-mono text-xs bg-slate-100 px-2 py-1 rounded text-slate-700 font-bold">08:45</span>
+                        <div><p class="font-semibold text-sm">Train: Kraków Główny → Oświęcim Station</p><p class="text-xs text-slate-500">Book via Koleo app (40–60 min)</p></div>
+                    </div>
+                    <a href="https://www.google.com/maps/dir/Dobra+P%C4%85czkarnia,+Floria%C5%84ska+24/Krak%C3%B3w+G%C5%82%C3%B3wny" target="_blank" class="text-xs text-blue-600 hover:underline flex items-center gap-1">
+                        <i class="fa-solid fa-person-walking"></i> Walk to Station
+                    </a>
+                </div>
+
+                <!-- Prominent Scheduled Anchor -->
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between border-b pb-3 gap-2 bg-red-50 p-3 rounded-lg border border-red-200">
+                    <div class="flex gap-3 items-start">
+                        <span class="font-mono text-xs bg-red-200 text-red-900 px-2 py-1 rounded font-bold">11:30</span>
+                        <div>
+                            <p class="font-bold text-sm text-red-900"><i class="fa-solid fa-ticket mr-1"></i> Auschwitz-Birkenau Memorial Tour [BOOKED]</p>
+                            <p class="text-xs text-red-700">Arrive at Oświęcim station by 10:15, taxi/bus to museum by 10:30. Tour duration ~3.5h.</p>
+                        </div>
+                    </div>
+                    <a href="https://www.google.com/maps/dir/O%C5%9Bwi%C4%99cim+Station/Auschwitz-Birkenau+State+Museum,+Wi%C4%99%C5%BAni%C3%B3w+O%C5%9Bwi%C4%99cimia+55" target="_blank" class="text-xs text-red-700 hover:underline flex items-center gap-1 font-semibold">
+                        <i class="fa-solid fa-taxi"></i> Taxi to Entrance
+                    </a>
+                </div>
+
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between border-b pb-3 gap-2">
+                    <div class="flex gap-3 items-start">
+                        <span class="font-mono text-xs bg-slate-100 px-2 py-1 rounded text-slate-700 font-bold">15:30</span>
+                        <div><p class="font-semibold text-sm">Taxi/Bus to Oświęcim Station → Train back to Kraków</p></div>
+                    </div>
+                    <a href="https://www.google.com/maps/dir/Auschwitz-Birkenau+State+Museum/O%C5%9Bwi%C4%99cim+Station" target="_blank" class="text-xs text-blue-600 hover:underline flex items-center gap-1">
+                        <i class="fa-solid fa-taxi"></i> Route to Station
+                    </a>
+                </div>
+
+                <!-- De-emphasized Food Item -->
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between text-slate-600 gap-2">
+                    <div class="flex gap-3 items-start">
+                        <span class="font-mono text-xs bg-slate-100 text-slate-600 px-2 py-1 rounded">19:00</span>
+                        <div><p class="text-sm font-medium text-slate-700">Dinner: Starka (Józefa 14, Kazimierz)</p><p class="text-xs text-slate-400">Book ahead. Alt: Pierogi Mr Vincent (Bożego Ciała 12)</p></div>
+                    </div>
+                    <a href="https://www.google.com/maps/dir/Krak%C3%B3w+G%C5%82%C3%B3wny/Starka+Restaurant,+J%C3%B3zefa+14" target="_blank" class="text-xs text-slate-500 hover:text-blue-600 hover:underline flex items-center gap-1">
+                        <i class="fa-solid fa-diamond-turn-right"></i> Route to Kazimierz
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- DAY 3 -->
+        <div id="day3" class="tab-content hidden space-y-4">
+            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center bg-white p-4 rounded-lg shadow-sm border-l-4 border-amber-600 gap-2">
+                <div>
+                    <h2 class="text-xl font-bold">Day 3: Friday 9 Oct — Wawel & Salt Mine</h2>
+                    <p class="text-xs text-slate-500">Castle, Underground Salt Mine & Canteens</p>
+                </div>
+                <a href="https://www.google.com/maps/dir/ibis+budget+Krakow+Stare+Miasto/Cukiernia+Kawiarnia+Cichowscy/Wawel+Royal+Castle/Krak%C3%B3w+G%C5%82%C3%B3wny/Dani%C5%82owicza+10,+32-020+Wieliczka/St.+Mary's+Basilica/Bar+Uniwersytecki/Andrus+Maczanka+po+Krakowsku" target="_blank" class="bg-blue-600 text-white px-3 py-1.5 rounded text-xs hover:bg-blue-700 flex items-center gap-1 font-medium">
+                    <i class="fa-solid fa-map-location-dot"></i> Full Day 3 Route
+                </a>
+            </div>
+
+            <!-- Route Adjustment Warning -->
+            <div class="bg-amber-50 border-l-4 border-amber-500 text-amber-900 p-3 rounded text-xs">
+                <i class="fa-solid fa-triangle-exclamation font-bold"></i> <strong>Timing Notice:</strong> Take a 7-min Uber/Tram from Wawel to Kraków Główny at 10:35 to make your 11:10 train. Visit St. Mary's Basilica at 16:00 right after returning from Wieliczka.
+            </div>
+
+            <div class="bg-white rounded-lg shadow p-4 space-y-4">
+                <!-- De-emphasized Food Item -->
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between border-b pb-3 text-slate-600 gap-2">
+                    <div class="flex gap-3 items-start">
+                        <span class="font-mono text-xs bg-slate-100 text-slate-600 px-2 py-1 rounded">08:30</span>
+                        <div><p class="text-sm font-medium text-slate-700">Breakfast option: Cukiernia Cichowscy (Starowiślna 21)</p><p class="text-xs text-slate-400">Traditional Kremówka</p></div>
+                    </div>
+                    <a href="https://www.google.com/maps/dir/ibis+budget+Krakow+Stare+Miasto/Cukiernia+Kawiarnia+Cichowscy,+Starowi%C5%9Blna+21" target="_blank" class="text-xs text-slate-500 hover:text-blue-600 hover:underline flex items-center gap-1">
+                        <i class="fa-solid fa-person-walking"></i> Walk
+                    </a>
+                </div>
+
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between border-b pb-3 gap-2">
+                    <div class="flex gap-3 items-start">
+                        <span class="font-mono text-xs bg-slate-100 px-2 py-1 rounded text-slate-700 font-bold">09:15</span>
+                        <div><p class="font-semibold text-sm">Wawel Royal Castle & Cathedral</p></div>
+                    </div>
+                    <a href="https://www.google.com/maps/dir/Cukiernia+Kawiarnia+Cichowscy,+Starowi%C5%9Blna+21/Wawel+Royal+Castle" target="_blank" class="text-xs text-blue-600 hover:underline flex items-center gap-1">
+                        <i class="fa-solid fa-person-walking"></i> Walk to Wawel
+                    </a>
+                </div>
+
+                <!-- Prominent Scheduled Anchor -->
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between border-b pb-3 gap-2 bg-amber-50 p-3 rounded-lg border border-amber-200">
+                    <div class="flex gap-3 items-start">
+                        <span class="font-mono text-xs bg-amber-200 text-amber-900 px-2 py-1 rounded font-bold">12:00</span>
+                        <div><p class="font-bold text-sm text-amber-900"><i class="fa-solid fa-ticket mr-1"></i> Wieliczka Salt Mine Tour [BOOKED]</p><p class="text-xs text-amber-800">Uber/Tram Wawel → Station at 10:35 to catch 11:10 SKA1 Train. Szyb Daniłowicza 10.</p></div>
+                    </div>
+                    <a href="https://www.google.com/maps/dir/Wawel+Royal+Castle/Krak%C3%B3w+G%C5%82%C3%B3wny" target="_blank" class="text-xs text-amber-800 hover:underline flex items-center gap-1 font-semibold">
+                        <i class="fa-solid fa-car"></i> Wawel → Station
+                    </a>
+                </div>
+
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between border-b pb-3 gap-2">
+                    <div class="flex gap-3 items-start">
+                        <span class="font-mono text-xs bg-slate-100 px-2 py-1 rounded text-slate-700 font-bold">16:00</span>
+                        <div><p class="font-semibold text-sm">St Mary's Basilica & Main Square</p><p class="text-xs text-slate-500">Tourist admission closes at 17:30</p></div>
+                    </div>
+                    <a href="https://www.google.com/maps/dir/Krak%C3%B3w+G%C5%82%C3%B3wny/St.+Mary's+Basilica,+plac+Mariacki+5" target="_blank" class="text-xs text-blue-600 hover:underline flex items-center gap-1">
+                        <i class="fa-solid fa-person-walking"></i> Walk to Main Square
+                    </a>
+                </div>
+
+                <!-- De-emphasized Food Item -->
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between border-b pb-3 text-slate-600 gap-2">
+                    <div class="flex gap-3 items-start">
+                        <span class="font-mono text-xs bg-slate-100 text-slate-600 px-2 py-1 rounded">16:45</span>
+                        <div><p class="text-sm font-medium text-slate-700">Late Lunch: Bar Uniwersytecki (Czysta 5)</p><p class="text-xs text-slate-400">Closes at 18:00</p></div>
+                    </div>
+                    <a href="https://www.google.com/maps/dir/St.+Mary's+Basilica/Bar+Uniwersytecki,+Czysta+5" target="_blank" class="text-xs text-slate-500 hover:text-blue-600 hover:underline flex items-center gap-1">
+                        <i class="fa-solid fa-person-walking"></i> Walk
+                    </a>
+                </div>
+
+                <!-- De-emphasized Food Item -->
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between text-slate-600 gap-2">
+                    <div class="flex gap-3 items-start">
+                        <span class="font-mono text-xs bg-slate-100 text-slate-600 px-2 py-1 rounded">19:30</span>
+                        <div><p class="text-sm font-medium text-slate-700">Dinner: Andrus Maczanka po Krakowsku</p><p class="text-xs text-slate-400">Św. Wawrzyńca 16, Kazimierz</p></div>
+                    </div>
+                    <a href="https://www.google.com/maps/dir/Bar+Uniwersytecki,+Czysta+5/Andrus+Maczanka+po+Krakowsku,+%C5%9Aw.+Wawrzy%C5%84ca+16" target="_blank" class="text-xs text-slate-500 hover:text-blue-600 hover:underline flex items-center gap-1">
+                        <i class="fa-solid fa-diamond-turn-right"></i> Route to Kazimierz
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- DAY 4 -->
+        <div id="day4" class="tab-content hidden space-y-4">
+            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center bg-white p-4 rounded-lg shadow-sm border-l-4 border-emerald-600 gap-2">
+                <div>
+                    <h2 class="text-xl font-bold">Day 4: Saturday 10 Oct — Nowa Huta & Podgórze</h2>
+                    <p class="text-xs text-slate-500">Communist History, Food Bites & Schindler's Factory</p>
+                </div>
+                <a href="https://www.google.com/maps/dir/ibis+budget+Krakow+Stare+Miasto/Plac+Centralny+im.+Ronalda+Reagana/Krakowski+Kumpir/Obwarzanki+Kraftowe/Oskar+Schindler's+Enamel+Factory/Rynek+G%C5%82%C3%B3wny/Kie%C5%82baski+z+Niebieskiej+Nyski" target="_blank" class="bg-blue-600 text-white px-3 py-1.5 rounded text-xs hover:bg-blue-700 flex items-center gap-1 font-medium">
+                    <i class="fa-solid fa-map-location-dot"></i> Full Day 4 Route
+                </a>
+            </div>
+
+            <div class="bg-white rounded-lg shadow p-4 space-y-4">
+                <!-- Prominent Scheduled Anchor -->
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between border-b pb-3 gap-2 bg-emerald-50 p-3 rounded-lg border border-emerald-200">
+                    <div class="flex gap-3 items-start">
+                        <span class="font-mono text-xs bg-emerald-200 text-emerald-900 px-2 py-1 rounded font-bold">11:00</span>
+                        <div><p class="font-bold text-sm text-emerald-900"><i class="fa-solid fa-ticket mr-1"></i> Nowa Huta Communist City Tour [BOOKED]</p><p class="text-xs text-emerald-800">Plac Centralny | Catch Tram 4 or 22 from station area at 10:15</p></div>
+                    </div>
+                    <a href="https://www.google.com/maps/dir/ibis+budget+Krakow+Stare+Miasto/Plac+Centralny+im.+Ronalda+Reagana" target="_blank" class="text-xs text-emerald-800 hover:underline flex items-center gap-1 font-semibold">
+                        <i class="fa-solid fa-train-tram"></i> Tram to Plac Centralny
+                    </a>
+                </div>
+
+                <!-- De-emphasized Food Item -->
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between border-b pb-3 text-slate-600 gap-2">
+                    <div class="flex gap-3 items-start">
+                        <span class="font-mono text-xs bg-slate-100 text-slate-600 px-2 py-1 rounded">14:00</span>
+                        <div><p class="text-sm font-medium text-slate-700">Hala Targowa Snacks: Kumpir & Basque Cheesecake</p><p class="text-xs text-slate-400">Krakowski Kumpir (3/29) & Creamy Bite (3/25)</p></div>
+                    </div>
+                    <a href="https://www.google.com/maps/dir/Plac+Centralny+im.+Ronalda+Reagana/Krakowski+Kumpir,+Grzeg%C3%B3rzecka+3%2F29" target="_blank" class="text-xs text-slate-500 hover:text-blue-600 hover:underline flex items-center gap-1">
+                        <i class="fa-solid fa-train-tram"></i> Route to Market
+                    </a>
+                </div>
+
+                <!-- De-emphasized Food Item -->
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between border-b pb-3 text-slate-600 gap-2">
+                    <div class="flex gap-3 items-start">
+                        <span class="font-mono text-xs bg-slate-100 text-slate-600 px-2 py-1 rounded">14:45</span>
+                        <div><p class="text-sm font-medium text-slate-700">Quick bite: Obwarzanki Kraftowe (Dietla)</p><p class="text-xs text-slate-400">Traditional Krakow bagel</p></div>
+                    </div>
+                    <a href="https://www.google.com/maps/dir/Krakowski+Kumpir,+Grzeg%C3%B3rzecka+3%2F29/Obwarzanki+Kraftowe,+Dietla" target="_blank" class="text-xs text-slate-500 hover:text-blue-600 hover:underline flex items-center gap-1">
+                        <i class="fa-solid fa-person-walking"></i> Walk
+                    </a>
+                </div>
+
+                <!-- Prominent Scheduled Anchor -->
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between border-b pb-3 gap-2 bg-purple-50 p-3 rounded-lg border border-purple-200">
+                    <div class="flex gap-3 items-start">
+                        <span class="font-mono text-xs bg-purple-200 text-purple-900 px-2 py-1 rounded font-bold">15:30</span>
+                        <div><p class="font-bold text-sm text-purple-900"><i class="fa-solid fa-clock mr-1"></i> Oskar Schindler's Enamel Factory [TO BOOK]</p><p class="text-xs text-purple-800">Lipowa 4 | Recommended booking time: 15:30 slot</p></div>
+                    </div>
+                    <a href="https://www.google.com/maps/dir/Obwarzanki+Kraftowe,+Dietla/Oskar+Schindler's+Enamel+Factory,+Lipowa+4" target="_blank" class="text-xs text-purple-800 hover:underline flex items-center gap-1 font-semibold">
+                        <i class="fa-solid fa-person-walking"></i> Walk to Museum
+                    </a>
+                </div>
+
+                <!-- De-emphasized Food Item -->
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between text-slate-600 gap-2">
+                    <div class="flex gap-3 items-start">
+                        <span class="font-mono text-xs bg-slate-100 text-slate-600 px-2 py-1 rounded">21:00</span>
+                        <div><p class="text-sm font-medium text-slate-700">Late snack: Blue Nysa Van Sausages</p><p class="text-xs text-slate-400">Grzegórzecka 4</p></div>
+                    </div>
+                    <a href="https://www.google.com/maps/dir/Rynek+G%C5%82%C3%B3wny/Kie%C5%82baski+z+Niebieskiej+Nyski,+Grzeg%C3%B3rzecka+4" target="_blank" class="text-xs text-slate-500 hover:text-blue-600 hover:underline flex items-center gap-1">
+                        <i class="fa-solid fa-person-walking"></i> Walk
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- DAY 5 -->
+        <div id="day5" class="tab-content hidden space-y-4">
+            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center bg-white p-4 rounded-lg shadow-sm border-l-4 border-slate-600 gap-2">
+                <div>
+                    <h2 class="text-xl font-bold">Day 5: Sunday 11 Oct — Home</h2>
+                    <p class="text-xs text-slate-500">Return Flight FR6625 to Edinburgh</p>
+                </div>
+                <a href="https://www.google.com/maps/dir/ibis+budget+Krakow+Stare+Miasto/John+Paul+II+International+Airport+Krak%C3%B3w-Balice" target="_blank" class="bg-blue-600 text-white px-3 py-1.5 rounded text-xs hover:bg-blue-700 flex items-center gap-1 font-medium">
+                    <i class="fa-solid fa-map-location-dot"></i> Full Day 5 Route
+                </a>
+            </div>
+
+            <div class="bg-white rounded-lg shadow p-4 space-y-4">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between border-b pb-3 gap-2">
+                    <div class="flex gap-3 items-start">
+                        <span class="font-mono text-xs bg-slate-100 px-2 py-1 rounded text-slate-700 font-bold">05:36</span>
+                        <div><p class="font-semibold text-sm">Option A: SKA1 Train from Kraków Główny</p><p class="text-xs text-slate-500">Arrives airport at 05:54</p></div>
+                    </div>
+                    <a href="https://www.google.com/maps/dir/ibis+budget+Krakow+Stare+Miasto/Krak%C3%B3w+G%C5%82%C3%B3wny" target="_blank" class="text-xs text-blue-600 hover:underline flex items-center gap-1">
+                        <i class="fa-solid fa-person-walking"></i> Walk to Station
+                    </a>
+                </div>
+
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between border-b pb-3 gap-2">
+                    <div class="flex gap-3 items-start">
+                        <span class="font-mono text-xs bg-slate-100 px-2 py-1 rounded text-slate-700 font-bold">06:40</span>
+                        <div><p class="font-semibold text-sm">Option B: Bolt / Uber Direct Taxi</p><p class="text-xs text-slate-500">Pre-book for 20-25 min ride straight to departure hall</p></div>
+                    </div>
+                    <a href="https://www.google.com/maps/dir/ibis+budget+Krakow+Stare+Miasto/John+Paul+II+International+Airport+Krak%C3%B3w-Balice" target="_blank" class="text-xs text-blue-600 hover:underline flex items-center gap-1">
+                        <i class="fa-solid fa-car"></i> Taxi Route to Airport
+                    </a>
+                </div>
+
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                    <div class="flex gap-3 items-start">
+                        <span class="font-mono text-xs bg-blue-100 text-blue-900 px-2 py-1 rounded font-bold">09:05</span>
+                        <div><p class="font-bold text-sm">Flight FR6625 Departs KRK → EDI</p><p class="text-xs text-slate-500">Bag drop closes strictly at 08:25 (40 mins prior)</p></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- FOOD & DRINK TAB -->
+        <div id="food" class="tab-content hidden space-y-6">
+            <!-- Master Food Link Banner -->
+            <div class="bg-amber-600 text-white p-4 rounded-lg shadow-md flex flex-col md:flex-row justify-between items-start md:items-center gap-3">
+                <div>
+                    <h2 class="text-lg font-bold"><i class="fa-solid fa-utensils mr-2"></i> Local Kraków Food & Drink Map</h2>
+                    <p class="text-xs text-amber-100">Hand-picked authentic Polish milk bars, street food classics, craft beer taps & vodka bars.</p>
+                </div>
+                <a href="https://www.google.com/maps/dir/Dobra+P%C4%85czkarnia,+Floria%C5%84ska+24,+Krak%C3%B3w/Bar+Uniwersytecki,+Czysta+5,+Krak%C3%B3w/Endzior,+Plac+Nowy,+Krak%C3%B3w/Andrus+Maczanka+po+Krakowsku,+%C5%9Aw.+Wawrzy%C5%84ca+16,+Krak%C3%B3w/Krakowski+Kumpir,+Grzeg%C3%B3rzecka+3%2F29,+Krak%C3%B3w/Kie%C5%82baski+z+Niebieskiej+Nyski,+Grzeg%C3%B3rzecka+4,+Krak%C3%B3w/Starka,+J%C3%B3zefa+14,+Krak%C3%B3w/W%C3%B3dka+Caf%C3%A9+Bar,+%C5%9Aw.+Tomasza+23,+Krak%C3%B3w" target="_blank" class="bg-white text-amber-800 px-4 py-2 rounded-lg text-xs font-bold hover:bg-amber-50 flex items-center gap-2 shadow">
+                    <i class="fa-solid fa-map-location-dot text-sm"></i> Open Food Highlights Map
+                </a>
+            </div>
+
+            <!-- Category 1: Traditional Polish & Milk Bars -->
+            <div class="space-y-3">
+                <h3 class="text-md font-bold text-slate-800 border-b pb-1 flex items-center gap-2">
+                    <i class="fa-solid fa-bowl-food text-amber-600"></i> Traditional Polish & Milk Bars (Bar Mleczny)
+                </h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                    <div class="bg-white p-3 rounded shadow-sm border flex items-center justify-between">
+                        <div>
+                            <p class="font-semibold text-sm">Bar Uniwersytecki</p>
+                            <p class="text-xs text-slate-500">Czysta 5 | Authentic student canteen, great barszcz & schabowy</p>
+                        </div>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Bar+Uniwersytecki+Czysta+5+Krakow" target="_blank" class="text-xs text-blue-600 hover:underline"><i class="fa-solid fa-location-dot"></i> Map</a>
+                    </div>
+                    <div class="bg-white p-3 rounded shadow-sm border flex items-center justify-between">
+                        <div>
+                            <p class="font-semibold text-sm">Pod Temidą</p>
+                            <p class="text-xs text-slate-500">Grodzka 43 | Classic Old Town milk bar with hearty Polish staples</p>
+                        </div>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Pod+Temida+Grodzka+43+Krakow" target="_blank" class="text-xs text-blue-600 hover:underline"><i class="fa-solid fa-location-dot"></i> Map</a>
+                    </div>
+                    <div class="bg-white p-3 rounded shadow-sm border flex items-center justify-between">
+                        <div>
+                            <p class="font-semibold text-sm">Starka Restaurant</p>
+                            <p class="text-xs text-slate-500">Józefa 14, Kazimierz | Elevated Polish dining & house-infused vodkas</p>
+                        </div>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Starka+Restaurant+Jozefa+14+Krakow" target="_blank" class="text-xs text-blue-600 hover:underline"><i class="fa-solid fa-location-dot"></i> Map</a>
+                    </div>
+                    <div class="bg-white p-3 rounded shadow-sm border flex items-center justify-between">
+                        <div>
+                            <p class="font-semibold text-sm">Pierogi Mr Vincent</p>
+                            <p class="text-xs text-slate-500">Bożego Ciała 12 | Van Gogh themed pierogarnia (Cash only)</p>
+                        </div>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Pierogi+Mr+Vincent+Bozego+Ciala+12+Krakow" target="_blank" class="text-xs text-blue-600 hover:underline"><i class="fa-solid fa-location-dot"></i> Map</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Category 2: Street Food & Late Night Hits -->
+            <div class="space-y-3">
+                <h3 class="text-md font-bold text-slate-800 border-b pb-1 flex items-center gap-2">
+                    <i class="fa-solid fa-hotdog text-amber-600"></i> Iconic Local Street Food
+                </h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                    <div class="bg-white p-3 rounded shadow-sm border flex items-center justify-between border-l-2 border-l-amber-500">
+                        <div>
+                            <p class="font-semibold text-sm">Endzior (Zapiekanki at Plac Nowy)</p>
+                            <p class="text-xs text-slate-500">Plac Nowy, Kazimierz | Famous open-face toasted baguettes</p>
+                        </div>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Zapiekanki+Endzior+Plac+Nowy+Krakow" target="_blank" class="text-xs text-blue-600 hover:underline"><i class="fa-solid fa-location-dot"></i> Map</a>
+                    </div>
+                    <div class="bg-white p-3 rounded shadow-sm border flex items-center justify-between">
+                        <div>
+                            <p class="font-semibold text-sm">Blue Nysa Sausage Van (Niebieska Nyska)</p>
+                            <p class="text-xs text-slate-500">Grzegórzecka 4 | Fire-grilled kiełbasa from vintage van (19:00-03:00)</p>
+                        </div>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Kielbaski+z+Niebieskiej+Nyski+Grzegorzecka+4+Krakow" target="_blank" class="text-xs text-blue-600 hover:underline"><i class="fa-solid fa-location-dot"></i> Map</a>
+                    </div>
+                    <div class="bg-white p-3 rounded shadow-sm border flex items-center justify-between">
+                        <div>
+                            <p class="font-semibold text-sm">Andrus Maczanka po Krakowsku</p>
+                            <p class="text-xs text-slate-500">Św. Wawrzyńca 16 | Slow-cooked pulled pork on artisanal rolls</p>
+                        </div>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Andrus+Maczanka+Sw+Wawrzynca+16+Krakow" target="_blank" class="text-xs text-blue-600 hover:underline"><i class="fa-solid fa-location-dot"></i> Map</a>
+                    </div>
+                    <div class="bg-white p-3 rounded shadow-sm border flex items-center justify-between">
+                        <div>
+                            <p class="font-semibold text-sm">Krakowski Kumpir</p>
+                            <p class="text-xs text-slate-500">Grzegórzecka 3/29 | Oversized stuffed baked potatoes</p>
+                        </div>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Krakowski+Kumpir+Grzegorzecka+3+Krakow" target="_blank" class="text-xs text-blue-600 hover:underline"><i class="fa-solid fa-location-dot"></i> Map</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Category 3: Sweets, Bakeries & Coffee -->
+            <div class="space-y-3">
+                <h3 class="text-md font-bold text-slate-800 border-b pb-1 flex items-center gap-2">
+                    <i class="fa-solid fa-cookie-bite text-amber-600"></i> Sweets, Bakeries & Ice Cream
+                </h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                    <div class="bg-white p-3 rounded shadow-sm border flex items-center justify-between">
+                        <div>
+                            <p class="font-semibold text-sm">Dobra Pączkarnia</p>
+                            <p class="text-xs text-slate-500">Floriańska 24 & Grodzka 3 | Hot, fresh filled pączki doughnuts</p>
+                        </div>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Dobra+P%C4%85czkarnia+Florianska+24+Krakow" target="_blank" class="text-xs text-blue-600 hover:underline"><i class="fa-solid fa-location-dot"></i> Map</a>
+                    </div>
+                    <div class="bg-white p-3 rounded shadow-sm border flex items-center justify-between">
+                        <div>
+                            <p class="font-semibold text-sm">Cukiernia Cichowscy</p>
+                            <p class="text-xs text-slate-500">Starowiślna 21 | Legendary traditional Kremówka cream slice</p>
+                        </div>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Cukiernia+Cichowscy+Starowislna+21+Krakow" target="_blank" class="text-xs text-blue-600 hover:underline"><i class="fa-solid fa-location-dot"></i> Map</a>
+                    </div>
+                    <div class="bg-white p-3 rounded shadow-sm border flex items-center justify-between border-l-2 border-l-amber-500">
+                        <div>
+                            <p class="font-semibold text-sm">Good Lood Ice Cream</p>
+                            <p class="text-xs text-slate-500">Plac Wolnica / Old Town | Kraków's favorite artisanal gelato</p>
+                        </div>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Good+Lood+Plac+Wolnica+Krakow" target="_blank" class="text-xs text-blue-600 hover:underline"><i class="fa-solid fa-location-dot"></i> Map</a>
+                    </div>
+                    <div class="bg-white p-3 rounded shadow-sm border flex items-center justify-between border-l-2 border-l-amber-500">
+                        <div>
+                            <p class="font-semibold text-sm">Charlotte Bakery & Bistro</p>
+                            <p class="text-xs text-slate-500">Plac Szczepański 2 | French bakery famous for breakfasts & jams</p>
+                        </div>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Charlotte+Plac+Szczepanski+Krakow" target="_blank" class="text-xs text-blue-600 hover:underline"><i class="fa-solid fa-location-dot"></i> Map</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Category 4: Craft Beer, Vodkas & Nightlife -->
+            <div class="space-y-3">
+                <h3 class="text-md font-bold text-slate-800 border-b pb-1 flex items-center gap-2">
+                    <i class="fa-solid fa-beer-mug-empty text-amber-600"></i> Craft Beer, Vodkas & Nightlife
+                </h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                    <div class="bg-white p-3 rounded shadow-sm border flex items-center justify-between border-l-2 border-l-amber-500">
+                        <div>
+                            <p class="font-semibold text-sm">Wódka Café Bar</p>
+                            <p class="text-xs text-slate-500">Św. Tomasza 23 | Cosy bar serving 6-shot flavored vodka flights</p>
+                        </div>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Wodka+Cafe+Bar+Sw+Tomasza+23+Krakow" target="_blank" class="text-xs text-blue-600 hover:underline"><i class="fa-solid fa-location-dot"></i> Map</a>
+                    </div>
+                    <div class="bg-white p-3 rounded shadow-sm border flex items-center justify-between border-l-2 border-l-amber-500">
+                        <div>
+                            <p class="font-semibold text-sm">House of Beer</p>
+                            <p class="text-xs text-slate-500">Św. Tomasza 35 | Multi-tap pub with rare Polish craft brews</p>
+                        </div>
+                        <a href="https://www.google.com/maps/search/?api=1&query=House+of+Beer+Sw+Tomasza+35+Krakow" target="_blank" class="text-xs text-blue-600 hover:underline"><i class="fa-solid fa-location-dot"></i> Map</a>
+                    </div>
+                    <div class="bg-white p-3 rounded shadow-sm border flex items-center justify-between border-l-2 border-l-amber-500">
+                        <div>
+                            <p class="font-semibold text-sm">Omerta Pub</p>
+                            <p class="text-xs text-slate-500">Kupa 3, Kazimierz | Top craft beer pub in the Jewish Quarter</p>
+                        </div>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Omerta+Pub+Kupa+3+Krakow" target="_blank" class="text-xs text-blue-600 hover:underline"><i class="fa-solid fa-location-dot"></i> Map</a>
+                    </div>
+                    <div class="bg-white p-3 rounded shadow-sm border flex items-center justify-between border-l-2 border-l-amber-500">
+                        <div>
+                            <p class="font-semibold text-sm">Pijalnia Wódki i Piwa</p>
+                            <p class="text-xs text-slate-500">Floriańska 15 | Retro 1950s Polish bar with cheap shots & traditional snacks</p>
+                        </div>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Pijalnia+Wodki+i+Piwa+Florianska+15+Krakow" target="_blank" class="text-xs text-blue-600 hover:underline"><i class="fa-solid fa-location-dot"></i> Map</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        function showTab(tabId) {
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+            document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+            document.getElementById(tabId).classList.remove('hidden');
+            document.getElementById('btn-' + tabId).classList.add('active');
+        }
+    </script>
+</body>
+</html>
