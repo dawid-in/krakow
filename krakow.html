@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kraków Trip Dashboard | Oct 7–11, 2026</title>
+    <title>Kraków Trip Dashboard | Oct 7–11, 2026 (last update 23/09/2026</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -12,13 +12,21 @@
         input[type="checkbox"] {
             accent-color: #2563eb;
             cursor: pointer;
+            width: 1.25rem;
+            height: 1.25rem;
         }
+        /* Custom scrollbar hiding for tabs */
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        /* Fade transition */
+        .fade-in { animation: fadeIn 0.3s ease-in-out; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-800 min-h-screen font-sans selection:bg-blue-200">
 
     <header class="bg-slate-900 text-white py-6 px-4 shadow-md">
-        <div class="max-w-4xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+        <div class="max-w-5xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
             <div>
                 <h1 class="text-2xl font-bold"><i class="fa-solid fa-plane-arrival mr-2 text-blue-400"></i> Kraków 2026 Trip Dashboard</h1>
                 <p class="text-slate-300 text-sm mt-1">Wed 7 Oct – Sun 11 Oct 2026 | 4 Travelers | Edinburgh (EDI) ↔ Kraków (KRK)</p>
@@ -31,7 +39,7 @@
     </header>
 
     <div class="bg-white border-b sticky top-0 z-50 shadow-sm">
-        <div class="max-w-4xl mx-auto flex overflow-x-auto text-sm no-scrollbar">
+        <div class="max-w-5xl mx-auto flex overflow-x-auto text-sm no-scrollbar">
             <button onclick="showTab('day1')" class="tab-btn active px-4 py-3 whitespace-nowrap transition-colors" id="btn-day1">Day 1: Wed 7 Oct</button>
             <button onclick="showTab('day2')" class="tab-btn px-4 py-3 whitespace-nowrap transition-colors" id="btn-day2">Day 2: Thu 8 Oct</button>
             <button onclick="showTab('day3')" class="tab-btn px-4 py-3 whitespace-nowrap transition-colors" id="btn-day3">Day 3: Fri 9 Oct</button>
@@ -41,9 +49,8 @@
         </div>
     </div>
 
-    <main class="max-w-4xl mx-auto p-4">
+    <main class="max-w-5xl mx-auto p-4">
 
-        <!-- DAY 1 -->
         <div id="day1" class="tab-content space-y-4 fade-in">
             <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center bg-white p-4 rounded-lg shadow-sm border-l-4 border-blue-600 gap-3">
                 <div>
@@ -56,7 +63,6 @@
             </div>
 
             <div class="bg-white rounded-lg shadow p-4 space-y-4">
-                <!-- Highlighted Event -->
                 <div class="flex flex-col sm:flex-row sm:items-center justify-between border-b pb-3 gap-2 bg-blue-50 p-3 rounded-lg border border-blue-100">
                     <div class="flex gap-3 items-start">
                         <span class="font-mono text-xs bg-blue-200 text-blue-900 px-2 py-1 rounded font-bold mt-0.5">19:00</span>
@@ -77,7 +83,7 @@
                         <div><p class="font-semibold text-sm">SKA1 Train to Kraków Główny</p><p class="text-xs text-slate-500">17 min travel time (~20 PLN)</p></div>
                     </div>
                     <a href="https://www.google.com/maps/dir/John+Paul+II+International+Airport+Krak%C3%B3w-Balice/Krak%C3%B3w+G%C5%82%C3%B3wny" target="_blank" class="text-xs text-blue-600 hover:underline flex items-center gap-1 bg-slate-50 px-2 py-1 rounded border">
-                        <i class="fa-solid fa-train"></i> Route: Airport → Station
+                        <i class="fa-solid fa-train"></i> Route
                     </a>
                 </div>
 
@@ -87,7 +93,7 @@
                         <div><p class="font-semibold text-sm">Check-in at ibis budget Kraków Stare Miasto</p><p class="text-xs text-slate-500">ul. Pawia 11 (7 min walk from station)</p></div>
                     </div>
                     <a href="https://www.google.com/maps/dir/Krak%C3%B3w+G%C5%82%C3%B3wny/ibis+budget+Krakow+Stare+Miasto,+Pawia+11" target="_blank" class="text-xs text-blue-600 hover:underline flex items-center gap-1 bg-slate-50 px-2 py-1 rounded border">
-                        <i class="fa-solid fa-person-walking"></i> Route: Station → Hotel
+                        <i class="fa-solid fa-person-walking"></i> Walk
                     </a>
                 </div>
 
@@ -104,7 +110,6 @@
             </div>
         </div>
 
-        <!-- DAY 2 -->
         <div id="day2" class="tab-content hidden space-y-4 fade-in">
             <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center bg-white p-4 rounded-lg shadow-sm border-l-4 border-red-600 gap-3">
                 <div>
@@ -121,7 +126,7 @@
                 <div class="flex flex-col sm:flex-row sm:items-center justify-between border-b pb-3 text-slate-500 gap-2 px-2">
                     <div class="flex gap-3 items-start">
                         <span class="font-mono text-xs bg-slate-100 text-slate-400 px-2 py-1 rounded mt-0.5">08:15</span>
-                        <div><p class="text-sm font-medium">Quick stop: Dobra Pączkarnia (Floriańska 24)</p><p class="text-xs text-slate-400">Grab pączki for train</p></div>
+                        <div><p class="text-sm font-medium">Quick stop: Dobra Pączkarnia</p><p class="text-xs text-slate-400">Grab pączki for train (Floriańska 24)</p></div>
                     </div>
                     <a href="https://www.google.com/maps/dir/ibis+budget+Krakow+Stare+Miasto/Dobra+P%C4%85czkarnia,+Floria%C5%84ska+24" target="_blank" class="text-xs text-slate-400 hover:text-slate-600 hover:underline flex items-center gap-1">
                         <i class="fa-solid fa-map"></i> Map
@@ -138,16 +143,18 @@
                     </a>
                 </div>
 
-                <!-- Highlighted Event -->
-                <div class="flex flex-col sm:flex-row sm:items-center justify-between border-b pb-3 gap-2 bg-red-50 p-3 rounded-lg border border-red-200 shadow-sm">
-                    <div class="flex gap-3 items-start">
+                <!-- Highlighted Event: Auschwitz -->
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between border-b pb-3 gap-2 bg-red-100 p-4 rounded-lg border-2 border-red-300 shadow-sm relative overflow-hidden">
+                    <div class="absolute top-0 left-0 w-2 h-full bg-red-500"></div>
+                    <div class="flex gap-3 items-start pl-2">
                         <span class="font-mono text-xs bg-red-200 text-red-900 px-2 py-1 rounded font-bold mt-0.5">11:30</span>
                         <div>
-                            <p class="font-bold text-sm text-red-900"><i class="fa-solid fa-ticket mr-1"></i> Auschwitz-Birkenau Memorial Tour [BOOKED]</p>
-                            <p class="text-xs text-red-700 mt-1">Arrive at Oświęcim station by 10:15, taxi/bus to museum by 10:30. Tour duration ~3.5h.</p>
+                            <p class="font-bold text-base text-red-900 uppercase tracking-wide"><i class="fa-solid fa-ticket mr-1"></i> Auschwitz-Birkenau Memorial [BOOKED]</p>
+                            <p class="text-sm text-red-800 mt-1 font-medium">Arrive at Oświęcim station by 10:15, taxi/bus to museum by 10:30.</p>
+                            <p class="text-xs text-red-700 mt-1">Tour duration ~3.5h. Więźniów Oświęcimia 55.</p>
                         </div>
                     </div>
-                    <a href="https://www.google.com/maps/dir/O%C5%9Bwi%C4%99cim+Station/Auschwitz-Birkenau+State+Museum,+Wi%C4%99%C5%BAni%C3%B3w+O%C5%9Bwi%C4%99cimia+55" target="_blank" class="text-xs bg-red-600 text-white px-2 py-1 rounded hover:bg-red-700 flex items-center gap-1 whitespace-nowrap">
+                    <a href="https://www.google.com/maps/dir/O%C5%9Bwi%C4%99cim+Station/Auschwitz-Birkenau+State+Museum" target="_blank" class="text-xs bg-red-600 text-white px-3 py-2 rounded font-bold hover:bg-red-700 flex items-center gap-1 whitespace-nowrap shadow-sm mt-2 sm:mt-0">
                         <i class="fa-solid fa-taxi"></i> Route to Entrance
                     </a>
                 </div>
@@ -158,7 +165,7 @@
                         <div><p class="font-semibold text-sm">Taxi/Bus to Oświęcim Station → Train back to Kraków</p></div>
                     </div>
                     <a href="https://www.google.com/maps/dir/Auschwitz-Birkenau+State+Museum/O%C5%9Bwi%C4%99cim+Station" target="_blank" class="text-xs text-blue-600 hover:underline flex items-center gap-1 bg-slate-50 px-2 py-1 rounded border">
-                        <i class="fa-solid fa-route"></i> Route to Station
+                        <i class="fa-solid fa-route"></i> Route
                     </a>
                 </div>
 
@@ -166,7 +173,7 @@
                 <div class="flex flex-col sm:flex-row sm:items-center justify-between text-slate-500 gap-2 px-2">
                     <div class="flex gap-3 items-start">
                         <span class="font-mono text-xs bg-slate-100 text-slate-400 px-2 py-1 rounded mt-0.5">19:00</span>
-                        <div><p class="text-sm font-medium">Dinner: Starka (Józefa 14, Kazimierz)</p><p class="text-xs text-slate-400">Book ahead. Alt: Pierogi Mr Vincent (Bożego Ciała 12)</p></div>
+                        <div><p class="text-sm font-medium">Dinner: Starka (Józefa 14, Kazimierz)</p><p class="text-xs text-slate-400">Book ahead. Alt: Pierogi Mr Vincent</p></div>
                     </div>
                     <a href="https://www.google.com/maps/dir/Krak%C3%B3w+G%C5%82%C3%B3wny/Starka+Restaurant,+J%C3%B3zefa+14" target="_blank" class="text-xs text-slate-400 hover:text-slate-600 hover:underline flex items-center gap-1">
                         <i class="fa-solid fa-map"></i> Map
@@ -175,7 +182,6 @@
             </div>
         </div>
 
-        <!-- DAY 3 -->
         <div id="day3" class="tab-content hidden space-y-4 fade-in">
             <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center bg-white p-4 rounded-lg shadow-sm border-l-4 border-amber-500 gap-3">
                 <div>
@@ -187,7 +193,6 @@
                 </a>
             </div>
 
-            <!-- Route Adjustment Warning -->
             <div class="bg-amber-50 border-l-4 border-amber-500 text-amber-900 p-3 rounded-lg text-sm shadow-sm">
                 <i class="fa-solid fa-triangle-exclamation font-bold mr-1 text-amber-600"></i> <strong>Timing Notice:</strong> Take a 7-min Uber/Tram from Wawel to Kraków Główny at 10:35 to make your 11:10 train. Visit St. Mary's Basilica at 16:00 right after returning from Wieliczka.
             </div>
@@ -197,7 +202,7 @@
                 <div class="flex flex-col sm:flex-row sm:items-center justify-between border-b pb-3 text-slate-500 gap-2 px-2">
                     <div class="flex gap-3 items-start">
                         <span class="font-mono text-xs bg-slate-100 text-slate-400 px-2 py-1 rounded mt-0.5">08:30</span>
-                        <div><p class="text-sm font-medium">Breakfast option: Cukiernia Cichowscy (Starowiślna 21)</p><p class="text-xs text-slate-400">Traditional Kremówka</p></div>
+                        <div><p class="text-sm font-medium">Breakfast: Cukiernia Cichowscy (Starowiślna 21)</p><p class="text-xs text-slate-400">Traditional Kremówka</p></div>
                     </div>
                     <a href="https://www.google.com/maps/dir/ibis+budget+Krakow+Stare+Miasto/Cukiernia+Kawiarnia+Cichowscy,+Starowi%C5%9Blna+21" target="_blank" class="text-xs text-slate-400 hover:text-slate-600 hover:underline flex items-center gap-1">
                         <i class="fa-solid fa-map"></i> Map
@@ -210,18 +215,23 @@
                         <div><p class="font-semibold text-sm">Wawel Royal Castle & Cathedral</p></div>
                     </div>
                     <a href="https://www.google.com/maps/dir/Cukiernia+Kawiarnia+Cichowscy,+Starowi%C5%9Blna+21/Wawel+Royal+Castle" target="_blank" class="text-xs text-blue-600 hover:underline flex items-center gap-1 bg-slate-50 px-2 py-1 rounded border">
-                        <i class="fa-solid fa-person-walking"></i> Walk to Wawel
+                        <i class="fa-solid fa-person-walking"></i> Walk
                     </a>
                 </div>
 
-                <!-- Highlighted Event -->
-                <div class="flex flex-col sm:flex-row sm:items-center justify-between border-b pb-3 gap-2 bg-amber-50 p-3 rounded-lg border border-amber-200 shadow-sm">
-                    <div class="flex gap-3 items-start">
+                <!-- Highlighted Event: Salt Mine -->
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between border-b pb-3 gap-2 bg-amber-100 p-4 rounded-lg border-2 border-amber-300 shadow-sm relative overflow-hidden">
+                    <div class="absolute top-0 left-0 w-2 h-full bg-amber-500"></div>
+                    <div class="flex gap-3 items-start pl-2">
                         <span class="font-mono text-xs bg-amber-200 text-amber-900 px-2 py-1 rounded font-bold mt-0.5">12:00</span>
-                        <div><p class="font-bold text-sm text-amber-900"><i class="fa-solid fa-ticket mr-1"></i> Wieliczka Salt Mine Tour [BOOKED]</p><p class="text-xs text-amber-800 mt-1">Uber/Tram Wawel → Station at 10:35 to catch 11:10 SKA1 Train. Szyb Daniłowicza 10.</p></div>
+                        <div>
+                            <p class="font-bold text-base text-amber-900 uppercase tracking-wide"><i class="fa-solid fa-ticket mr-1"></i> Wieliczka Salt Mine [BOOKED]</p>
+                            <p class="text-sm text-amber-800 mt-1 font-medium">Uber/Tram Wawel → Station at 10:35 to catch 11:10 SKA1 Train.</p>
+                            <p class="text-xs text-amber-700 mt-1">Daniłowicza 10. Tourist Route (2-3h).</p>
+                        </div>
                     </div>
-                    <a href="https://www.google.com/maps/dir/Wawel+Royal+Castle/Krak%C3%B3w+G%C5%82%C3%B3wny" target="_blank" class="text-xs bg-amber-600 text-white px-2 py-1 rounded hover:bg-amber-700 flex items-center gap-1 whitespace-nowrap">
-                        <i class="fa-solid fa-car"></i> Transit to Station
+                    <a href="https://www.google.com/maps/dir/Wawel+Royal+Castle/Krak%C3%B3w+G%C5%82%C3%B3wny" target="_blank" class="text-xs bg-amber-600 text-white px-3 py-2 rounded font-bold hover:bg-amber-700 flex items-center gap-1 whitespace-nowrap shadow-sm mt-2 sm:mt-0">
+                        <i class="fa-solid fa-car"></i> Station Transit
                     </a>
                 </div>
 
@@ -239,7 +249,7 @@
                 <div class="flex flex-col sm:flex-row sm:items-center justify-between border-b pb-3 text-slate-500 gap-2 px-2">
                     <div class="flex gap-3 items-start">
                         <span class="font-mono text-xs bg-slate-100 text-slate-400 px-2 py-1 rounded mt-0.5">16:45</span>
-                        <div><p class="text-sm font-medium">Late Lunch: Bar Uniwersytecki (Czysta 5)</p><p class="text-xs text-slate-400">Closes at 18:00</p></div>
+                        <div><p class="text-sm font-medium">Late Lunch: Bar Uniwersytecki</p><p class="text-xs text-slate-400">Czysta 5 | Closes at 18:00</p></div>
                     </div>
                     <a href="https://www.google.com/maps/dir/St.+Mary's+Basilica/Bar+Uniwersytecki,+Czysta+5" target="_blank" class="text-xs text-slate-400 hover:text-slate-600 hover:underline flex items-center gap-1">
                         <i class="fa-solid fa-map"></i> Map
@@ -259,7 +269,6 @@
             </div>
         </div>
 
-        <!-- DAY 4 -->
         <div id="day4" class="tab-content hidden space-y-4 fade-in">
             <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center bg-white p-4 rounded-lg shadow-sm border-l-4 border-emerald-600 gap-3">
                 <div>
@@ -272,13 +281,17 @@
             </div>
 
             <div class="bg-white rounded-lg shadow p-4 space-y-4">
-                <!-- Highlighted Event -->
-                <div class="flex flex-col sm:flex-row sm:items-center justify-between border-b pb-3 gap-2 bg-emerald-50 p-3 rounded-lg border border-emerald-200 shadow-sm">
-                    <div class="flex gap-3 items-start">
+                <!-- Highlighted Event: Nowa Huta -->
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between border-b pb-3 gap-2 bg-emerald-100 p-4 rounded-lg border-2 border-emerald-300 shadow-sm relative overflow-hidden">
+                    <div class="absolute top-0 left-0 w-2 h-full bg-emerald-500"></div>
+                    <div class="flex gap-3 items-start pl-2">
                         <span class="font-mono text-xs bg-emerald-200 text-emerald-900 px-2 py-1 rounded font-bold mt-0.5">11:00</span>
-                        <div><p class="font-bold text-sm text-emerald-900"><i class="fa-solid fa-ticket mr-1"></i> Nowa Huta Communist City Tour [BOOKED]</p><p class="text-xs text-emerald-800 mt-1">Plac Centralny | Catch Tram 4 or 22 from station area at 10:15</p></div>
+                        <div>
+                            <p class="font-bold text-base text-emerald-900 uppercase tracking-wide"><i class="fa-solid fa-ticket mr-1"></i> Nowa Huta City Tour [BOOKED]</p>
+                            <p class="text-sm text-emerald-800 mt-1 font-medium">Plac Centralny | Catch Tram 4 or 22 from station area at 10:15</p>
+                        </div>
                     </div>
-                    <a href="https://www.google.com/maps/dir/ibis+budget+Krakow+Stare+Miasto/Plac+Centralny+im.+Ronalda+Reagana" target="_blank" class="text-xs bg-emerald-600 text-white px-2 py-1 rounded hover:bg-emerald-700 flex items-center gap-1 whitespace-nowrap">
+                    <a href="https://www.google.com/maps/dir/ibis+budget+Krakow+Stare+Miasto/Plac+Centralny+im.+Ronalda+Reagana" target="_blank" class="text-xs bg-emerald-600 text-white px-3 py-2 rounded font-bold hover:bg-emerald-700 flex items-center gap-1 whitespace-nowrap shadow-sm mt-2 sm:mt-0">
                         <i class="fa-solid fa-train-tram"></i> Route
                     </a>
                 </div>
@@ -305,13 +318,17 @@
                     </a>
                 </div>
 
-                <!-- Highlighted Event -->
-                <div class="flex flex-col sm:flex-row sm:items-center justify-between border-b pb-3 gap-2 bg-purple-50 p-3 rounded-lg border border-purple-200 shadow-sm">
-                    <div class="flex gap-3 items-start">
+                <!-- Highlighted Event: Schindler's -->
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between border-b pb-3 gap-2 bg-purple-100 p-4 rounded-lg border-2 border-purple-300 shadow-sm relative overflow-hidden">
+                    <div class="absolute top-0 left-0 w-2 h-full bg-purple-500"></div>
+                    <div class="flex gap-3 items-start pl-2">
                         <span class="font-mono text-xs bg-purple-200 text-purple-900 px-2 py-1 rounded font-bold mt-0.5">15:30</span>
-                        <div><p class="font-bold text-sm text-purple-900"><i class="fa-solid fa-clock mr-1"></i> Oskar Schindler's Enamel Factory [TO BOOK]</p><p class="text-xs text-purple-800 mt-1">Lipowa 4 | Recommended booking time: 15:30 slot</p></div>
+                        <div>
+                            <p class="font-bold text-base text-purple-900 uppercase tracking-wide"><i class="fa-solid fa-ticket mr-1"></i> Oskar Schindler's Factory [TO BOOK]</p>
+                            <p class="text-sm text-purple-800 mt-1 font-medium">Lipowa 4 | Recommended booking time: 15:30 slot</p>
+                        </div>
                     </div>
-                    <a href="https://www.google.com/maps/dir/Obwarzanki+Kraftowe,+Dietla/Oskar+Schindler's+Enamel+Factory,+Lipowa+4" target="_blank" class="text-xs bg-purple-600 text-white px-2 py-1 rounded hover:bg-purple-700 flex items-center gap-1 whitespace-nowrap">
+                    <a href="https://www.google.com/maps/dir/Obwarzanki+Kraftowe,+Dietla/Oskar+Schindler's+Enamel+Factory,+Lipowa+4" target="_blank" class="text-xs bg-purple-600 text-white px-3 py-2 rounded font-bold hover:bg-purple-700 flex items-center gap-1 whitespace-nowrap shadow-sm mt-2 sm:mt-0">
                         <i class="fa-solid fa-route"></i> Route
                     </a>
                 </div>
@@ -329,7 +346,6 @@
             </div>
         </div>
 
-        <!-- DAY 5 -->
         <div id="day5" class="tab-content hidden space-y-4 fade-in">
             <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center bg-white p-4 rounded-lg shadow-sm border-l-4 border-slate-600 gap-3">
                 <div>
@@ -362,7 +378,6 @@
                     </a>
                 </div>
 
-                <!-- Highlighted Event -->
                 <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 bg-blue-50 p-3 rounded-lg border border-blue-100 shadow-sm">
                     <div class="flex gap-3 items-start">
                         <span class="font-mono text-xs bg-blue-200 text-blue-900 px-2 py-1 rounded font-bold mt-0.5">09:05</span>
@@ -372,223 +387,350 @@
             </div>
         </div>
 
-        <!-- FOOD & DRINK TAB -->
         <div id="food" class="tab-content hidden space-y-6 fade-in">
             <!-- Master Food Link Banner -->
-            <div class="bg-amber-600 text-white p-4 rounded-lg shadow-md flex flex-col md:flex-row justify-between items-start md:items-center gap-3">
+            <div class="bg-amber-600 text-white p-5 rounded-lg shadow-md flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
                 <div>
-                    <h2 class="text-lg font-bold"><i class="fa-solid fa-utensils mr-2"></i> Local Kraków Food & Drink Tracker</h2>
-                    <p class="text-xs text-amber-100 mt-1">Tick off the places as you visit them. Progress is saved automatically in your browser!</p>
+                    <h2 class="text-xl font-bold"><i class="fa-solid fa-utensils mr-2"></i> Local Kraków Food & Drink Tracker</h2>
+                    <p class="text-sm text-amber-100 mt-1">Tick off places as you taste your way through the city. Progress is saved automatically in your browser!</p>
                 </div>
-                <a href="https://www.google.com/maps/dir/Dobra+P%C4%85czkarnia,+Floria%C5%84ska+24,+Krak%C3%B3w/Bar+Uniwersytecki,+Czysta+5,+Krak%C3%B3w/Endzior,+Plac+Nowy,+Krak%C3%B3w/Andrus+Maczanka+po+Krakowsku,+%C5%9Aw.+Wawrzy%C5%84ca+16,+Krak%C3%B3w/Krakowski+Kumpir,+Grzeg%C3%B3rzecka+3%2F29,+Krak%C3%B3w/Kie%C5%82baski+z+Niebieskiej+Nyski,+Grzeg%C3%B3rzecka+4,+Krak%C3%B3w/Starka,+J%C3%B3zefa+14,+Krak%C3%B3w/W%C3%B3dka+Caf%C3%A9+Bar,+%C5%9Aw.+Tomasza+23,+Krak%C3%B3w" target="_blank" class="bg-white text-amber-800 px-4 py-2 rounded text-xs font-bold hover:bg-amber-50 flex items-center gap-2 shadow w-full md:w-auto justify-center transition-colors">
-                    <i class="fa-solid fa-map-location-dot text-sm"></i> Master Map Route
+                <a href="https://www.google.com/maps/dir/Dobra+P%C4%85czkarnia,+Floria%C5%84ska+24,+Krak%C3%B3w/Bar+Uniwersytecki,+Czysta+5,+Krak%C3%B3w/Endzior,+Plac+Nowy,+Krak%C3%B3w/Andrus+Maczanka+po+Krakowsku,+%C5%9Aw.+Wawrzy%C5%84ca+16,+Krak%C3%B3w/Krakowski+Kumpir,+Grzeg%C3%B3rzecka+3%2F29,+Krak%C3%B3w/Kie%C5%82baski+z+Niebieskiej+Nyski,+Grzeg%C3%B3rzecka+4,+Krak%C3%B3w/Starka,+J%C3%B3zefa+14,+Krak%C3%B3w/W%C3%B3dka+Caf%C3%A9+Bar,+%C5%9Aw.+Tomasza+23,+Krak%C3%B3w" target="_blank" class="bg-white text-amber-800 px-5 py-2.5 rounded text-sm font-bold hover:bg-amber-50 flex items-center gap-2 shadow w-full md:w-auto justify-center transition-colors">
+                    <i class="fa-solid fa-map-location-dot"></i> Open Master Map Route
                 </a>
             </div>
 
-            <!-- Category 1: Traditional Polish -->
-            <div class="space-y-3">
-                <h3 class="text-md font-bold text-slate-800 border-b pb-2 flex items-center gap-2">
+            <!-- Must-Try Specialties Guide -->
+            <div class="bg-amber-50 rounded-lg p-5 border border-amber-200 shadow-sm">
+                <h3 class="text-lg font-bold text-amber-900 mb-3 border-b border-amber-200 pb-2"><i class="fa-solid fa-star text-amber-500 mr-1"></i> Must-Try Local Specialties</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <div><p class="font-bold text-amber-900 text-sm">🍲 Żurek</p><p class="text-xs text-amber-800 mt-1">Sour rye soup, usually loaded with sausage and hard-boiled egg. Often served inside a hollowed-out bread bowl.</p></div>
+                    <div><p class="font-bold text-amber-900 text-sm">🥟 Pierogi Ruskie</p><p class="text-xs text-amber-800 mt-1">The classic Polish dumpling filled with potato and farmer's cheese, usually topped with caramelized onions.</p></div>
+                    <div><p class="font-bold text-amber-900 text-sm">🥔 Placki Ziemniaczane</p><p class="text-xs text-amber-800 mt-1">Crispy, deep-fried potato pancakes. Amazing on their own with sour cream, or smothered in rich meaty goulash.</p></div>
+                    <div><p class="font-bold text-amber-900 text-sm">🥬 Gołąbki</p><p class="text-xs text-amber-800 mt-1">Hearty cabbage rolls tightly stuffed with a mix of minced meat and rice, baked in a sweet/savory tomato sauce.</p></div>
+                    <div><p class="font-bold text-amber-900 text-sm">🥘 Bigos</p><p class="text-xs text-amber-800 mt-1">Known as "hunter's stew"—a rich, slow-cooked blend of sauerkraut, various meats, and wild mushrooms.</p></div>
+                    <div><p class="font-bold text-amber-900 text-sm">🧀 Oscypek</p><p class="text-xs text-amber-800 mt-1">A smoked sheep's milk cheese native to the Tatra mountains. Best eaten hot off a grill with a dollop of cranberry jam.</p></div>
+                    <div><p class="font-bold text-amber-900 text-sm">🍹 Kompot</p><p class="text-xs text-amber-800 mt-1">A traditional, non-alcoholic homemade fruit drink (often served at milk bars) made by boiling seasonal fruits in water.</p></div>
+                    <div><p class="font-bold text-amber-900 text-sm">🥃 Nalewka</p><p class="text-xs text-amber-800 mt-1">Potent, beautifully colored traditional Polish vodka infused with fruits, spices, or herbs (like cherry, quince, or walnut).</p></div>
+                </div>
+            </div>
+
+            <!-- STREAMING_CHUNK: Food Categories -> Traditional Polish & Milk Bars -->
+            <div class="space-y-3 pt-2">
+                <h3 class="text-lg font-bold text-slate-800 border-b pb-2 flex items-center gap-2">
                     <i class="fa-solid fa-bowl-food text-amber-600"></i> Traditional Polish & Milk Bars (Bar Mleczny)
                 </h3>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
-                    <label class="bg-white p-3 rounded-lg shadow-sm border flex flex-col justify-between hover:bg-slate-50 transition-colors cursor-pointer group">
-                        <div class="flex items-start gap-3">
-                            <input type="checkbox" id="food-uniwersytecki" class="food-checkbox peer mt-1 w-4 h-4 rounded">
-                            <div class="peer-checked:opacity-50 peer-checked:line-through transition-all flex-1">
-                                <p class="font-semibold text-sm">Bar Uniwersytecki</p>
-                                <p class="text-xs text-slate-500 mt-1">Czysta 5</p>
+                    <label class="bg-white p-4 rounded-lg shadow-sm border flex flex-col justify-between hover:border-blue-400 transition-colors cursor-pointer group relative overflow-hidden">
+                        <div class="flex items-start gap-3 z-10 relative">
+                            <input type="checkbox" id="food-uniwersytecki" class="food-checkbox peer mt-1">
+                            <div class="peer-checked:opacity-40 peer-checked:line-through transition-all flex-1">
+                                <p class="font-bold text-slate-900 text-base">Bar Uniwersytecki</p>
+                                <p class="text-xs text-slate-500 font-mono mb-2">Czysta 5 | Student Canteen</p>
+                                <p class="text-sm text-slate-700 leading-snug">No-frills, highly authentic local milk bar serving incredibly cheap, hearty plates of barszcz, pierogi, and pork cutlet (schabowy).</p>
+                                <div class="mt-3 grid grid-cols-2 gap-2 text-xs">
+                                    <div class="bg-slate-100 p-1.5 rounded"><i class="fa-regular fa-clock"></i> M-F 08:00-18:00, Wknd 09:00-16:00</div>
+                                    <div class="bg-blue-50 text-blue-800 p-1.5 rounded font-medium"><i class="fa-regular fa-calendar-check"></i> Plan: Fri Late Lunch</div>
+                                </div>
                             </div>
                         </div>
-                        <a href="https://www.google.com/maps/search/?api=1&query=Bar+Uniwersytecki+Czysta+5+Krakow" target="_blank" class="text-xs text-blue-600 hover:underline mt-2 self-end group-hover:text-blue-700"><i class="fa-solid fa-location-dot"></i> Map</a>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Bar+Uniwersytecki+Czysta+5+Krakow" target="_blank" class="text-xs text-blue-600 font-bold hover:underline mt-3 self-end z-10 bg-white px-2"><i class="fa-solid fa-location-dot"></i> Google Maps</a>
                     </label>
 
-                    <label class="bg-white p-3 rounded-lg shadow-sm border flex flex-col justify-between hover:bg-slate-50 transition-colors cursor-pointer group">
-                        <div class="flex items-start gap-3">
-                            <input type="checkbox" id="food-temida" class="food-checkbox peer mt-1 w-4 h-4 rounded">
-                            <div class="peer-checked:opacity-50 peer-checked:line-through transition-all flex-1">
-                                <p class="font-semibold text-sm">Pod Temidą</p>
-                                <p class="text-xs text-slate-500 mt-1">Grodzka 43</p>
+                    <label class="bg-white p-4 rounded-lg shadow-sm border flex flex-col justify-between hover:border-blue-400 transition-colors cursor-pointer group relative overflow-hidden">
+                        <div class="flex items-start gap-3 z-10 relative">
+                            <input type="checkbox" id="food-starka" class="food-checkbox peer mt-1">
+                            <div class="peer-checked:opacity-40 peer-checked:line-through transition-all flex-1">
+                                <p class="font-bold text-slate-900 text-base">Starka Restaurant</p>
+                                <p class="text-xs text-slate-500 font-mono mb-2">Józefa 14 | Modern Polish Dining</p>
+                                <p class="text-sm text-slate-700 leading-snug">A fantastic sit-down restaurant in Kazimierz offering elevated modern Polish cuisine and incredible house-made infused vodkas.</p>
+                                <div class="mt-3 grid grid-cols-2 gap-2 text-xs">
+                                    <div class="bg-slate-100 p-1.5 rounded"><i class="fa-solid fa-phone"></i> Booking essential</div>
+                                    <div class="bg-blue-50 text-blue-800 p-1.5 rounded font-medium"><i class="fa-regular fa-calendar-check"></i> Plan: Thu Dinner</div>
+                                </div>
                             </div>
                         </div>
-                        <a href="https://www.google.com/maps/search/?api=1&query=Pod+Temida+Grodzka+43+Krakow" target="_blank" class="text-xs text-blue-600 hover:underline mt-2 self-end group-hover:text-blue-700"><i class="fa-solid fa-location-dot"></i> Map</a>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Starka+Restaurant+Jozefa+14+Krakow" target="_blank" class="text-xs text-blue-600 font-bold hover:underline mt-3 self-end z-10 bg-white px-2"><i class="fa-solid fa-location-dot"></i> Google Maps</a>
                     </label>
 
-                    <label class="bg-white p-3 rounded-lg shadow-sm border flex flex-col justify-between hover:bg-slate-50 transition-colors cursor-pointer group">
-                        <div class="flex items-start gap-3">
-                            <input type="checkbox" id="food-starka" class="food-checkbox peer mt-1 w-4 h-4 rounded">
-                            <div class="peer-checked:opacity-50 peer-checked:line-through transition-all flex-1">
-                                <p class="font-semibold text-sm">Starka Restaurant</p>
-                                <p class="text-xs text-slate-500 mt-1">Józefa 14, Kazimierz</p>
+                    <label class="bg-white p-4 rounded-lg shadow-sm border flex flex-col justify-between hover:border-blue-400 transition-colors cursor-pointer group relative overflow-hidden">
+                        <div class="flex items-start gap-3 z-10 relative">
+                            <input type="checkbox" id="food-temida" class="food-checkbox peer mt-1">
+                            <div class="peer-checked:opacity-40 peer-checked:line-through transition-all flex-1">
+                                <p class="font-bold text-slate-900 text-base">Pod Temidą</p>
+                                <p class="text-xs text-slate-500 font-mono mb-2">Grodzka 43 | Old Town Milk Bar</p>
+                                <p class="text-sm text-slate-700 leading-snug">Conveniently located on the Royal Route. A classic milk bar offering cheap Polish canteen food in a historic setting.</p>
+                                <div class="mt-3 grid grid-cols-2 gap-2 text-xs">
+                                    <div class="bg-slate-100 p-1.5 rounded"><i class="fa-regular fa-clock"></i> Daily 09:00–20:00</div>
+                                    <div class="bg-slate-100 text-slate-700 p-1.5 rounded font-medium"><i class="fa-regular fa-calendar-check"></i> Backup/Quick Bite</div>
+                                </div>
                             </div>
                         </div>
-                        <a href="https://www.google.com/maps/search/?api=1&query=Starka+Restaurant+Jozefa+14+Krakow" target="_blank" class="text-xs text-blue-600 hover:underline mt-2 self-end group-hover:text-blue-700"><i class="fa-solid fa-location-dot"></i> Map</a>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Pod+Temida+Grodzka+43+Krakow" target="_blank" class="text-xs text-blue-600 font-bold hover:underline mt-3 self-end z-10 bg-white px-2"><i class="fa-solid fa-location-dot"></i> Google Maps</a>
                     </label>
 
-                    <label class="bg-white p-3 rounded-lg shadow-sm border flex flex-col justify-between hover:bg-slate-50 transition-colors cursor-pointer group">
-                        <div class="flex items-start gap-3">
-                            <input type="checkbox" id="food-vincent" class="food-checkbox peer mt-1 w-4 h-4 rounded">
-                            <div class="peer-checked:opacity-50 peer-checked:line-through transition-all flex-1">
-                                <p class="font-semibold text-sm">Pierogi Mr Vincent</p>
-                                <p class="text-xs text-slate-500 mt-1">Bożego Ciała 12</p>
+                    <label class="bg-white p-4 rounded-lg shadow-sm border flex flex-col justify-between hover:border-blue-400 transition-colors cursor-pointer group relative overflow-hidden">
+                        <div class="flex items-start gap-3 z-10 relative">
+                            <input type="checkbox" id="food-vincent" class="food-checkbox peer mt-1">
+                            <div class="peer-checked:opacity-40 peer-checked:line-through transition-all flex-1">
+                                <p class="font-bold text-slate-900 text-base">Pierogi Mr Vincent</p>
+                                <p class="text-xs text-slate-500 font-mono mb-2">Bożego Ciała 12 | Specialty Pierogarnia</p>
+                                <p class="text-sm text-slate-700 leading-snug">A Van Gogh themed eatery entirely dedicated to huge portions of creative and traditional pierogi. (Cash only!)</p>
+                                <div class="mt-3 grid grid-cols-2 gap-2 text-xs">
+                                    <div class="bg-slate-100 p-1.5 rounded"><i class="fa-solid fa-coins"></i> Cash only</div>
+                                    <div class="bg-slate-100 text-slate-700 p-1.5 rounded font-medium"><i class="fa-regular fa-calendar-check"></i> Backup Dinner</div>
+                                </div>
                             </div>
                         </div>
-                        <a href="https://www.google.com/maps/search/?api=1&query=Pierogi+Mr+Vincent+Bozego+Ciala+12+Krakow" target="_blank" class="text-xs text-blue-600 hover:underline mt-2 self-end group-hover:text-blue-700"><i class="fa-solid fa-location-dot"></i> Map</a>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Pierogi+Mr+Vincent+Bozego+Ciala+12+Krakow" target="_blank" class="text-xs text-blue-600 font-bold hover:underline mt-3 self-end z-10 bg-white px-2"><i class="fa-solid fa-location-dot"></i> Google Maps</a>
                     </label>
                 </div>
             </div>
 
-            <!-- Category 2: Street Food -->
+            <!-- STREAMING_CHUNK: Food Categories -> Street Food -->
             <div class="space-y-3 pt-2">
-                <h3 class="text-md font-bold text-slate-800 border-b pb-2 flex items-center gap-2">
+                <h3 class="text-lg font-bold text-slate-800 border-b pb-2 flex items-center gap-2">
                     <i class="fa-solid fa-hotdog text-amber-600"></i> Iconic Local Street Food
                 </h3>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
-                    <label class="bg-white p-3 rounded-lg shadow-sm border flex flex-col justify-between hover:bg-slate-50 transition-colors cursor-pointer group">
-                        <div class="flex items-start gap-3">
-                            <input type="checkbox" id="food-endzior" class="food-checkbox peer mt-1 w-4 h-4 rounded">
-                            <div class="peer-checked:opacity-50 peer-checked:line-through transition-all flex-1">
-                                <p class="font-semibold text-sm">Endzior (Zapiekanki)</p>
-                                <p class="text-xs text-slate-500 mt-1">Plac Nowy, Kazimierz</p>
+                    
+                    <label class="bg-white p-4 rounded-lg shadow-sm border flex flex-col justify-between hover:border-blue-400 transition-colors cursor-pointer group relative overflow-hidden border-l-4 border-l-amber-500">
+                        <div class="flex items-start gap-3 z-10 relative">
+                            <input type="checkbox" id="food-nysa" class="food-checkbox peer mt-1">
+                            <div class="peer-checked:opacity-40 peer-checked:line-through transition-all flex-1">
+                                <p class="font-bold text-slate-900 text-base">Sausages from the Blue Nysa Van</p>
+                                <p class="text-xs text-slate-500 font-mono mb-2">Grzegórzecka 4 | Cult Late-Night Snack</p>
+                                <p class="text-sm text-slate-700 leading-snug">Two guys grilling highly addictive kiełbasa over a wood fire out of a vintage blue Soviet-era van. A true Kraków institution.</p>
+                                <div class="mt-3 grid grid-cols-2 gap-2 text-xs">
+                                    <div class="bg-slate-100 p-1.5 rounded"><i class="fa-regular fa-clock"></i> M-Sat 19:00-03:00 (Cash!)</div>
+                                    <div class="bg-blue-50 text-blue-800 p-1.5 rounded font-medium"><i class="fa-regular fa-calendar-check"></i> Plan: Sat Late Snack</div>
+                                </div>
                             </div>
                         </div>
-                        <a href="https://www.google.com/maps/search/?api=1&query=Zapiekanki+Endzior+Plac+Nowy+Krakow" target="_blank" class="text-xs text-blue-600 hover:underline mt-2 self-end group-hover:text-blue-700"><i class="fa-solid fa-location-dot"></i> Map</a>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Kielbaski+z+Niebieskiej+Nyski+Grzegorzecka+4+Krakow" target="_blank" class="text-xs text-blue-600 font-bold hover:underline mt-3 self-end z-10 bg-white px-2"><i class="fa-solid fa-location-dot"></i> Google Maps</a>
                     </label>
 
-                    <label class="bg-white p-3 rounded-lg shadow-sm border flex flex-col justify-between hover:bg-slate-50 transition-colors cursor-pointer group">
-                        <div class="flex items-start gap-3">
-                            <input type="checkbox" id="food-nysa" class="food-checkbox peer mt-1 w-4 h-4 rounded">
-                            <div class="peer-checked:opacity-50 peer-checked:line-through transition-all flex-1">
-                                <p class="font-semibold text-sm">Blue Nysa Sausage Van</p>
-                                <p class="text-xs text-slate-500 mt-1">Grzegórzecka 4</p>
+                    <label class="bg-white p-4 rounded-lg shadow-sm border flex flex-col justify-between hover:border-blue-400 transition-colors cursor-pointer group relative overflow-hidden">
+                        <div class="flex items-start gap-3 z-10 relative">
+                            <input type="checkbox" id="food-andrus" class="food-checkbox peer mt-1">
+                            <div class="peer-checked:opacity-40 peer-checked:line-through transition-all flex-1">
+                                <p class="font-bold text-slate-900 text-base">Andrus Maczanka po Krakowsku</p>
+                                <p class="text-xs text-slate-500 font-mono mb-2">Św. Wawrzyńca 16 | Polish Pulled Pork</p>
+                                <p class="text-sm text-slate-700 leading-snug">Kraków's original street food: slow-roasted pulled pork doused in gravy and served in a crusty roll.</p>
+                                <div class="mt-3 grid grid-cols-2 gap-2 text-xs">
+                                    <div class="bg-slate-100 p-1.5 rounded"><i class="fa-regular fa-clock"></i> 11:00-22:00 (Fri/Sat til 00:00)</div>
+                                    <div class="bg-blue-50 text-blue-800 p-1.5 rounded font-medium"><i class="fa-regular fa-calendar-check"></i> Plan: Fri Dinner</div>
+                                </div>
                             </div>
                         </div>
-                        <a href="https://www.google.com/maps/search/?api=1&query=Kielbaski+z+Niebieskiej+Nyski+Grzegorzecka+4+Krakow" target="_blank" class="text-xs text-blue-600 hover:underline mt-2 self-end group-hover:text-blue-700"><i class="fa-solid fa-location-dot"></i> Map</a>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Andrus+Maczanka+Sw+Wawrzynca+16+Krakow" target="_blank" class="text-xs text-blue-600 font-bold hover:underline mt-3 self-end z-10 bg-white px-2"><i class="fa-solid fa-location-dot"></i> Google Maps</a>
                     </label>
 
-                    <label class="bg-white p-3 rounded-lg shadow-sm border flex flex-col justify-between hover:bg-slate-50 transition-colors cursor-pointer group">
-                        <div class="flex items-start gap-3">
-                            <input type="checkbox" id="food-andrus" class="food-checkbox peer mt-1 w-4 h-4 rounded">
-                            <div class="peer-checked:opacity-50 peer-checked:line-through transition-all flex-1">
-                                <p class="font-semibold text-sm">Andrus Maczanka po Krakowsku</p>
-                                <p class="text-xs text-slate-500 mt-1">Św. Wawrzyńca 16</p>
+                    <label class="bg-white p-4 rounded-lg shadow-sm border flex flex-col justify-between hover:border-blue-400 transition-colors cursor-pointer group relative overflow-hidden border-l-4 border-l-slate-300">
+                        <div class="flex items-start gap-3 z-10 relative">
+                            <input type="checkbox" id="food-kumpir" class="food-checkbox peer mt-1">
+                            <div class="peer-checked:opacity-40 peer-checked:line-through transition-all flex-1">
+                                <p class="font-bold text-slate-900 text-base">Krakowski Kumpir (Hala Targowa)</p>
+                                <p class="text-xs text-slate-500 font-mono mb-2">Grzegórzecka 3/29 | Baked Potatoes</p>
+                                <p class="text-sm text-slate-700 leading-snug">Massive, piping hot baked potatoes sliced open and heavily stuffed with garlic butter, cheese, meats, and sauces.</p>
+                                <div class="mt-3 grid grid-cols-2 gap-2 text-xs">
+                                    <div class="bg-slate-100 p-1.5 rounded"><i class="fa-regular fa-clock"></i> Daily 11:00-03:00</div>
+                                    <div class="bg-blue-50 text-blue-800 p-1.5 rounded font-medium"><i class="fa-regular fa-calendar-check"></i> Plan: Sat Lunch</div>
+                                </div>
                             </div>
                         </div>
-                        <a href="https://www.google.com/maps/search/?api=1&query=Andrus+Maczanka+Sw+Wawrzynca+16+Krakow" target="_blank" class="text-xs text-blue-600 hover:underline mt-2 self-end group-hover:text-blue-700"><i class="fa-solid fa-location-dot"></i> Map</a>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Krakowski+Kumpir+Grzegorzecka+3+Krakow" target="_blank" class="text-xs text-blue-600 font-bold hover:underline mt-3 self-end z-10 bg-white px-2"><i class="fa-solid fa-location-dot"></i> Google Maps</a>
                     </label>
 
-                    <label class="bg-white p-3 rounded-lg shadow-sm border flex flex-col justify-between hover:bg-slate-50 transition-colors cursor-pointer group">
-                        <div class="flex items-start gap-3">
-                            <input type="checkbox" id="food-kumpir" class="food-checkbox peer mt-1 w-4 h-4 rounded">
-                            <div class="peer-checked:opacity-50 peer-checked:line-through transition-all flex-1">
-                                <p class="font-semibold text-sm">Krakowski Kumpir</p>
-                                <p class="text-xs text-slate-500 mt-1">Grzegórzecka 3/29</p>
+                    <label class="bg-white p-4 rounded-lg shadow-sm border flex flex-col justify-between hover:border-blue-400 transition-colors cursor-pointer group relative overflow-hidden border-l-4 border-l-amber-500">
+                        <div class="flex items-start gap-3 z-10 relative">
+                            <input type="checkbox" id="food-endzior" class="food-checkbox peer mt-1">
+                            <div class="peer-checked:opacity-40 peer-checked:line-through transition-all flex-1">
+                                <p class="font-bold text-slate-900 text-base">Endzior (Plac Nowy Zapiekanki)</p>
+                                <p class="text-xs text-slate-500 font-mono mb-2">Plac Nowy, Kazimierz | Zapiekanka Hub</p>
+                                <p class="text-sm text-slate-700 leading-snug">The iconic rotunda in Plac Nowy houses several stalls. Endzior is the most famous for Zapiekanka (open-face toasted mushroom & cheese baguette).</p>
+                                <div class="mt-3 grid grid-cols-2 gap-2 text-xs">
+                                    <div class="bg-slate-100 p-1.5 rounded"><i class="fa-regular fa-clock"></i> Daily (til very late)</div>
+                                    <div class="bg-slate-100 text-slate-700 p-1.5 rounded font-medium"><i class="fa-regular fa-calendar-check"></i> Local Pick</div>
+                                </div>
                             </div>
                         </div>
-                        <a href="https://www.google.com/maps/search/?api=1&query=Krakowski+Kumpir+Grzegorzecka+3+Krakow" target="_blank" class="text-xs text-blue-600 hover:underline mt-2 self-end group-hover:text-blue-700"><i class="fa-solid fa-location-dot"></i> Map</a>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Zapiekanki+Endzior+Plac+Nowy+Krakow" target="_blank" class="text-xs text-blue-600 font-bold hover:underline mt-3 self-end z-10 bg-white px-2"><i class="fa-solid fa-location-dot"></i> Google Maps</a>
+                    </label>
+
+                    <label class="bg-white p-4 rounded-lg shadow-sm border flex flex-col justify-between hover:border-blue-400 transition-colors cursor-pointer group relative overflow-hidden hidden">
+                        <!-- Hidden entry for completeness but de-prioritized per user note "Optional, out of the way" -->
+                        <div class="flex items-start gap-3 z-10 relative">
+                            <input type="checkbox" id="food-smaczny" class="food-checkbox peer mt-1">
+                            <div class="peer-checked:opacity-40 peer-checked:line-through transition-all flex-1">
+                                <p class="font-bold text-slate-900 text-base">ZAPIEKANKI SmacznyKrakowski</p>
+                                <p class="text-xs text-slate-500 font-mono mb-2">plac Inwalidów</p>
+                                <p class="text-sm text-slate-700 leading-snug">Alternative Zapiekanka spot. Out of the way; Plac Nowy is the easier alternative.</p>
+                                <div class="mt-3 grid grid-cols-2 gap-2 text-xs">
+                                    <div class="bg-slate-100 p-1.5 rounded"><i class="fa-regular fa-clock"></i> Tue-Sun (closed Mon)</div>
+                                    <div class="bg-slate-100 text-slate-700 p-1.5 rounded font-medium"><i class="fa-regular fa-calendar-check"></i> Optional</div>
+                                </div>
+                            </div>
+                        </div>
                     </label>
                 </div>
             </div>
 
-            <!-- Category 3: Sweets & Bakeries -->
+            <!-- STREAMING_CHUNK: Food Categories -> Sweets & Bakeries -->
             <div class="space-y-3 pt-2">
-                <h3 class="text-md font-bold text-slate-800 border-b pb-2 flex items-center gap-2">
+                <h3 class="text-lg font-bold text-slate-800 border-b pb-2 flex items-center gap-2">
                     <i class="fa-solid fa-cookie-bite text-amber-600"></i> Sweets, Bakeries & Ice Cream
                 </h3>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
-                    <label class="bg-white p-3 rounded-lg shadow-sm border flex flex-col justify-between hover:bg-slate-50 transition-colors cursor-pointer group">
-                        <div class="flex items-start gap-3">
-                            <input type="checkbox" id="food-paczki" class="food-checkbox peer mt-1 w-4 h-4 rounded">
-                            <div class="peer-checked:opacity-50 peer-checked:line-through transition-all flex-1">
-                                <p class="font-semibold text-sm">Dobra Pączkarnia</p>
-                                <p class="text-xs text-slate-500 mt-1">Floriańska 24 & Grodzka 3</p>
+                    <label class="bg-white p-4 rounded-lg shadow-sm border flex flex-col justify-between hover:border-blue-400 transition-colors cursor-pointer group relative overflow-hidden">
+                        <div class="flex items-start gap-3 z-10 relative">
+                            <input type="checkbox" id="food-paczki" class="food-checkbox peer mt-1">
+                            <div class="peer-checked:opacity-40 peer-checked:line-through transition-all flex-1">
+                                <p class="font-bold text-slate-900 text-base">Dobra Pączkarnia</p>
+                                <p class="text-xs text-slate-500 font-mono mb-2">Floriańska 24 / Grodzka 3 | Polish Doughnuts</p>
+                                <p class="text-sm text-slate-700 leading-snug">Serving massive, warm pączki (traditional doughnuts) packed with fillings like rose jam, plum, or chocolate.</p>
+                                <div class="mt-3 grid grid-cols-2 gap-2 text-xs">
+                                    <div class="bg-slate-100 p-1.5 rounded"><i class="fa-regular fa-clock"></i> Daily 08:00–21:00</div>
+                                    <div class="bg-blue-50 text-blue-800 p-1.5 rounded font-medium"><i class="fa-regular fa-calendar-check"></i> Plan: Thu Breakfast</div>
+                                </div>
                             </div>
                         </div>
-                        <a href="https://www.google.com/maps/search/?api=1&query=Dobra+P%C4%85czkarnia+Florianska+24+Krakow" target="_blank" class="text-xs text-blue-600 hover:underline mt-2 self-end group-hover:text-blue-700"><i class="fa-solid fa-location-dot"></i> Map</a>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Dobra+P%C4%85czkarnia+Florianska+24+Krakow" target="_blank" class="text-xs text-blue-600 font-bold hover:underline mt-3 self-end z-10 bg-white px-2"><i class="fa-solid fa-location-dot"></i> Google Maps</a>
                     </label>
 
-                    <label class="bg-white p-3 rounded-lg shadow-sm border flex flex-col justify-between hover:bg-slate-50 transition-colors cursor-pointer group">
-                        <div class="flex items-start gap-3">
-                            <input type="checkbox" id="food-cichowscy" class="food-checkbox peer mt-1 w-4 h-4 rounded">
-                            <div class="peer-checked:opacity-50 peer-checked:line-through transition-all flex-1">
-                                <p class="font-semibold text-sm">Cukiernia Cichowscy</p>
-                                <p class="text-xs text-slate-500 mt-1">Starowiślna 21</p>
+                    <label class="bg-white p-4 rounded-lg shadow-sm border flex flex-col justify-between hover:border-blue-400 transition-colors cursor-pointer group relative overflow-hidden">
+                        <div class="flex items-start gap-3 z-10 relative">
+                            <input type="checkbox" id="food-cichowscy" class="food-checkbox peer mt-1">
+                            <div class="peer-checked:opacity-40 peer-checked:line-through transition-all flex-1">
+                                <p class="font-bold text-slate-900 text-base">Cukiernia Kawiarnia Cichowscy</p>
+                                <p class="text-xs text-slate-500 font-mono mb-2">Starowiślna 21 | Heritage Bakery</p>
+                                <p class="text-sm text-slate-700 leading-snug">An old-school café beloved for its Kremówka (Pope John Paul II's favorite dessert)—layers of puff pastry and rich vanilla cream.</p>
+                                <div class="mt-3 grid grid-cols-2 gap-2 text-xs">
+                                    <div class="bg-slate-100 p-1.5 rounded"><i class="fa-regular fa-clock"></i> M-F 08:30-18:00, Sat til 14</div>
+                                    <div class="bg-blue-50 text-blue-800 p-1.5 rounded font-medium"><i class="fa-regular fa-calendar-check"></i> Plan: Fri Breakfast</div>
+                                </div>
                             </div>
                         </div>
-                        <a href="https://www.google.com/maps/search/?api=1&query=Cukiernia+Cichowscy+Starowislna+21+Krakow" target="_blank" class="text-xs text-blue-600 hover:underline mt-2 self-end group-hover:text-blue-700"><i class="fa-solid fa-location-dot"></i> Map</a>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Cukiernia+Cichowscy+Starowislna+21+Krakow" target="_blank" class="text-xs text-blue-600 font-bold hover:underline mt-3 self-end z-10 bg-white px-2"><i class="fa-solid fa-location-dot"></i> Google Maps</a>
                     </label>
 
-                    <label class="bg-white p-3 rounded-lg shadow-sm border flex flex-col justify-between hover:bg-slate-50 transition-colors cursor-pointer group">
-                        <div class="flex items-start gap-3">
-                            <input type="checkbox" id="food-lood" class="food-checkbox peer mt-1 w-4 h-4 rounded">
-                            <div class="peer-checked:opacity-50 peer-checked:line-through transition-all flex-1">
-                                <p class="font-semibold text-sm">Good Lood Ice Cream</p>
-                                <p class="text-xs text-slate-500 mt-1">Plac Wolnica</p>
+                    <label class="bg-white p-4 rounded-lg shadow-sm border flex flex-col justify-between hover:border-blue-400 transition-colors cursor-pointer group relative overflow-hidden border-l-4 border-l-slate-300">
+                        <div class="flex items-start gap-3 z-10 relative">
+                            <input type="checkbox" id="food-creamybite" class="food-checkbox peer mt-1">
+                            <div class="peer-checked:opacity-40 peer-checked:line-through transition-all flex-1">
+                                <p class="font-bold text-slate-900 text-base">Creamy Bite (Hala Targowa)</p>
+                                <p class="text-xs text-slate-500 font-mono mb-2">Grzegórzecka 3/25 | Dessert Stop</p>
+                                <p class="text-sm text-slate-700 leading-snug">A modern stall serving incredibly rich and decadent Basque cheesecake with caramelized tops.</p>
+                                <div class="mt-3 grid grid-cols-2 gap-2 text-xs">
+                                    <div class="bg-slate-100 p-1.5 rounded"><i class="fa-regular fa-clock"></i> Tue-Sun (closed Mon)</div>
+                                    <div class="bg-blue-50 text-blue-800 p-1.5 rounded font-medium"><i class="fa-regular fa-calendar-check"></i> Plan: Sat Lunch Dessert</div>
+                                </div>
                             </div>
                         </div>
-                        <a href="https://www.google.com/maps/search/?api=1&query=Good+Lood+Plac+Wolnica+Krakow" target="_blank" class="text-xs text-blue-600 hover:underline mt-2 self-end group-hover:text-blue-700"><i class="fa-solid fa-location-dot"></i> Map</a>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Creamy+Bite+Grzegorzecka+3+Krakow" target="_blank" class="text-xs text-blue-600 font-bold hover:underline mt-3 self-end z-10 bg-white px-2"><i class="fa-solid fa-location-dot"></i> Google Maps</a>
                     </label>
 
-                    <label class="bg-white p-3 rounded-lg shadow-sm border flex flex-col justify-between hover:bg-slate-50 transition-colors cursor-pointer group">
-                        <div class="flex items-start gap-3">
-                            <input type="checkbox" id="food-charlotte" class="food-checkbox peer mt-1 w-4 h-4 rounded">
-                            <div class="peer-checked:opacity-50 peer-checked:line-through transition-all flex-1">
-                                <p class="font-semibold text-sm">Charlotte Bakery & Bistro</p>
-                                <p class="text-xs text-slate-500 mt-1">Plac Szczepański 2</p>
+                    <label class="bg-white p-4 rounded-lg shadow-sm border flex flex-col justify-between hover:border-blue-400 transition-colors cursor-pointer group relative overflow-hidden">
+                        <div class="flex items-start gap-3 z-10 relative">
+                            <input type="checkbox" id="food-obwarzanki" class="food-checkbox peer mt-1">
+                            <div class="peer-checked:opacity-40 peer-checked:line-through transition-all flex-1">
+                                <p class="font-bold text-slate-900 text-base">Obwarzanki Kraftowe</p>
+                                <p class="text-xs text-slate-500 font-mono mb-2">Józefa Dietla | Braided Ring Bread</p>
+                                <p class="text-sm text-slate-700 leading-snug">The quintessential Kraków street snack. A chewy, slightly sweet bagel-like ring topped with poppy seeds, salt, or sesame.</p>
+                                <div class="mt-3 grid grid-cols-2 gap-2 text-xs">
+                                    <div class="bg-slate-100 p-1.5 rounded"><i class="fa-regular fa-clock"></i> Most days 09:00-18:00</div>
+                                    <div class="bg-blue-50 text-blue-800 p-1.5 rounded font-medium"><i class="fa-regular fa-calendar-check"></i> Plan: Sat Snack</div>
+                                </div>
                             </div>
                         </div>
-                        <a href="https://www.google.com/maps/search/?api=1&query=Charlotte+Plac+Szczepanski+Krakow" target="_blank" class="text-xs text-blue-600 hover:underline mt-2 self-end group-hover:text-blue-700"><i class="fa-solid fa-location-dot"></i> Map</a>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Obwarzanki+Kraftowe+Dietla+Krakow" target="_blank" class="text-xs text-blue-600 font-bold hover:underline mt-3 self-end z-10 bg-white px-2"><i class="fa-solid fa-location-dot"></i> Google Maps</a>
+                    </label>
+
+                    <label class="bg-white p-4 rounded-lg shadow-sm border flex flex-col justify-between hover:border-blue-400 transition-colors cursor-pointer group relative overflow-hidden border-l-4 border-l-amber-500">
+                        <div class="flex items-start gap-3 z-10 relative">
+                            <input type="checkbox" id="food-lood" class="food-checkbox peer mt-1">
+                            <div class="peer-checked:opacity-40 peer-checked:line-through transition-all flex-1">
+                                <p class="font-bold text-slate-900 text-base">Good Lood Ice Cream</p>
+                                <p class="text-xs text-slate-500 font-mono mb-2">Various (Plac Wolnica) | Local Gelato Pick</p>
+                                <p class="text-sm text-slate-700 leading-snug">A massive local craze. They serve huge portions of artisanal ice cream with flavors rotating constantly based on local ingredients.</p>
+                                <div class="mt-3 grid grid-cols-2 gap-2 text-xs">
+                                    <div class="bg-slate-100 p-1.5 rounded"><i class="fa-regular fa-clock"></i> Daily til late</div>
+                                    <div class="bg-slate-100 text-slate-700 p-1.5 rounded font-medium"><i class="fa-regular fa-calendar-check"></i> Local Pick</div>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Good+Lood+Plac+Wolnica+Krakow" target="_blank" class="text-xs text-blue-600 font-bold hover:underline mt-3 self-end z-10 bg-white px-2"><i class="fa-solid fa-location-dot"></i> Google Maps</a>
+                    </label>
+
+                    <label class="bg-white p-4 rounded-lg shadow-sm border flex flex-col justify-between hover:border-blue-400 transition-colors cursor-pointer group relative overflow-hidden border-l-4 border-l-amber-500">
+                        <div class="flex items-start gap-3 z-10 relative">
+                            <input type="checkbox" id="food-charlotte" class="food-checkbox peer mt-1">
+                            <div class="peer-checked:opacity-40 peer-checked:line-through transition-all flex-1">
+                                <p class="font-bold text-slate-900 text-base">Charlotte Bakery</p>
+                                <p class="text-xs text-slate-500 font-mono mb-2">Plac Szczepański 2 | French Bistro</p>
+                                <p class="text-sm text-slate-700 leading-snug">Extremely popular spot serving freshly baked breads, croissants, and jars of decadent white chocolate and raspberry jams.</p>
+                                <div class="mt-3 grid grid-cols-2 gap-2 text-xs">
+                                    <div class="bg-slate-100 p-1.5 rounded"><i class="fa-regular fa-clock"></i> Daily from 07:00</div>
+                                    <div class="bg-slate-100 text-slate-700 p-1.5 rounded font-medium"><i class="fa-regular fa-calendar-check"></i> Local Pick</div>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Charlotte+Plac+Szczepanski+Krakow" target="_blank" class="text-xs text-blue-600 font-bold hover:underline mt-3 self-end z-10 bg-white px-2"><i class="fa-solid fa-location-dot"></i> Google Maps</a>
                     </label>
                 </div>
             </div>
 
-            <!-- Category 4: Craft Beer & Vodkas -->
+            <!-- STREAMING_CHUNK: Food Categories -> Drinks -->
             <div class="space-y-3 pt-2">
-                <h3 class="text-md font-bold text-slate-800 border-b pb-2 flex items-center gap-2">
+                <h3 class="text-lg font-bold text-slate-800 border-b pb-2 flex items-center gap-2">
                     <i class="fa-solid fa-beer-mug-empty text-amber-600"></i> Craft Beer, Vodkas & Nightlife
                 </h3>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
-                    <label class="bg-white p-3 rounded-lg shadow-sm border flex flex-col justify-between hover:bg-slate-50 transition-colors cursor-pointer group">
-                        <div class="flex items-start gap-3">
-                            <input type="checkbox" id="food-wodka" class="food-checkbox peer mt-1 w-4 h-4 rounded">
-                            <div class="peer-checked:opacity-50 peer-checked:line-through transition-all flex-1">
-                                <p class="font-semibold text-sm">Wódka Café Bar</p>
-                                <p class="text-xs text-slate-500 mt-1">Św. Tomasza 23</p>
+                    <label class="bg-white p-4 rounded-lg shadow-sm border flex flex-col justify-between hover:border-blue-400 transition-colors cursor-pointer group relative overflow-hidden border-l-4 border-l-amber-500">
+                        <div class="flex items-start gap-3 z-10 relative">
+                            <input type="checkbox" id="food-wodka" class="food-checkbox peer mt-1">
+                            <div class="peer-checked:opacity-40 peer-checked:line-through transition-all flex-1">
+                                <p class="font-bold text-slate-900 text-base">Wódka Café Bar</p>
+                                <p class="text-xs text-slate-500 font-mono mb-2">Św. Tomasza 23 | Flavored Vodkas</p>
+                                <p class="text-sm text-slate-700 leading-snug">A tiny, cozy bar famous for serving tasting flights of 6 different house-infused flavored vodkas (like hazelnut, plum, and caramel).</p>
                             </div>
                         </div>
-                        <a href="https://www.google.com/maps/search/?api=1&query=Wodka+Cafe+Bar+Sw+Tomasza+23+Krakow" target="_blank" class="text-xs text-blue-600 hover:underline mt-2 self-end group-hover:text-blue-700"><i class="fa-solid fa-location-dot"></i> Map</a>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Wodka+Cafe+Bar+Sw+Tomasza+23+Krakow" target="_blank" class="text-xs text-blue-600 font-bold hover:underline mt-3 self-end z-10 bg-white px-2"><i class="fa-solid fa-location-dot"></i> Google Maps</a>
                     </label>
 
-                    <label class="bg-white p-3 rounded-lg shadow-sm border flex flex-col justify-between hover:bg-slate-50 transition-colors cursor-pointer group">
-                        <div class="flex items-start gap-3">
-                            <input type="checkbox" id="food-housebeer" class="food-checkbox peer mt-1 w-4 h-4 rounded">
-                            <div class="peer-checked:opacity-50 peer-checked:line-through transition-all flex-1">
-                                <p class="font-semibold text-sm">House of Beer</p>
-                                <p class="text-xs text-slate-500 mt-1">Św. Tomasza 35</p>
+                    <label class="bg-white p-4 rounded-lg shadow-sm border flex flex-col justify-between hover:border-blue-400 transition-colors cursor-pointer group relative overflow-hidden border-l-4 border-l-amber-500">
+                        <div class="flex items-start gap-3 z-10 relative">
+                            <input type="checkbox" id="food-housebeer" class="food-checkbox peer mt-1">
+                            <div class="peer-checked:opacity-40 peer-checked:line-through transition-all flex-1">
+                                <p class="font-bold text-slate-900 text-base">House of Beer</p>
+                                <p class="text-xs text-slate-500 font-mono mb-2">Św. Tomasza 35 | Craft Brews</p>
+                                <p class="text-sm text-slate-700 leading-snug">One of the best multi-tap pubs in the Old Town, offering an extensive range of excellent Polish and international craft beers.</p>
                             </div>
                         </div>
-                        <a href="https://www.google.com/maps/search/?api=1&query=House+of+Beer+Sw+Tomasza+35+Krakow" target="_blank" class="text-xs text-blue-600 hover:underline mt-2 self-end group-hover:text-blue-700"><i class="fa-solid fa-location-dot"></i> Map</a>
+                        <a href="https://www.google.com/maps/search/?api=1&query=House+of+Beer+Sw+Tomasza+35+Krakow" target="_blank" class="text-xs text-blue-600 font-bold hover:underline mt-3 self-end z-10 bg-white px-2"><i class="fa-solid fa-location-dot"></i> Google Maps</a>
                     </label>
 
-                    <label class="bg-white p-3 rounded-lg shadow-sm border flex flex-col justify-between hover:bg-slate-50 transition-colors cursor-pointer group">
-                        <div class="flex items-start gap-3">
-                            <input type="checkbox" id="food-omerta" class="food-checkbox peer mt-1 w-4 h-4 rounded">
-                            <div class="peer-checked:opacity-50 peer-checked:line-through transition-all flex-1">
-                                <p class="font-semibold text-sm">Omerta Pub</p>
-                                <p class="text-xs text-slate-500 mt-1">Kupa 3, Kazimierz</p>
+                    <label class="bg-white p-4 rounded-lg shadow-sm border flex flex-col justify-between hover:border-blue-400 transition-colors cursor-pointer group relative overflow-hidden border-l-4 border-l-amber-500">
+                        <div class="flex items-start gap-3 z-10 relative">
+                            <input type="checkbox" id="food-omerta" class="food-checkbox peer mt-1">
+                            <div class="peer-checked:opacity-40 peer-checked:line-through transition-all flex-1">
+                                <p class="font-bold text-slate-900 text-base">Omerta Pub</p>
+                                <p class="text-xs text-slate-500 font-mono mb-2">Kupa 3, Kazimierz | Godfather Themed</p>
+                                <p class="text-sm text-slate-700 leading-snug">Located in the Jewish quarter, this pub has two distinct rooms (Polish crafts and international crafts) with great ambiance.</p>
                             </div>
                         </div>
-                        <a href="https://www.google.com/maps/search/?api=1&query=Omerta+Pub+Kupa+3+Krakow" target="_blank" class="text-xs text-blue-600 hover:underline mt-2 self-end group-hover:text-blue-700"><i class="fa-solid fa-location-dot"></i> Map</a>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Omerta+Pub+Kupa+3+Krakow" target="_blank" class="text-xs text-blue-600 font-bold hover:underline mt-3 self-end z-10 bg-white px-2"><i class="fa-solid fa-location-dot"></i> Google Maps</a>
                     </label>
 
-                    <label class="bg-white p-3 rounded-lg shadow-sm border flex flex-col justify-between hover:bg-slate-50 transition-colors cursor-pointer group">
-                        <div class="flex items-start gap-3">
-                            <input type="checkbox" id="food-pijalnia" class="food-checkbox peer mt-1 w-4 h-4 rounded">
-                            <div class="peer-checked:opacity-50 peer-checked:line-through transition-all flex-1">
-                                <p class="font-semibold text-sm">Pijalnia Wódki i Piwa</p>
-                                <p class="text-xs text-slate-500 mt-1">Floriańska 15</p>
+                    <label class="bg-white p-4 rounded-lg shadow-sm border flex flex-col justify-between hover:border-blue-400 transition-colors cursor-pointer group relative overflow-hidden border-l-4 border-l-amber-500">
+                        <div class="flex items-start gap-3 z-10 relative">
+                            <input type="checkbox" id="food-pijalnia" class="food-checkbox peer mt-1">
+                            <div class="peer-checked:opacity-40 peer-checked:line-through transition-all flex-1">
+                                <p class="font-bold text-slate-900 text-base">Pijalnia Wódki i Piwa</p>
+                                <p class="text-xs text-slate-500 font-mono mb-2">Floriańska 15 | Retro 1960s Shots Bar</p>
+                                <p class="text-sm text-slate-700 leading-snug">A franchise built to look like communist Poland. Super cheap shots of vodka, draft beer, and traditional bar snacks like herring.</p>
                             </div>
                         </div>
-                        <a href="https://www.google.com/maps/search/?api=1&query=Pijalnia+Wodki+i+Piwa+Florianska+15+Krakow" target="_blank" class="text-xs text-blue-600 hover:underline mt-2 self-end group-hover:text-blue-700"><i class="fa-solid fa-location-dot"></i> Map</a>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Pijalnia+Wodki+i+Piwa+Florianska+15+Krakow" target="_blank" class="text-xs text-blue-600 font-bold hover:underline mt-3 self-end z-10 bg-white px-2"><i class="fa-solid fa-location-dot"></i> Google Maps</a>
                     </label>
                 </div>
             </div>
@@ -599,9 +741,18 @@
     <script>
         // Tab switching logic
         function showTab(tabId) {
-            document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+            document.querySelectorAll('.tab-content').forEach(el => {
+                el.classList.add('hidden');
+                el.classList.remove('fade-in'); 
+            });
             document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
-            document.getElementById(tabId).classList.remove('hidden');
+            
+            const targetTab = document.getElementById(tabId);
+            targetTab.classList.remove('hidden');
+            // Re-trigger animation
+            void targetTab.offsetWidth; 
+            targetTab.classList.add('fade-in');
+            
             document.getElementById('btn-' + tabId).classList.add('active');
         }
 
@@ -623,11 +774,13 @@
                 
                 // 3. Stop click propagation on the map links so clicking the link doesn't toggle the checkbox
                 const parentLabel = checkbox.closest('label');
-                const mapLink = parentLabel.querySelector('a');
-                if(mapLink) {
-                    mapLink.addEventListener('click', (e) => {
-                        e.stopPropagation();
-                    });
+                if (parentLabel) {
+                    const mapLink = parentLabel.querySelector('a');
+                    if(mapLink) {
+                        mapLink.addEventListener('click', (e) => {
+                            e.stopPropagation();
+                        });
+                    }
                 }
             });
         });
