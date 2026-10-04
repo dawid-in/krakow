@@ -145,6 +145,9 @@
                 </a>
             </div>
 
+            <!-- Live forecast, filled in by loadWeather() -->
+            <div class="weather-strip hidden bg-white rounded-lg shadow-sm px-4 py-3 text-sm text-slate-700 flex flex-wrap items-center gap-x-4 gap-y-1" data-date="2026-10-07" data-place="0"></div>
+
             <div class="bg-white rounded-lg shadow p-4 space-y-4">
                 <div class="flex flex-col sm:flex-row sm:items-center justify-between border-b pb-3 gap-2 bg-blue-50 p-3 rounded-lg border border-blue-100">
                     <div class="flex gap-3 items-start">
@@ -198,6 +201,9 @@
                     <i class="fa-solid fa-map-location-dot"></i> Full Day 2 Route
                 </a>
             </div>
+
+            <!-- Live forecast, filled in by loadWeather() -->
+            <div class="weather-strip hidden bg-white rounded-lg shadow-sm px-4 py-3 text-sm text-slate-700 flex flex-wrap items-center gap-x-4 gap-y-1" data-date="2026-10-08" data-place="1"></div>
 
             <div class="bg-white rounded-lg shadow p-4 space-y-4">
                 <!-- De-emphasized Food Item -->
@@ -280,6 +286,9 @@
                     <i class="fa-solid fa-map-location-dot"></i> Full Day 3 Route
                 </a>
             </div>
+
+            <!-- Live forecast, filled in by loadWeather() -->
+            <div class="weather-strip hidden bg-white rounded-lg shadow-sm px-4 py-3 text-sm text-slate-700 flex flex-wrap items-center gap-x-4 gap-y-1" data-date="2026-10-09" data-place="0"></div>
 
             <div class="bg-amber-50 border-l-4 border-amber-500 text-amber-900 p-3 rounded-lg text-sm shadow-sm">
                 <i class="fa-solid fa-triangle-exclamation font-bold mr-1 text-amber-600"></i> <strong>Timing Notice:</strong> Leave Wawel by 10:30 for the 11:08 train &mdash; Bolt/Uber (7 min) or walk (~25 min). Trams past Wawel (Stradomska / św. Gertrudy) are suspended for track repairs from 5 Oct. Visit St. Mary's Basilica at 16:00 right after returning from Wieliczka.
@@ -390,6 +399,9 @@
                 </a>
             </div>
 
+            <!-- Live forecast, filled in by loadWeather() -->
+            <div class="weather-strip hidden bg-white rounded-lg shadow-sm px-4 py-3 text-sm text-slate-700 flex flex-wrap items-center gap-x-4 gap-y-1" data-date="2026-10-10" data-place="0"></div>
+
             <div class="bg-white rounded-lg shadow p-4 space-y-4">
                 <!-- Highlighted Event: Nowa Huta -->
                 <div class="flex flex-col sm:flex-row sm:items-center justify-between border-b pb-3 gap-2 bg-emerald-100 p-4 rounded-lg border-2 border-emerald-300 shadow-sm relative overflow-hidden">
@@ -449,7 +461,7 @@
                         <span class="font-mono text-xs bg-slate-100 text-slate-400 px-2 py-1 rounded mt-0.5">17:00</span>
                         <div>
                             <p class="text-sm font-medium"><i class="fa-solid fa-camera mr-1"></i> Optional: MOCAK or Krakus Mound Sunset</p>
-                            <p class="text-xs text-slate-400">MOCAK (Contemporary Art) is right next to Schindler's. Alternatively, walk 25 mins up Krakus Mound for panoramic sunset views over Kraków (sunset ≈ 17:55).</p>
+                            <p class="text-xs text-slate-400">MOCAK (Contemporary Art) is right next to Schindler's. Alternatively, walk 25 mins up Krakus Mound for panoramic sunset views over Kraków (sunset ≈ 18:00).</p>
                         </div>
                     </div>
                     <div class="flex flex-wrap gap-2">
@@ -488,6 +500,9 @@
                     <i class="fa-solid fa-map-location-dot"></i> Full Day 5 Route
                 </a>
             </div>
+
+            <!-- Live forecast, filled in by loadWeather() -->
+            <div class="weather-strip hidden bg-white rounded-lg shadow-sm px-4 py-3 text-sm text-slate-700 flex flex-wrap items-center gap-x-4 gap-y-1" data-date="2026-10-11" data-place="0"></div>
 
             <div class="bg-white rounded-lg shadow p-4 space-y-4">
                 <div class="flex flex-col sm:flex-row sm:items-center justify-between border-b pb-3 gap-2 px-2">
@@ -1283,7 +1298,7 @@
                                     </a>
                                 </div>
                                 <p class="text-xs text-slate-500 font-mono mb-2 mt-0.5">Podgórze · free · always open</p>
-                                <p class="text-sm text-slate-700 leading-snug">A 16 m grassy prehistoric mound, by legend the tomb of King Krak. A short steep path leads to a 360° view over the Old Town, Wawel and, on clear days, the Tatras. No lighting or railings; sunset is about 17:55 during the trip. <span class="font-semibold text-emerald-800">Optional: Sat sunset.</span></p>
+                                <p class="text-sm text-slate-700 leading-snug">A 16 m grassy prehistoric mound, by legend the tomb of King Krak. A short steep path leads to a 360° view over the Old Town, Wawel and, on clear days, the Tatras. No lighting or railings; sunset is about 18:00 during the trip. <span class="font-semibold text-emerald-800">Optional: Sat sunset.</span></p>
                             </div>
                         </div>
                     </label>
@@ -1434,9 +1449,69 @@
             return 'day1';
         }
 
+        // Live weather from Open-Meteo (free, no API key). Strips stay hidden if the forecast can't be loaded.
+        const WEATHER_PLACES = [
+            { name: 'Kraków', lat: 50.0647, lon: 19.9450 },
+            { name: 'Oświęcim', lat: 50.0344, lon: 19.2098 }
+        ];
+        // WMO weather codes → [upper bound, label, Font Awesome icon]
+        const WEATHER_CODES = [
+            [0, 'Clear sky', 'fa-sun'], [2, 'Partly cloudy', 'fa-cloud-sun'], [3, 'Overcast', 'fa-cloud'],
+            [48, 'Fog', 'fa-smog'], [57, 'Drizzle', 'fa-cloud-rain'], [67, 'Rain', 'fa-cloud-showers-heavy'],
+            [77, 'Snow', 'fa-snowflake'], [82, 'Rain showers', 'fa-cloud-showers-heavy'],
+            [86, 'Snow showers', 'fa-snowflake'], [99, 'Thunderstorm', 'fa-cloud-bolt']
+        ];
+
+        function weatherPart(strip, iconClass, text, extraClass) {
+            const span = document.createElement('span');
+            span.className = 'flex items-center gap-1 whitespace-nowrap ' + (extraClass || '');
+            const icon = document.createElement('i');
+            icon.className = 'fa-solid ' + iconClass;
+            span.appendChild(icon);
+            span.appendChild(document.createTextNode(' ' + text));
+            strip.appendChild(span);
+        }
+
+        async function loadWeather() {
+            const url = 'https://api.open-meteo.com/v1/forecast'
+                + '?latitude=' + WEATHER_PLACES.map(p => p.lat).join(',')
+                + '&longitude=' + WEATHER_PLACES.map(p => p.lon).join(',')
+                + '&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max,precipitation_sum,wind_speed_10m_max,sunset'
+                + '&timezone=Europe%2FWarsaw&start_date=2026-10-07&end_date=2026-10-11';
+            let places;
+            try {
+                const response = await fetch(url);
+                if (!response.ok) return;
+                places = await response.json();
+            } catch (e) {
+                return;
+            }
+
+            document.querySelectorAll('.weather-strip').forEach(strip => {
+                const place = WEATHER_PLACES[strip.dataset.place];
+                const daily = places[strip.dataset.place] && places[strip.dataset.place].daily;
+                const i = daily ? daily.time.indexOf(strip.dataset.date) : -1;
+                if (i === -1 || daily.temperature_2m_max[i] === null) return;
+
+                const code = WEATHER_CODES.find(c => daily.weather_code[i] <= c[0]) || WEATHER_CODES[2];
+                weatherPart(strip, code[2] + ' text-amber-500', code[1] + ' in ' + place.name, 'font-semibold text-slate-900');
+                weatherPart(strip, 'fa-temperature-half text-red-500',
+                    Math.round(daily.temperature_2m_max[i]) + '° / ' + Math.round(daily.temperature_2m_min[i]) + '°C');
+                if (daily.precipitation_probability_max[i] !== null) {
+                    weatherPart(strip, 'fa-umbrella text-blue-400',
+                        daily.precipitation_probability_max[i] + '% rain (' + daily.precipitation_sum[i].toFixed(1) + ' mm)');
+                }
+                weatherPart(strip, 'fa-wind text-slate-500', 'up to ' + Math.round(daily.wind_speed_10m_max[i]) + ' km/h');
+                weatherPart(strip, 'fa-moon text-purple-500', 'sunset ' + daily.sunset[i].slice(11));
+                weatherPart(strip, 'fa-tower-broadcast', 'live forecast', 'text-xs text-slate-500');
+                strip.classList.remove('hidden');
+            });
+        }
+
         // Initialize state on page load
         document.addEventListener('DOMContentLoaded', () => {
             updateThemeIcon();
+            loadWeather();
 
             // 1. Tab Routing Logic
             let hash = window.location.hash.substring(1);
