@@ -2,6 +2,17 @@
 <html lang="en"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0f172a">
+    <script>
+        // Apply the saved theme (or the device setting) before first paint to avoid a flash
+        (function () {
+            var saved = null;
+            try { saved = localStorage.getItem('theme'); } catch (e) {}
+            if (saved === 'dark' || (!saved && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                document.documentElement.classList.add('dark');
+            }
+        })();
+    </script>
     <title>Kraków Trip Dashboard | Oct 7–11, 2026</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -25,6 +36,65 @@
         /* Fade transition */
         .fade-in { animation: fadeIn 0.3s ease-in-out; }
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+        /* ---------- Mobile ---------- */
+        /* Finger-sized Map buttons on touch screens */
+        @media (pointer: coarse) {
+            main a[target="_blank"] { min-height: 2.5rem; padding-left: 0.75rem; padding-right: 0.75rem; }
+        }
+        /* De-emphasised text was too faint to read outdoors */
+        main .text-slate-400 { color: #64748b; }
+        /* Keep content clear of the notch / rounded corners in landscape */
+        body { padding-left: env(safe-area-inset-left); padding-right: env(safe-area-inset-right); }
+
+        /* ---------- Dark mode (html.dark, set by the header toggle) ---------- */
+        html { color-scheme: light; }
+        html.dark { color-scheme: dark; }
+        html.dark body { background-color: #0b1120; color: #e2e8f0; }
+        html.dark header { background-color: #020617; }
+        html.dark .bg-white { background-color: #1e293b; }
+        html.dark .bg-slate-100 { background-color: #334155; }
+        html.dark .bg-blue-50 { background-color: rgba(59, 130, 246, 0.15); }
+        html.dark .bg-amber-50, html.dark .bg-amber-100 { background-color: rgba(245, 158, 11, 0.14); }
+        html.dark .bg-red-100 { background-color: rgba(239, 68, 68, 0.15); }
+        html.dark .bg-emerald-100 { background-color: rgba(16, 185, 129, 0.15); }
+        html.dark .bg-purple-100 { background-color: rgba(168, 85, 247, 0.16); }
+        html.dark .bg-blue-200 { background-color: #1e3a8a; }
+        html.dark .bg-amber-200 { background-color: #78350f; }
+        html.dark .bg-red-200 { background-color: #7f1d1d; }
+        html.dark .bg-emerald-200 { background-color: #064e3b; }
+        html.dark .bg-purple-200 { background-color: #581c87; }
+
+        html.dark .text-slate-900 { color: #f1f5f9; }
+        html.dark .text-slate-800 { color: #e2e8f0; }
+        html.dark .text-slate-700, html.dark .text-slate-600 { color: #cbd5e1; }
+        html.dark .text-slate-500, html.dark main .text-slate-400 { color: #94a3b8; }
+        html.dark .text-blue-900 { color: #dbeafe; }
+        html.dark .text-blue-800 { color: #bfdbfe; }
+        html.dark .text-amber-900 { color: #fde68a; }
+        html.dark .text-amber-800, html.dark .text-amber-700 { color: #fcd34d; }
+        html.dark .text-red-900 { color: #fecaca; }
+        html.dark .text-red-800, html.dark .text-red-700 { color: #fca5a5; }
+        html.dark .text-emerald-900 { color: #a7f3d0; }
+        html.dark .text-emerald-800 { color: #6ee7b7; }
+        html.dark .text-purple-900 { color: #e9d5ff; }
+        html.dark .text-purple-800 { color: #d8b4fe; }
+        html.dark .tab-btn.active { border-bottom-color: #60a5fa; color: #60a5fa; }
+
+        html.dark .border, html.dark .border-b { border-color: #334155; }
+        html.dark .border-slate-200 { border-color: #475569; }
+        html.dark .border-blue-100 { border-color: #1e3a8a; }
+        html.dark .border-amber-200 { border-color: #78350f; }
+        html.dark .border-red-300 { border-color: #991b1b; }
+        html.dark .border-amber-300 { border-color: #92400e; }
+        html.dark .border-emerald-300 { border-color: #065f46; }
+        html.dark .border-purple-300 { border-color: #6b21a8; }
+        html.dark .border-l-amber-500 { border-left-color: #f59e0b; }
+        html.dark .border-l-emerald-500 { border-left-color: #10b981; }
+        html.dark .hover\:border-blue-400:hover, html.dark .hover\:border-blue-300:hover { border-color: #60a5fa; }
+        html.dark .hover\:bg-blue-100:hover { background-color: #1e3a8a; }
+        html.dark .hover\:text-blue-700:hover { color: #bfdbfe; }
+        html.dark .hover\:bg-amber-50:hover, html.dark .hover\:bg-emerald-100:hover { background-color: #334155; }
     </style>
 <style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.absolute{position:absolute}.relative{position:relative}.sticky{position:sticky}.left-0{left:0px}.top-0{top:0px}.z-10{z-index:10}.z-20{z-index:20}.z-50{z-index:50}.mx-auto{margin-left:auto;margin-right:auto}.mb-2{margin-bottom:0.5rem}.mb-3{margin-bottom:0.75rem}.mb-8{margin-bottom:2rem}.mr-1{margin-right:0.25rem}.mr-2{margin-right:0.5rem}.mt-0\.5{margin-top:0.125rem}.mt-1{margin-top:0.25rem}.mt-2{margin-top:0.5rem}.mt-4{margin-top:1rem}.flex{display:flex}.grid{display:grid}.hidden{display:none}.h-full{height:100%}.min-h-screen{min-height:100vh}.w-2{width:0.5rem}.w-full{width:100%}.max-w-5xl{max-width:64rem}.flex-1{flex:1 1 0%}.cursor-pointer{cursor:pointer}.grid-cols-1{grid-template-columns:repeat(1, minmax(0, 1fr))}.flex-col{flex-direction:column}.flex-wrap{flex-wrap:wrap}.items-start{align-items:flex-start}.items-center{align-items:center}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-1{gap:0.25rem}.gap-2{gap:0.5rem}.gap-3{gap:0.75rem}.gap-4{gap:1rem}.space-y-3 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.75rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.75rem * var(--tw-space-y-reverse))}.space-y-4 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1rem * var(--tw-space-y-reverse))}.space-y-6 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1.5rem * var(--tw-space-y-reverse))}.self-start{align-self:flex-start}.overflow-hidden{overflow:hidden}.overflow-x-auto{overflow-x:auto}.whitespace-nowrap{white-space:nowrap}.rounded{border-radius:0.25rem}.rounded-lg{border-radius:0.5rem}.border{border-width:1px}.border-2{border-width:2px}.border-b{border-bottom-width:1px}.border-l-4{border-left-width:4px}.border-amber-200{--tw-border-opacity:1;border-color:rgb(253 230 138 / var(--tw-border-opacity, 1))}.border-amber-300{--tw-border-opacity:1;border-color:rgb(252 211 77 / var(--tw-border-opacity, 1))}.border-amber-500{--tw-border-opacity:1;border-color:rgb(245 158 11 / var(--tw-border-opacity, 1))}.border-blue-100{--tw-border-opacity:1;border-color:rgb(219 234 254 / var(--tw-border-opacity, 1))}.border-blue-600{--tw-border-opacity:1;border-color:rgb(37 99 235 / var(--tw-border-opacity, 1))}.border-emerald-300{--tw-border-opacity:1;border-color:rgb(110 231 183 / var(--tw-border-opacity, 1))}.border-emerald-600{--tw-border-opacity:1;border-color:rgb(5 150 105 / var(--tw-border-opacity, 1))}.border-purple-300{--tw-border-opacity:1;border-color:rgb(216 180 254 / var(--tw-border-opacity, 1))}.border-red-300{--tw-border-opacity:1;border-color:rgb(252 165 165 / var(--tw-border-opacity, 1))}.border-red-600{--tw-border-opacity:1;border-color:rgb(220 38 38 / var(--tw-border-opacity, 1))}.border-slate-200{--tw-border-opacity:1;border-color:rgb(226 232 240 / var(--tw-border-opacity, 1))}.border-slate-600{--tw-border-opacity:1;border-color:rgb(71 85 105 / var(--tw-border-opacity, 1))}.border-slate-700{--tw-border-opacity:1;border-color:rgb(51 65 85 / var(--tw-border-opacity, 1))}.border-l-amber-500{--tw-border-opacity:1;border-left-color:rgb(245 158 11 / var(--tw-border-opacity, 1))}.bg-amber-100{--tw-bg-opacity:1;background-color:rgb(254 243 199 / var(--tw-bg-opacity, 1))}.bg-amber-200{--tw-bg-opacity:1;background-color:rgb(253 230 138 / var(--tw-bg-opacity, 1))}.bg-amber-50{--tw-bg-opacity:1;background-color:rgb(255 251 235 / var(--tw-bg-opacity, 1))}.bg-amber-500{--tw-bg-opacity:1;background-color:rgb(245 158 11 / var(--tw-bg-opacity, 1))}.bg-amber-600{--tw-bg-opacity:1;background-color:rgb(217 119 6 / var(--tw-bg-opacity, 1))}.bg-blue-200{--tw-bg-opacity:1;background-color:rgb(191 219 254 / var(--tw-bg-opacity, 1))}.bg-blue-50{--tw-bg-opacity:1;background-color:rgb(239 246 255 / var(--tw-bg-opacity, 1))}.bg-blue-600{--tw-bg-opacity:1;background-color:rgb(37 99 235 / var(--tw-bg-opacity, 1))}.bg-emerald-100{--tw-bg-opacity:1;background-color:rgb(209 250 229 / var(--tw-bg-opacity, 1))}.bg-emerald-200{--tw-bg-opacity:1;background-color:rgb(167 243 208 / var(--tw-bg-opacity, 1))}.bg-emerald-500{--tw-bg-opacity:1;background-color:rgb(16 185 129 / var(--tw-bg-opacity, 1))}.bg-emerald-600{--tw-bg-opacity:1;background-color:rgb(5 150 105 / var(--tw-bg-opacity, 1))}.bg-purple-100{--tw-bg-opacity:1;background-color:rgb(243 232 255 / var(--tw-bg-opacity, 1))}.bg-purple-200{--tw-bg-opacity:1;background-color:rgb(233 213 255 / var(--tw-bg-opacity, 1))}.bg-purple-500{--tw-bg-opacity:1;background-color:rgb(168 85 247 / var(--tw-bg-opacity, 1))}.bg-purple-600{--tw-bg-opacity:1;background-color:rgb(147 51 234 / var(--tw-bg-opacity, 1))}.bg-red-100{--tw-bg-opacity:1;background-color:rgb(254 226 226 / var(--tw-bg-opacity, 1))}.bg-red-200{--tw-bg-opacity:1;background-color:rgb(254 202 202 / var(--tw-bg-opacity, 1))}.bg-red-500{--tw-bg-opacity:1;background-color:rgb(239 68 68 / var(--tw-bg-opacity, 1))}.bg-red-600{--tw-bg-opacity:1;background-color:rgb(220 38 38 / var(--tw-bg-opacity, 1))}.bg-slate-100{--tw-bg-opacity:1;background-color:rgb(241 245 249 / var(--tw-bg-opacity, 1))}.bg-slate-50{--tw-bg-opacity:1;background-color:rgb(248 250 252 / var(--tw-bg-opacity, 1))}.bg-slate-800{--tw-bg-opacity:1;background-color:rgb(30 41 59 / var(--tw-bg-opacity, 1))}.bg-slate-900{--tw-bg-opacity:1;background-color:rgb(15 23 42 / var(--tw-bg-opacity, 1))}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity, 1))}.p-3{padding:0.75rem}.p-4{padding:1rem}.p-5{padding:1.25rem}.px-2{padding-left:0.5rem;padding-right:0.5rem}.px-3{padding-left:0.75rem;padding-right:0.75rem}.px-4{padding-left:1rem;padding-right:1rem}.px-5{padding-left:1.25rem;padding-right:1.25rem}.py-1{padding-top:0.25rem;padding-bottom:0.25rem}.py-2{padding-top:0.5rem;padding-bottom:0.5rem}.py-2\.5{padding-top:0.625rem;padding-bottom:0.625rem}.py-3{padding-top:0.75rem;padding-bottom:0.75rem}.py-6{padding-top:1.5rem;padding-bottom:1.5rem}.pb-2{padding-bottom:0.5rem}.pb-3{padding-bottom:0.75rem}.pl-2{padding-left:0.5rem}.pt-1{padding-top:0.25rem}.pt-2{padding-top:0.5rem}.text-center{text-align:center}.font-mono{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace}.font-sans{font-family:ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"}.text-2xl{font-size:1.5rem;line-height:2rem}.text-base{font-size:1rem;line-height:1.5rem}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:0.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-xs{font-size:0.75rem;line-height:1rem}.font-bold{font-weight:700}.font-medium{font-weight:500}.font-semibold{font-weight:600}.uppercase{text-transform:uppercase}.leading-snug{line-height:1.375}.tracking-wide{letter-spacing:0.025em}.text-amber-100{--tw-text-opacity:1;color:rgb(254 243 199 / var(--tw-text-opacity, 1))}.text-amber-500{--tw-text-opacity:1;color:rgb(245 158 11 / var(--tw-text-opacity, 1))}.text-amber-600{--tw-text-opacity:1;color:rgb(217 119 6 / var(--tw-text-opacity, 1))}.text-amber-700{--tw-text-opacity:1;color:rgb(180 83 9 / var(--tw-text-opacity, 1))}.text-amber-800{--tw-text-opacity:1;color:rgb(146 64 14 / var(--tw-text-opacity, 1))}.text-amber-900{--tw-text-opacity:1;color:rgb(120 53 15 / var(--tw-text-opacity, 1))}.text-blue-400{--tw-text-opacity:1;color:rgb(96 165 250 / var(--tw-text-opacity, 1))}.text-blue-800{--tw-text-opacity:1;color:rgb(30 64 175 / var(--tw-text-opacity, 1))}.text-blue-900{--tw-text-opacity:1;color:rgb(30 58 138 / var(--tw-text-opacity, 1))}.text-emerald-800{--tw-text-opacity:1;color:rgb(6 95 70 / var(--tw-text-opacity, 1))}.text-emerald-900{--tw-text-opacity:1;color:rgb(6 78 59 / var(--tw-text-opacity, 1))}.text-purple-800{--tw-text-opacity:1;color:rgb(107 33 168 / var(--tw-text-opacity, 1))}.text-purple-900{--tw-text-opacity:1;color:rgb(88 28 135 / var(--tw-text-opacity, 1))}.text-red-700{--tw-text-opacity:1;color:rgb(185 28 28 / var(--tw-text-opacity, 1))}.text-red-800{--tw-text-opacity:1;color:rgb(153 27 27 / var(--tw-text-opacity, 1))}.text-red-900{--tw-text-opacity:1;color:rgb(127 29 29 / var(--tw-text-opacity, 1))}.text-slate-300{--tw-text-opacity:1;color:rgb(203 213 225 / var(--tw-text-opacity, 1))}.text-slate-400{--tw-text-opacity:1;color:rgb(148 163 184 / var(--tw-text-opacity, 1))}.text-slate-500{--tw-text-opacity:1;color:rgb(100 116 139 / var(--tw-text-opacity, 1))}.text-slate-600{--tw-text-opacity:1;color:rgb(71 85 105 / var(--tw-text-opacity, 1))}.text-slate-700{--tw-text-opacity:1;color:rgb(51 65 85 / var(--tw-text-opacity, 1))}.text-slate-800{--tw-text-opacity:1;color:rgb(30 41 59 / var(--tw-text-opacity, 1))}.text-slate-900{--tw-text-opacity:1;color:rgb(15 23 42 / var(--tw-text-opacity, 1))}.text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.shadow{--tw-shadow:0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-md{--tw-shadow:0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-sm{--tw-shadow:0 1px 2px 0 rgb(0 0 0 / 0.05);--tw-shadow-colored:0 1px 2px 0 var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.transition-all{transition-property:all;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-colors{transition-property:color, background-color, border-color, fill, stroke, -webkit-text-decoration-color;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, -webkit-text-decoration-color;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.selection\:bg-blue-200 *::selection{--tw-bg-opacity:1;background-color:rgb(191 219 254 / var(--tw-bg-opacity, 1))}.selection\:bg-blue-200::selection{--tw-bg-opacity:1;background-color:rgb(191 219 254 / var(--tw-bg-opacity, 1))}.hover\:border-blue-300:hover{--tw-border-opacity:1;border-color:rgb(147 197 253 / var(--tw-border-opacity, 1))}.hover\:border-blue-400:hover{--tw-border-opacity:1;border-color:rgb(96 165 250 / var(--tw-border-opacity, 1))}.hover\:bg-amber-50:hover{--tw-bg-opacity:1;background-color:rgb(255 251 235 / var(--tw-bg-opacity, 1))}.hover\:bg-amber-700:hover{--tw-bg-opacity:1;background-color:rgb(180 83 9 / var(--tw-bg-opacity, 1))}.hover\:bg-blue-100:hover{--tw-bg-opacity:1;background-color:rgb(219 234 254 / var(--tw-bg-opacity, 1))}.hover\:bg-blue-700:hover{--tw-bg-opacity:1;background-color:rgb(29 78 216 / var(--tw-bg-opacity, 1))}.hover\:bg-emerald-700:hover{--tw-bg-opacity:1;background-color:rgb(4 120 87 / var(--tw-bg-opacity, 1))}.hover\:bg-purple-700:hover{--tw-bg-opacity:1;background-color:rgb(126 34 206 / var(--tw-bg-opacity, 1))}.hover\:bg-red-700:hover{--tw-bg-opacity:1;background-color:rgb(185 28 28 / var(--tw-bg-opacity, 1))}.hover\:text-blue-700:hover{--tw-text-opacity:1;color:rgb(29 78 216 / var(--tw-text-opacity, 1))}.peer:checked ~ .peer-checked\:line-through{-webkit-text-decoration-line:line-through;text-decoration-line:line-through}.peer:checked ~ .peer-checked\:opacity-40{opacity:0.4}@media (min-width: 640px){.sm\:mt-0{margin-top:0px}.sm\:w-auto{width:auto}.sm\:flex-row{flex-direction:row}.sm\:items-center{align-items:center}.sm\:self-auto{align-self:auto}}@media (min-width: 768px){.md\:w-auto{width:auto}.md\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.md\:flex-row{flex-direction:row}.md\:items-center{align-items:center}.md\:text-left{text-align:left}}@media (min-width: 1024px){.lg\:grid-cols-4{grid-template-columns:repeat(4, minmax(0, 1fr))}}</style></head>
 <body class="bg-slate-50 text-slate-800 min-h-screen font-sans selection:bg-blue-200">
@@ -35,9 +105,14 @@
                 <h1 class="text-2xl font-bold"><i class="fa-solid fa-plane-arrival mr-2 text-blue-400"></i> Kraków 2026 Trip Dashboard</h1>
                 <p class="text-slate-300 text-sm mt-1">Wed 7 Oct – Sun 11 Oct 2026 | 4 Travelers | Edinburgh (EDI) ↔ Kraków (KRK)</p>
             </div>
-            <div class="bg-slate-800 border border-slate-700 px-4 py-2 rounded-lg text-xs w-full md:w-auto text-center md:text-left">
+            <div class="flex gap-2 w-full md:w-auto">
+            <div class="bg-slate-800 border border-slate-700 px-4 py-2 rounded-lg text-xs flex-1 text-center md:text-left">
                 <p class="font-semibold text-blue-400">Hotel Base:</p>
                 <a href="https://www.google.com/maps/search/?api=1&amp;query=ibis+budget+Krak%C3%B3w+Stare+Miasto%2C+Pawia+11%2C+Krak%C3%B3w&amp;query_place_id=ChIJ6654VhtbFkcRTGSrcd5TU1U" target="_blank" rel="noopener" aria-label="Open ibis budget Kraków Stare Miasto in Google Maps" class="hover:text-blue-400 transition-colors"><i class="fa-solid fa-map-location-dot mr-1"></i> ibis budget Stare Miasto (ul. Pawia 11)</a>
+            </div>
+            <button type="button" id="theme-toggle" onclick="toggleTheme()" aria-label="Switch between light and dark mode" class="bg-slate-800 border border-slate-700 px-4 rounded-lg text-base text-slate-300 flex items-center justify-center">
+                <i class="fa-solid fa-moon"></i>
+            </button>
             </div>
         </div>
     </header>
@@ -450,8 +525,8 @@
                             <h2 class="text-lg font-bold"><i class="fa-solid fa-utensils mr-2"></i> Kraków Food Tracker &amp; Maps</h2>
                             <p class="text-xs text-amber-100">Check off the spots you visit. Your progress saves automatically to this device!</p>
                         </div>
-                        <!-- Using a highly specific Google Maps OR search to display multiple arbitrary pins without directions -->
-                        <a href="https://www.google.com/maps/search/Dobra+P%C4%85czkarnia+Krakow+OR+Bar+Uniwersytecki+Krakow+OR+Starka+Krakow+OR+Krakowski+Kumpir+Grzeg%C3%B3rzecka+Krakow+OR+Alchemia+Krakow+OR+Kie%C5%82baski+Niebieskiej+Nyski+Krakow" target="_blank" class="bg-white text-amber-800 px-4 py-2 rounded-lg text-xs font-bold hover:bg-amber-50 flex items-center gap-2 shadow">
+                        <!-- Google Maps OR search with each place quoted so no pin is dropped; includes the booked in-city activities (Schindler's, Nowa Huta) -->
+                        <a href="https://www.google.com/maps/search/%22Dobra+P%C4%85czkarnia+Krak%C3%B3w%22+OR+%22Bar+Uniwersytecki+Krak%C3%B3w%22+OR+%22Starka+Krak%C3%B3w%22+OR+%22Krakowski+Kumpir%22+OR+%22Alchemia+Krak%C3%B3w%22+OR+%22Kie%C5%82baski+z+Niebieskiej+Nyski%22+OR+%22Oskar+Schindler%27s+Enamel+Factory%22+OR+%22Plac+Centralny+Nowa+Huta+Krak%C3%B3w%22" target="_blank" class="bg-white text-amber-800 px-4 py-2 rounded-lg text-xs font-bold hover:bg-amber-50 flex items-center gap-2 shadow">
                             <i class="fa-solid fa-map-location-dot text-sm"></i> Open All Pins Map
                         </a>
                     </div>
@@ -1321,6 +1396,14 @@
                 const btn = document.getElementById('btn-' + tabId);
                 if(btn) btn.classList.add('active');
 
+                // Keep the active tab visible in the scrolling tab bar (phones only fit 3-4 tabs)
+                if(btn) btn.scrollIntoView({ block: 'nearest', inline: 'center' });
+
+                // If the page was scrolled down, start the new tab from its top
+                const nav = document.querySelector('.sticky');
+                const mainTop = document.querySelector('main').offsetTop - nav.offsetHeight;
+                if (window.scrollY > mainTop) window.scrollTo(0, mainTop);
+
                 // Update URL hash WITHOUT jumping/scrolling
                 history.replaceState(null, null, '#' + tabId);
             }
@@ -1330,14 +1413,37 @@
             document.getElementById('sights-done').textContent = document.querySelectorAll('.sight-checkbox:checked').length;
         }
 
+        // Light / dark mode: follows the device until the toggle is used, then remembers the choice
+        function updateThemeIcon() {
+            const dark = document.documentElement.classList.contains('dark');
+            document.querySelector('#theme-toggle i').className = dark ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
+        }
+        function toggleTheme() {
+            const dark = document.documentElement.classList.toggle('dark');
+            try { localStorage.setItem('theme', dark ? 'dark' : 'light'); } catch (e) {}
+            updateThemeIcon();
+        }
+
+        // Day tab matching today's date during the trip, otherwise Day 1
+        function todaysTab() {
+            const now = new Date();
+            if (now.getFullYear() === 2026 && now.getMonth() === 9) {
+                const day = now.getDate() - 6; // 7 Oct = day 1
+                if (day >= 1 && day <= 5) return 'day' + day;
+            }
+            return 'day1';
+        }
+
         // Initialize state on page load
         document.addEventListener('DOMContentLoaded', () => {
+            updateThemeIcon();
+
             // 1. Tab Routing Logic
             let hash = window.location.hash.substring(1);
             if (validTabs.includes(hash)) {
                 showTab(hash);
             } else {
-                showTab('day1'); // Default fallback
+                showTab(todaysTab()); // Default: today's day during the trip
             }
 
             // 2. Local Storage Checkbox Logic
