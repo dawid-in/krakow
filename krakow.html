@@ -819,16 +819,16 @@
                 </div>
                 <div class="flex flex-wrap items-center gap-3">
                     <p class="text-xs font-bold whitespace-nowrap"><i class="fa-solid fa-circle-check mr-1"></i> Seen <span id="sights-done">0</span> of <span id="sights-total">27</span></p>
-                    <!-- Same Google Maps OR search as the Food tab; the two day trips are left out so the city stays in view -->
-                    <a href="https://www.google.com/maps/search/Rynek+G%C5%82%C3%B3wny+Krak%C3%B3w+OR+St+Mary%27s+Basilica+Krak%C3%B3w+OR+Sukiennice+Krak%C3%B3w+OR+Rynek+Underground+Museum+Krak%C3%B3w+OR+Town+Hall+Tower+Krak%C3%B3w+OR+Barbakan+Krak%C3%B3w+OR+Planty+Park+Krak%C3%B3w+OR+Collegium+Maius+Krak%C3%B3w+OR+Czartoryski+Museum+Krak%C3%B3w+OR+Basilica+of+St+Francis+of+Assisi+Krak%C3%B3w+OR+Saints+Peter+and+Paul+Church+Krak%C3%B3w+OR+Wawel+Royal+Castle+OR+Wawel+Cathedral+OR+Wawel+Dragon+Statue+OR+Old+Synagogue+Krak%C3%B3w+OR+Remuh+Synagogue+Krak%C3%B3w+OR+Plac+Nowy+Krak%C3%B3w+OR+Schindlers+List+Passage+J%C3%B3zefa+12+Krak%C3%B3w+OR+K%C5%82adka+Ojca+Bernatka+Krak%C3%B3w+OR+Plac+Bohater%C3%B3w+Getta+Krak%C3%B3w+OR+Oskar+Schindler%27s+Enamel+Factory+OR+MOCAK+Museum+of+Contemporary+Art+Krak%C3%B3w+OR+Kopiec+Krakusa+OR+Plac+Centralny+Nowa+Huta+Krak%C3%B3w+OR+Kopiec+Ko%C5%9Bciuszki+Krak%C3%B3w" target="_blank" rel="noopener" class="bg-white text-emerald-800 px-4 py-2 rounded-lg text-xs font-bold hover:bg-emerald-100 flex items-center gap-2 shadow">
-                        <i class="fa-solid fa-map-location-dot text-sm"></i> Open All Pins Map
-                    </a>
                 </div>
             </div>
 
             <div class="space-y-3 pt-2">
-                <h3 class="text-lg font-bold text-slate-800 border-b pb-2 flex items-center gap-2">
-                    <i class="fa-solid fa-chess-rook text-emerald-600"></i> Old Town
+                <h3 class="text-lg font-bold text-slate-800 border-b pb-2 flex items-center justify-between gap-2">
+                    <span class="flex items-center gap-2"><i class="fa-solid fa-chess-rook text-emerald-600"></i> Old Town</span>
+                    <!-- Google Maps OR search limited to this area, so no pins get dropped -->
+                    <a href="https://www.google.com/maps/search/Rynek+G%C5%82%C3%B3wny+Krak%C3%B3w+OR+St+Mary%27s+Basilica+Krak%C3%B3w+OR+Sukiennice+Krak%C3%B3w+OR+Rynek+Underground+Museum+Krak%C3%B3w+OR+Town+Hall+Tower+Krak%C3%B3w+OR+Barbakan+Krak%C3%B3w+OR+Planty+Park+Krak%C3%B3w+OR+Collegium+Maius+Krak%C3%B3w+OR+Czartoryski+Museum+Krak%C3%B3w+OR+Basilica+of+St+Francis+of+Assisi+Krak%C3%B3w+OR+Saints+Peter+and+Paul+Church+Krak%C3%B3w" target="_blank" rel="noopener" class="text-xs font-medium bg-emerald-600 hover:bg-emerald-700 text-white px-3 py-1 rounded shadow-sm flex items-center gap-1 transition-colors whitespace-nowrap">
+                        <i class="fa-solid fa-map-location-dot"></i> Area Map
+                    </a>
                 </h3>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
                     <label class="bg-white p-4 rounded-lg shadow-sm border flex flex-col justify-between hover:border-blue-400 transition-colors cursor-pointer group relative overflow-hidden">
@@ -1000,8 +1000,12 @@
             </div>
 
             <div class="space-y-3 pt-2">
-                <h3 class="text-lg font-bold text-slate-800 border-b pb-2 flex items-center gap-2">
-                    <i class="fa-solid fa-crown text-emerald-600"></i> Wawel Hill
+                <h3 class="text-lg font-bold text-slate-800 border-b pb-2 flex items-center justify-between gap-2">
+                    <span class="flex items-center gap-2"><i class="fa-solid fa-crown text-emerald-600"></i> Wawel Hill</span>
+                    <!-- Google Maps OR search limited to this area, so no pins get dropped -->
+                    <a href="https://www.google.com/maps/search/Wawel+Royal+Castle+OR+Wawel+Cathedral+OR+Wawel+Dragon+Statue" target="_blank" rel="noopener" class="text-xs font-medium bg-emerald-600 hover:bg-emerald-700 text-white px-3 py-1 rounded shadow-sm flex items-center gap-1 transition-colors whitespace-nowrap">
+                        <i class="fa-solid fa-map-location-dot"></i> Area Map
+                    </a>
                 </h3>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
                     <label class="bg-white p-4 rounded-lg shadow-sm border flex flex-col justify-between hover:border-blue-400 transition-colors cursor-pointer group relative overflow-hidden border-l-4 border-l-emerald-500">
@@ -1053,8 +1057,12 @@
             </div>
 
             <div class="space-y-3 pt-2">
-                <h3 class="text-lg font-bold text-slate-800 border-b pb-2 flex items-center gap-2">
-                    <i class="fa-solid fa-star-of-david text-emerald-600"></i> Kazimierz
+                <h3 class="text-lg font-bold text-slate-800 border-b pb-2 flex items-center justify-between gap-2">
+                    <span class="flex items-center gap-2"><i class="fa-solid fa-star-of-david text-emerald-600"></i> Kazimierz</span>
+                    <!-- Google Maps OR search limited to this area, so no pins get dropped -->
+                    <a href="https://www.google.com/maps/search/Old+Synagogue+Krak%C3%B3w+OR+Remuh+Synagogue+Krak%C3%B3w+OR+Plac+Nowy+Krak%C3%B3w+OR+Schindlers+List+Passage+J%C3%B3zefa+12+Krak%C3%B3w+OR+K%C5%82adka+Ojca+Bernatka+Krak%C3%B3w" target="_blank" rel="noopener" class="text-xs font-medium bg-emerald-600 hover:bg-emerald-700 text-white px-3 py-1 rounded shadow-sm flex items-center gap-1 transition-colors whitespace-nowrap">
+                        <i class="fa-solid fa-map-location-dot"></i> Area Map
+                    </a>
                 </h3>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
                     <label class="bg-white p-4 rounded-lg shadow-sm border flex flex-col justify-between hover:border-blue-400 transition-colors cursor-pointer group relative overflow-hidden">
@@ -1136,8 +1144,12 @@
             </div>
 
             <div class="space-y-3 pt-2">
-                <h3 class="text-lg font-bold text-slate-800 border-b pb-2 flex items-center gap-2">
-                    <i class="fa-solid fa-industry text-emerald-600"></i> Podgórze
+                <h3 class="text-lg font-bold text-slate-800 border-b pb-2 flex items-center justify-between gap-2">
+                    <span class="flex items-center gap-2"><i class="fa-solid fa-industry text-emerald-600"></i> Podgórze</span>
+                    <!-- Google Maps OR search limited to this area, so no pins get dropped -->
+                    <a href="https://www.google.com/maps/search/Plac+Bohater%C3%B3w+Getta+Krak%C3%B3w+OR+Oskar+Schindler%27s+Enamel+Factory+OR+MOCAK+Museum+of+Contemporary+Art+Krak%C3%B3w+OR+Kopiec+Krakusa" target="_blank" rel="noopener" class="text-xs font-medium bg-emerald-600 hover:bg-emerald-700 text-white px-3 py-1 rounded shadow-sm flex items-center gap-1 transition-colors whitespace-nowrap">
+                        <i class="fa-solid fa-map-location-dot"></i> Area Map
+                    </a>
                 </h3>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
                     <label class="bg-white p-4 rounded-lg shadow-sm border flex flex-col justify-between hover:border-blue-400 transition-colors cursor-pointer group relative overflow-hidden">
@@ -1204,8 +1216,12 @@
             </div>
 
             <div class="space-y-3 pt-2">
-                <h3 class="text-lg font-bold text-slate-800 border-b pb-2 flex items-center gap-2">
-                    <i class="fa-solid fa-train text-emerald-600"></i> Further Out &amp; Day Trips
+                <h3 class="text-lg font-bold text-slate-800 border-b pb-2 flex items-center justify-between gap-2">
+                    <span class="flex items-center gap-2"><i class="fa-solid fa-train text-emerald-600"></i> Further Out &amp; Day Trips</span>
+                    <!-- Google Maps OR search limited to this area, so no pins get dropped -->
+                    <a href="https://www.google.com/maps/search/Plac+Centralny+Nowa+Huta+Krak%C3%B3w+OR+Kopiec+Ko%C5%9Bciuszki+Krak%C3%B3w+OR+Wieliczka+Salt+Mine+Dani%C5%82owicz+Shaft+OR+Auschwitz-Birkenau+Memorial+and+Museum" target="_blank" rel="noopener" class="text-xs font-medium bg-emerald-600 hover:bg-emerald-700 text-white px-3 py-1 rounded shadow-sm flex items-center gap-1 transition-colors whitespace-nowrap">
+                        <i class="fa-solid fa-map-location-dot"></i> Area Map
+                    </a>
                 </h3>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
                     <label class="bg-white p-4 rounded-lg shadow-sm border flex flex-col justify-between hover:border-blue-400 transition-colors cursor-pointer group relative overflow-hidden border-l-4 border-l-emerald-500">
