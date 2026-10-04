@@ -817,27 +817,11 @@
                     <h2 class="text-lg font-bold"><i class="fa-solid fa-landmark mr-2"></i> Kraków Sights Tracker &amp; Map</h2>
                     <p class="text-xs text-emerald-100">Tick sights off as you see them. Your progress saves automatically to this device!</p>
                 </div>
-                <div class="bg-white text-emerald-800 px-4 py-2 rounded-lg text-xs font-bold shadow whitespace-nowrap">
-                    <i class="fa-solid fa-circle-check mr-1"></i> Seen <span id="sights-done">0</span> of <span id="sights-total">27</span>
-                </div>
-            </div>
-
-            <!-- Map: same Google Maps OR search trick as the Food tab, embedded so every pin shows at once -->
-            <div class="bg-white rounded-lg shadow p-4 space-y-3">
-                <div class="flex flex-wrap gap-2">
-                    <button type="button" onclick="setSightFilter('all')" data-filter="all" class="sight-filter px-3 py-1 rounded border border-emerald-300 text-xs font-semibold whitespace-nowrap transition-colors">All in Kraków</button>
-                    <button type="button" onclick="setSightFilter('old')" data-filter="old" class="sight-filter px-3 py-1 rounded border border-emerald-300 text-xs font-semibold whitespace-nowrap transition-colors">Old Town</button>
-                    <button type="button" onclick="setSightFilter('wawel')" data-filter="wawel" class="sight-filter px-3 py-1 rounded border border-emerald-300 text-xs font-semibold whitespace-nowrap transition-colors">Wawel Hill</button>
-                    <button type="button" onclick="setSightFilter('kaz')" data-filter="kaz" class="sight-filter px-3 py-1 rounded border border-emerald-300 text-xs font-semibold whitespace-nowrap transition-colors">Kazimierz</button>
-                    <button type="button" onclick="setSightFilter('pod')" data-filter="pod" class="sight-filter px-3 py-1 rounded border border-emerald-300 text-xs font-semibold whitespace-nowrap transition-colors">Podgórze</button>
-                    <button type="button" onclick="setSightFilter('out')" data-filter="out" class="sight-filter px-3 py-1 rounded border border-emerald-300 text-xs font-semibold whitespace-nowrap transition-colors">Further out</button>
-                    <button type="button" onclick="setSightFilter('todo')" data-filter="todo" class="sight-filter px-3 py-1 rounded border border-emerald-300 text-xs font-semibold whitespace-nowrap transition-colors">Still to see</button>
-                </div>
-                <iframe id="sights-map" title="Map of Kraków sights" class="w-full rounded-lg border border-slate-200" style="height: 26rem;" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
-                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-                    <p class="text-xs text-slate-500">Pins follow the filter above. "All in Kraków" leaves out the two day trips (Wieliczka, Auschwitz) so the city stays in view. If Google drops a pin, narrow to one area.</p>
-                    <a id="sights-map-link" href="#" target="_blank" rel="noopener" class="bg-emerald-600 text-white px-3 py-2 rounded text-xs hover:bg-emerald-700 flex items-center gap-1 font-medium shadow-sm transition-colors whitespace-nowrap justify-center">
-                        <i class="fa-solid fa-map-location-dot"></i> Open these pins in Google Maps
+                <div class="flex flex-wrap items-center gap-3">
+                    <p class="text-xs font-bold whitespace-nowrap"><i class="fa-solid fa-circle-check mr-1"></i> Seen <span id="sights-done">0</span> of <span id="sights-total">27</span></p>
+                    <!-- Same Google Maps OR search as the Food tab; the two day trips are left out so the city stays in view -->
+                    <a href="https://www.google.com/maps/search/Rynek+G%C5%82%C3%B3wny+Krak%C3%B3w+OR+St+Mary%27s+Basilica+Krak%C3%B3w+OR+Sukiennice+Krak%C3%B3w+OR+Rynek+Underground+Museum+Krak%C3%B3w+OR+Town+Hall+Tower+Krak%C3%B3w+OR+Barbakan+Krak%C3%B3w+OR+Planty+Park+Krak%C3%B3w+OR+Collegium+Maius+Krak%C3%B3w+OR+Czartoryski+Museum+Krak%C3%B3w+OR+Basilica+of+St+Francis+of+Assisi+Krak%C3%B3w+OR+Saints+Peter+and+Paul+Church+Krak%C3%B3w+OR+Wawel+Royal+Castle+OR+Wawel+Cathedral+OR+Wawel+Dragon+Statue+OR+Old+Synagogue+Krak%C3%B3w+OR+Remuh+Synagogue+Krak%C3%B3w+OR+Plac+Nowy+Krak%C3%B3w+OR+Schindlers+List+Passage+J%C3%B3zefa+12+Krak%C3%B3w+OR+K%C5%82adka+Ojca+Bernatka+Krak%C3%B3w+OR+Plac+Bohater%C3%B3w+Getta+Krak%C3%B3w+OR+Oskar+Schindler%27s+Enamel+Factory+OR+MOCAK+Museum+of+Contemporary+Art+Krak%C3%B3w+OR+Kopiec+Krakusa+OR+Plac+Centralny+Nowa+Huta+Krak%C3%B3w+OR+Kopiec+Ko%C5%9Bciuszki+Krak%C3%B3w" target="_blank" rel="noopener" class="bg-white text-emerald-800 px-4 py-2 rounded-lg text-xs font-bold hover:bg-emerald-100 flex items-center gap-2 shadow">
+                        <i class="fa-solid fa-map-location-dot text-sm"></i> Open All Pins Map
                     </a>
                 </div>
             </div>
@@ -849,7 +833,7 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
                     <label class="bg-white p-4 rounded-lg shadow-sm border flex flex-col justify-between hover:border-blue-400 transition-colors cursor-pointer group relative overflow-hidden">
                         <div class="flex items-start gap-3 z-10 relative">
-                            <input type="checkbox" id="sight-rynek" class="sight-checkbox peer mt-1" data-area="old" data-q="Rynek Główny Kraków">
+                            <input type="checkbox" id="sight-rynek" class="sight-checkbox peer mt-1">
                             <div class="peer-checked:opacity-40 peer-checked:line-through transition-all flex-1">
                                 <div class="flex justify-between items-start gap-2">
                                     <p class="font-bold text-slate-900 text-base">Rynek Główny (Main Market Square)</p>
@@ -864,7 +848,7 @@
                     </label>
                     <label class="bg-white p-4 rounded-lg shadow-sm border flex flex-col justify-between hover:border-blue-400 transition-colors cursor-pointer group relative overflow-hidden border-l-4 border-l-emerald-500">
                         <div class="flex items-start gap-3 z-10 relative">
-                            <input type="checkbox" id="sight-mariacki" class="sight-checkbox peer mt-1" data-area="old" data-q="St Mary&#x27;s Basilica Kraków">
+                            <input type="checkbox" id="sight-mariacki" class="sight-checkbox peer mt-1">
                             <div class="peer-checked:opacity-40 peer-checked:line-through transition-all flex-1">
                                 <div class="flex justify-between items-start gap-2">
                                     <p class="font-bold text-slate-900 text-base">St Mary's Basilica</p>
@@ -879,7 +863,7 @@
                     </label>
                     <label class="bg-white p-4 rounded-lg shadow-sm border flex flex-col justify-between hover:border-blue-400 transition-colors cursor-pointer group relative overflow-hidden">
                         <div class="flex items-start gap-3 z-10 relative">
-                            <input type="checkbox" id="sight-sukiennice" class="sight-checkbox peer mt-1" data-area="old" data-q="Sukiennice Kraków">
+                            <input type="checkbox" id="sight-sukiennice" class="sight-checkbox peer mt-1">
                             <div class="peer-checked:opacity-40 peer-checked:line-through transition-all flex-1">
                                 <div class="flex justify-between items-start gap-2">
                                     <p class="font-bold text-slate-900 text-base">Sukiennice (Cloth Hall)</p>
@@ -894,7 +878,7 @@
                     </label>
                     <label class="bg-white p-4 rounded-lg shadow-sm border flex flex-col justify-between hover:border-blue-400 transition-colors cursor-pointer group relative overflow-hidden">
                         <div class="flex items-start gap-3 z-10 relative">
-                            <input type="checkbox" id="sight-podziemia" class="sight-checkbox peer mt-1" data-area="old" data-q="Rynek Underground Museum Kraków">
+                            <input type="checkbox" id="sight-podziemia" class="sight-checkbox peer mt-1">
                             <div class="peer-checked:opacity-40 peer-checked:line-through transition-all flex-1">
                                 <div class="flex justify-between items-start gap-2">
                                     <p class="font-bold text-slate-900 text-base">Rynek Underground</p>
@@ -909,7 +893,7 @@
                     </label>
                     <label class="bg-white p-4 rounded-lg shadow-sm border flex flex-col justify-between hover:border-blue-400 transition-colors cursor-pointer group relative overflow-hidden">
                         <div class="flex items-start gap-3 z-10 relative">
-                            <input type="checkbox" id="sight-wieza" class="sight-checkbox peer mt-1" data-area="old" data-q="Town Hall Tower Kraków">
+                            <input type="checkbox" id="sight-wieza" class="sight-checkbox peer mt-1">
                             <div class="peer-checked:opacity-40 peer-checked:line-through transition-all flex-1">
                                 <div class="flex justify-between items-start gap-2">
                                     <p class="font-bold text-slate-900 text-base">Town Hall Tower</p>
@@ -924,7 +908,7 @@
                     </label>
                     <label class="bg-white p-4 rounded-lg shadow-sm border flex flex-col justify-between hover:border-blue-400 transition-colors cursor-pointer group relative overflow-hidden">
                         <div class="flex items-start gap-3 z-10 relative">
-                            <input type="checkbox" id="sight-barbakan" class="sight-checkbox peer mt-1" data-area="old" data-q="Barbakan Kraków">
+                            <input type="checkbox" id="sight-barbakan" class="sight-checkbox peer mt-1">
                             <div class="peer-checked:opacity-40 peer-checked:line-through transition-all flex-1">
                                 <div class="flex justify-between items-start gap-2">
                                     <p class="font-bold text-slate-900 text-base">St Florian's Gate &amp; Barbican</p>
@@ -939,7 +923,7 @@
                     </label>
                     <label class="bg-white p-4 rounded-lg shadow-sm border flex flex-col justify-between hover:border-blue-400 transition-colors cursor-pointer group relative overflow-hidden">
                         <div class="flex items-start gap-3 z-10 relative">
-                            <input type="checkbox" id="sight-planty" class="sight-checkbox peer mt-1" data-area="old" data-q="Planty Park Kraków">
+                            <input type="checkbox" id="sight-planty" class="sight-checkbox peer mt-1">
                             <div class="peer-checked:opacity-40 peer-checked:line-through transition-all flex-1">
                                 <div class="flex justify-between items-start gap-2">
                                     <p class="font-bold text-slate-900 text-base">Planty Park</p>
@@ -954,7 +938,7 @@
                     </label>
                     <label class="bg-white p-4 rounded-lg shadow-sm border flex flex-col justify-between hover:border-blue-400 transition-colors cursor-pointer group relative overflow-hidden">
                         <div class="flex items-start gap-3 z-10 relative">
-                            <input type="checkbox" id="sight-maius" class="sight-checkbox peer mt-1" data-area="old" data-q="Collegium Maius Kraków">
+                            <input type="checkbox" id="sight-maius" class="sight-checkbox peer mt-1">
                             <div class="peer-checked:opacity-40 peer-checked:line-through transition-all flex-1">
                                 <div class="flex justify-between items-start gap-2">
                                     <p class="font-bold text-slate-900 text-base">Collegium Maius</p>
@@ -969,7 +953,7 @@
                     </label>
                     <label class="bg-white p-4 rounded-lg shadow-sm border flex flex-col justify-between hover:border-blue-400 transition-colors cursor-pointer group relative overflow-hidden">
                         <div class="flex items-start gap-3 z-10 relative">
-                            <input type="checkbox" id="sight-czartoryski" class="sight-checkbox peer mt-1" data-area="old" data-q="Czartoryski Museum Kraków">
+                            <input type="checkbox" id="sight-czartoryski" class="sight-checkbox peer mt-1">
                             <div class="peer-checked:opacity-40 peer-checked:line-through transition-all flex-1">
                                 <div class="flex justify-between items-start gap-2">
                                     <p class="font-bold text-slate-900 text-base">Czartoryski Museum</p>
@@ -984,7 +968,7 @@
                     </label>
                     <label class="bg-white p-4 rounded-lg shadow-sm border flex flex-col justify-between hover:border-blue-400 transition-colors cursor-pointer group relative overflow-hidden">
                         <div class="flex items-start gap-3 z-10 relative">
-                            <input type="checkbox" id="sight-franciszkanie" class="sight-checkbox peer mt-1" data-area="old" data-q="Basilica of St Francis of Assisi Kraków">
+                            <input type="checkbox" id="sight-franciszkanie" class="sight-checkbox peer mt-1">
                             <div class="peer-checked:opacity-40 peer-checked:line-through transition-all flex-1">
                                 <div class="flex justify-between items-start gap-2">
                                     <p class="font-bold text-slate-900 text-base">St Francis' Basilica</p>
@@ -999,7 +983,7 @@
                     </label>
                     <label class="bg-white p-4 rounded-lg shadow-sm border flex flex-col justify-between hover:border-blue-400 transition-colors cursor-pointer group relative overflow-hidden">
                         <div class="flex items-start gap-3 z-10 relative">
-                            <input type="checkbox" id="sight-grodzka" class="sight-checkbox peer mt-1" data-area="old" data-q="Saints Peter and Paul Church Kraków">
+                            <input type="checkbox" id="sight-grodzka" class="sight-checkbox peer mt-1">
                             <div class="peer-checked:opacity-40 peer-checked:line-through transition-all flex-1">
                                 <div class="flex justify-between items-start gap-2">
                                     <p class="font-bold text-slate-900 text-base">Grodzka &amp; Sts Peter and Paul Church</p>
@@ -1022,7 +1006,7 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
                     <label class="bg-white p-4 rounded-lg shadow-sm border flex flex-col justify-between hover:border-blue-400 transition-colors cursor-pointer group relative overflow-hidden border-l-4 border-l-emerald-500">
                         <div class="flex items-start gap-3 z-10 relative">
-                            <input type="checkbox" id="sight-zamek" class="sight-checkbox peer mt-1" data-area="wawel" data-q="Wawel Royal Castle">
+                            <input type="checkbox" id="sight-zamek" class="sight-checkbox peer mt-1">
                             <div class="peer-checked:opacity-40 peer-checked:line-through transition-all flex-1">
                                 <div class="flex justify-between items-start gap-2">
                                     <p class="font-bold text-slate-900 text-base">Wawel Royal Castle</p>
@@ -1037,7 +1021,7 @@
                     </label>
                     <label class="bg-white p-4 rounded-lg shadow-sm border flex flex-col justify-between hover:border-blue-400 transition-colors cursor-pointer group relative overflow-hidden border-l-4 border-l-emerald-500">
                         <div class="flex items-start gap-3 z-10 relative">
-                            <input type="checkbox" id="sight-katedra" class="sight-checkbox peer mt-1" data-area="wawel" data-q="Wawel Cathedral">
+                            <input type="checkbox" id="sight-katedra" class="sight-checkbox peer mt-1">
                             <div class="peer-checked:opacity-40 peer-checked:line-through transition-all flex-1">
                                 <div class="flex justify-between items-start gap-2">
                                     <p class="font-bold text-slate-900 text-base">Wawel Cathedral</p>
@@ -1052,7 +1036,7 @@
                     </label>
                     <label class="bg-white p-4 rounded-lg shadow-sm border flex flex-col justify-between hover:border-blue-400 transition-colors cursor-pointer group relative overflow-hidden">
                         <div class="flex items-start gap-3 z-10 relative">
-                            <input type="checkbox" id="sight-smok" class="sight-checkbox peer mt-1" data-area="wawel" data-q="Wawel Dragon Statue">
+                            <input type="checkbox" id="sight-smok" class="sight-checkbox peer mt-1">
                             <div class="peer-checked:opacity-40 peer-checked:line-through transition-all flex-1">
                                 <div class="flex justify-between items-start gap-2">
                                     <p class="font-bold text-slate-900 text-base">Wawel Dragon &amp; Dragon's Den</p>
@@ -1075,7 +1059,7 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
                     <label class="bg-white p-4 rounded-lg shadow-sm border flex flex-col justify-between hover:border-blue-400 transition-colors cursor-pointer group relative overflow-hidden">
                         <div class="flex items-start gap-3 z-10 relative">
-                            <input type="checkbox" id="sight-szeroka" class="sight-checkbox peer mt-1" data-area="kaz" data-q="Old Synagogue Kraków">
+                            <input type="checkbox" id="sight-szeroka" class="sight-checkbox peer mt-1">
                             <div class="peer-checked:opacity-40 peer-checked:line-through transition-all flex-1">
                                 <div class="flex justify-between items-start gap-2">
                                     <p class="font-bold text-slate-900 text-base">Szeroka Street &amp; Old Synagogue</p>
@@ -1090,7 +1074,7 @@
                     </label>
                     <label class="bg-white p-4 rounded-lg shadow-sm border flex flex-col justify-between hover:border-blue-400 transition-colors cursor-pointer group relative overflow-hidden">
                         <div class="flex items-start gap-3 z-10 relative">
-                            <input type="checkbox" id="sight-remuh" class="sight-checkbox peer mt-1" data-area="kaz" data-q="Remuh Synagogue Kraków">
+                            <input type="checkbox" id="sight-remuh" class="sight-checkbox peer mt-1">
                             <div class="peer-checked:opacity-40 peer-checked:line-through transition-all flex-1">
                                 <div class="flex justify-between items-start gap-2">
                                     <p class="font-bold text-slate-900 text-base">Remuh Synagogue &amp; Cemetery</p>
@@ -1105,7 +1089,7 @@
                     </label>
                     <label class="bg-white p-4 rounded-lg shadow-sm border flex flex-col justify-between hover:border-blue-400 transition-colors cursor-pointer group relative overflow-hidden border-l-4 border-l-emerald-500">
                         <div class="flex items-start gap-3 z-10 relative">
-                            <input type="checkbox" id="sight-placnowy" class="sight-checkbox peer mt-1" data-area="kaz" data-q="Plac Nowy Kraków">
+                            <input type="checkbox" id="sight-placnowy" class="sight-checkbox peer mt-1">
                             <div class="peer-checked:opacity-40 peer-checked:line-through transition-all flex-1">
                                 <div class="flex justify-between items-start gap-2">
                                     <p class="font-bold text-slate-900 text-base">Plac Nowy</p>
@@ -1120,7 +1104,7 @@
                     </label>
                     <label class="bg-white p-4 rounded-lg shadow-sm border flex flex-col justify-between hover:border-blue-400 transition-colors cursor-pointer group relative overflow-hidden">
                         <div class="flex items-start gap-3 z-10 relative">
-                            <input type="checkbox" id="sight-pasaz" class="sight-checkbox peer mt-1" data-area="kaz" data-q="Schindlers List Passage Józefa 12 Kraków">
+                            <input type="checkbox" id="sight-pasaz" class="sight-checkbox peer mt-1">
                             <div class="peer-checked:opacity-40 peer-checked:line-through transition-all flex-1">
                                 <div class="flex justify-between items-start gap-2">
                                     <p class="font-bold text-slate-900 text-base">Schindler's List Passage</p>
@@ -1135,7 +1119,7 @@
                     </label>
                     <label class="bg-white p-4 rounded-lg shadow-sm border flex flex-col justify-between hover:border-blue-400 transition-colors cursor-pointer group relative overflow-hidden">
                         <div class="flex items-start gap-3 z-10 relative">
-                            <input type="checkbox" id="sight-kladka" class="sight-checkbox peer mt-1" data-area="kaz" data-q="Kładka Ojca Bernatka Kraków">
+                            <input type="checkbox" id="sight-kladka" class="sight-checkbox peer mt-1">
                             <div class="peer-checked:opacity-40 peer-checked:line-through transition-all flex-1">
                                 <div class="flex justify-between items-start gap-2">
                                     <p class="font-bold text-slate-900 text-base">Father Bernatek Footbridge</p>
@@ -1158,7 +1142,7 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
                     <label class="bg-white p-4 rounded-lg shadow-sm border flex flex-col justify-between hover:border-blue-400 transition-colors cursor-pointer group relative overflow-hidden">
                         <div class="flex items-start gap-3 z-10 relative">
-                            <input type="checkbox" id="sight-getto" class="sight-checkbox peer mt-1" data-area="pod" data-q="Plac Bohaterów Getta Kraków">
+                            <input type="checkbox" id="sight-getto" class="sight-checkbox peer mt-1">
                             <div class="peer-checked:opacity-40 peer-checked:line-through transition-all flex-1">
                                 <div class="flex justify-between items-start gap-2">
                                     <p class="font-bold text-slate-900 text-base">Ghetto Heroes Square</p>
@@ -1173,7 +1157,7 @@
                     </label>
                     <label class="bg-white p-4 rounded-lg shadow-sm border flex flex-col justify-between hover:border-blue-400 transition-colors cursor-pointer group relative overflow-hidden border-l-4 border-l-emerald-500">
                         <div class="flex items-start gap-3 z-10 relative">
-                            <input type="checkbox" id="sight-schindler" class="sight-checkbox peer mt-1" data-area="pod" data-q="Oskar Schindler&#x27;s Enamel Factory">
+                            <input type="checkbox" id="sight-schindler" class="sight-checkbox peer mt-1">
                             <div class="peer-checked:opacity-40 peer-checked:line-through transition-all flex-1">
                                 <div class="flex justify-between items-start gap-2">
                                     <p class="font-bold text-slate-900 text-base">Oskar Schindler's Enamel Factory</p>
@@ -1188,7 +1172,7 @@
                     </label>
                     <label class="bg-white p-4 rounded-lg shadow-sm border flex flex-col justify-between hover:border-blue-400 transition-colors cursor-pointer group relative overflow-hidden">
                         <div class="flex items-start gap-3 z-10 relative">
-                            <input type="checkbox" id="sight-mocak" class="sight-checkbox peer mt-1" data-area="pod" data-q="MOCAK Museum of Contemporary Art Kraków">
+                            <input type="checkbox" id="sight-mocak" class="sight-checkbox peer mt-1">
                             <div class="peer-checked:opacity-40 peer-checked:line-through transition-all flex-1">
                                 <div class="flex justify-between items-start gap-2">
                                     <p class="font-bold text-slate-900 text-base">MOCAK</p>
@@ -1203,7 +1187,7 @@
                     </label>
                     <label class="bg-white p-4 rounded-lg shadow-sm border flex flex-col justify-between hover:border-blue-400 transition-colors cursor-pointer group relative overflow-hidden">
                         <div class="flex items-start gap-3 z-10 relative">
-                            <input type="checkbox" id="sight-krakus" class="sight-checkbox peer mt-1" data-area="pod" data-q="Kopiec Krakusa">
+                            <input type="checkbox" id="sight-krakus" class="sight-checkbox peer mt-1">
                             <div class="peer-checked:opacity-40 peer-checked:line-through transition-all flex-1">
                                 <div class="flex justify-between items-start gap-2">
                                     <p class="font-bold text-slate-900 text-base">Krakus Mound</p>
@@ -1226,7 +1210,7 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
                     <label class="bg-white p-4 rounded-lg shadow-sm border flex flex-col justify-between hover:border-blue-400 transition-colors cursor-pointer group relative overflow-hidden border-l-4 border-l-emerald-500">
                         <div class="flex items-start gap-3 z-10 relative">
-                            <input type="checkbox" id="sight-nowahuta" class="sight-checkbox peer mt-1" data-area="out" data-q="Plac Centralny Nowa Huta Kraków">
+                            <input type="checkbox" id="sight-nowahuta" class="sight-checkbox peer mt-1">
                             <div class="peer-checked:opacity-40 peer-checked:line-through transition-all flex-1">
                                 <div class="flex justify-between items-start gap-2">
                                     <p class="font-bold text-slate-900 text-base">Nowa Huta</p>
@@ -1241,7 +1225,7 @@
                     </label>
                     <label class="bg-white p-4 rounded-lg shadow-sm border flex flex-col justify-between hover:border-blue-400 transition-colors cursor-pointer group relative overflow-hidden">
                         <div class="flex items-start gap-3 z-10 relative">
-                            <input type="checkbox" id="sight-kosciuszko" class="sight-checkbox peer mt-1" data-area="out" data-q="Kopiec Kościuszki Kraków">
+                            <input type="checkbox" id="sight-kosciuszko" class="sight-checkbox peer mt-1">
                             <div class="peer-checked:opacity-40 peer-checked:line-through transition-all flex-1">
                                 <div class="flex justify-between items-start gap-2">
                                     <p class="font-bold text-slate-900 text-base">Kościuszko Mound</p>
@@ -1256,7 +1240,7 @@
                     </label>
                     <label class="bg-white p-4 rounded-lg shadow-sm border flex flex-col justify-between hover:border-blue-400 transition-colors cursor-pointer group relative overflow-hidden border-l-4 border-l-emerald-500">
                         <div class="flex items-start gap-3 z-10 relative">
-                            <input type="checkbox" id="sight-wieliczka" class="sight-checkbox peer mt-1" data-area="out" data-q="Wieliczka Salt Mine Daniłowicz Shaft" data-far="1">
+                            <input type="checkbox" id="sight-wieliczka" class="sight-checkbox peer mt-1">
                             <div class="peer-checked:opacity-40 peer-checked:line-through transition-all flex-1">
                                 <div class="flex justify-between items-start gap-2">
                                     <p class="font-bold text-slate-900 text-base">Wieliczka Salt Mine</p>
@@ -1271,7 +1255,7 @@
                     </label>
                     <label class="bg-white p-4 rounded-lg shadow-sm border flex flex-col justify-between hover:border-blue-400 transition-colors cursor-pointer group relative overflow-hidden border-l-4 border-l-emerald-500">
                         <div class="flex items-start gap-3 z-10 relative">
-                            <input type="checkbox" id="sight-auschwitz" class="sight-checkbox peer mt-1" data-area="out" data-q="Auschwitz-Birkenau Memorial and Museum" data-far="1">
+                            <input type="checkbox" id="sight-auschwitz" class="sight-checkbox peer mt-1">
                             <div class="peer-checked:opacity-40 peer-checked:line-through transition-all flex-1">
                                 <div class="flex justify-between items-start gap-2">
                                     <p class="font-bold text-slate-900 text-base">Auschwitz-Birkenau Memorial</p>
@@ -1323,41 +1307,11 @@
 
                 // Update URL hash WITHOUT jumping/scrolling
                 history.replaceState(null, null, '#' + tabId);
-
-                // Load the sights map the first time its tab is opened
-                if (tabId === 'sights' && !sightFilter) setSightFilter('all');
             }
-        }
-
-        // Sights map: build a Google Maps "A OR B OR C" search from the cards matching the filter
-        let sightFilter = null;
-        function setSightFilter(filter) {
-            sightFilter = filter;
-            const boxes = Array.from(document.querySelectorAll('.sight-checkbox'));
-            let picked = boxes.filter(box => {
-                if (filter === 'all') return !box.dataset.far;
-                if (filter === 'todo') return !box.checked && !box.dataset.far;
-                return box.dataset.area === filter;
-            });
-            // Nothing left to see: fall back to showing everything in the city
-            if (picked.length === 0) picked = boxes.filter(box => !box.dataset.far);
-
-            const query = encodeURIComponent(picked.map(box => box.dataset.q).join(' OR '));
-            document.getElementById('sights-map').src = 'https://www.google.com/maps?output=embed&q=' + query;
-            document.getElementById('sights-map-link').href = 'https://www.google.com/maps/search/' + query;
-
-            document.querySelectorAll('.sight-filter').forEach(btn => {
-                const on = btn.dataset.filter === filter;
-                btn.classList.toggle('bg-emerald-600', on);
-                btn.classList.toggle('text-white', on);
-                btn.classList.toggle('bg-white', !on);
-                btn.classList.toggle('text-emerald-800', !on);
-            });
         }
 
         function updateSightProgress() {
             document.getElementById('sights-done').textContent = document.querySelectorAll('.sight-checkbox:checked').length;
-            if (sightFilter === 'todo') setSightFilter('todo');
         }
 
         // Initialize state on page load
