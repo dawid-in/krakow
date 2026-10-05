@@ -60,6 +60,16 @@
         /* Keep content clear of the notch / rounded corners in landscape */
         body { padding-left: env(safe-area-inset-left); padding-right: env(safe-area-inset-right); }
 
+        /* ---------- Trivia: collapsed "something to talk about" boxes ---------- */
+        details.trivia > summary { cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 0.5rem; font-weight: 600; }
+        details.trivia > summary::-webkit-details-marker { display: none; }
+        details.trivia[open] > summary .fa-chevron-down { transform: rotate(180deg); }
+        details.trivia h4 { font-weight: 600; margin-top: 1rem; }
+        details.trivia ul { list-style: disc; padding-left: 1.1rem; margin-top: 0.5rem; }
+        details.trivia li + li { margin-top: 0.4rem; }
+        /* Inline links: undo the finger-sized Map button padding above */
+        main details.trivia a[target] { text-decoration: underline; padding: 0; min-height: 0; }
+
         /* ---------- Dark mode (html.dark, set by the header toggle) ---------- */
         html { color-scheme: light; }
         html.dark { color-scheme: dark; }
@@ -139,6 +149,7 @@
             <button onclick="showTab('day5')" class="tab-btn px-4 py-3 whitespace-nowrap" id="btn-day5"><span class="tab-long">Day 5: </span>Sun 11 Oct</button>
             <button onclick="showTab('food')" class="tab-btn px-4 py-3 whitespace-nowrap text-amber-700 font-semibold" id="btn-food"><i class="fa-solid fa-utensils mr-1"></i> Food<span class="tab-long"> &amp; Drink Map</span></button>
             <button onclick="showTab('sights')" class="tab-btn px-4 py-3 whitespace-nowrap text-emerald-800 font-semibold" id="btn-sights"><i class="fa-solid fa-landmark mr-1"></i> Sights<span class="tab-long"> Map</span></button>
+            <button onclick="showTab('trivia')" class="tab-btn px-4 py-3 whitespace-nowrap text-slate-500" id="btn-trivia"><i class="fa-solid fa-comments mr-1"></i> Trivia<span class="tab-long"> &amp; Legends</span></button>
         </div>
     </nav>
 
@@ -199,6 +210,22 @@
                 <!-- De-emphasized Food Item -->
 
             </div>
+
+            <!-- Talking points: collapsed so the schedule stays the focus -->
+            <details class="trivia bg-white rounded-lg shadow-sm p-4 text-sm text-slate-600">
+                <summary class="text-slate-700"><span><i class="fa-solid fa-comments mr-2 text-slate-400"></i> Something to talk about: touching down</span><i class="fa-solid fa-chevron-down text-xs text-slate-400"></i></summary>
+                <ul>
+                    <li>The airport is named after <strong>John Paul II</strong> &mdash; Karol Wojtyła was Kraków's archbishop before he became pope in 1978. Locals just call it <em>Balice</em>, after the village next door.</li>
+                    <li>Poland is <strong>one hour ahead</strong> of Scotland, and it is złoty, not euros &mdash; very roughly 5 zł to the pound.</li>
+                    <li>Your street, <strong>Pawia</strong>, means "Peacock Street". The hotel sits just outside the <strong>Planty</strong>, the 4 km ring of park that replaced the medieval city walls when they were pulled down in the early 1800s.</li>
+                    <li>Kraków was Poland's capital until 1596 and kings were still crowned at Wawel until 1734. Its full official title is still the "Royal Capital City of Kraków" &mdash; a point locals enjoy making to anyone from Warsaw.</li>
+                    <li>Still awake on the hour? The <strong>bugle call</strong> from St Mary's tower is played live every hour, all night, 10&ndash;15 minutes' walk from the hotel (the story is on the Day 3 tab).</li>
+                </ul>
+                <h4 class="text-slate-700">On in town</h4>
+                <ul>
+                    <li>The <a href="https://www.unsound.pl/en" target="_blank" rel="noopener">Unsound</a> festival's special train from Warsaw pulls in today; its Kraków leg runs Thu 8 &ndash; Sun 11 Oct, so expect a lot of people in black around town all trip.</li>
+                </ul>
+            </details>
         </div>
 
         <!-- ============================================== -->
@@ -284,6 +311,33 @@
                     </a>
                 </div>
             </div>
+
+            <!-- Talking points: collapsed so the schedule stays the focus -->
+            <details class="trivia bg-white rounded-lg shadow-sm p-4 text-sm text-slate-600">
+                <summary class="text-slate-700"><span><i class="fa-solid fa-comments mr-2 text-slate-400"></i> Worth knowing: Oświęcim &amp; Kazimierz</span><i class="fa-solid fa-chevron-down text-xs text-slate-400"></i></summary>
+                <h4 class="text-slate-700">Auschwitz-Birkenau</h4>
+                <ul>
+                    <li><strong>Oświęcim</strong> is an ordinary town about 800 years old; "Auschwitz" is its German name. Before the war more than half of its residents were Jewish.</li>
+                    <li>The camp opened in 1940 in former Polish army barracks. The first mass transport, on 14 June 1940, was 728 Polish political prisoners from Tarnów.</li>
+                    <li>About <strong>1.1 million people</strong> were murdered here, roughly a million of them Jews. Soviet troops liberated the camp on 27 January 1945 &mdash; now International Holocaust Remembrance Day.</li>
+                    <li>Look at the <strong>"B" in ARBEIT</strong> on the gate: it is upside down. The sign was made by prisoners in the metalwork shop under blacksmith Jan Liwacz, and is often read as a quiet act of defiance.</li>
+                    <li><strong>Witold Pilecki</strong>, a Polish cavalry officer, let himself be arrested in 1940 to get inside, organised a resistance network, smuggled out reports and escaped in 1943.</li>
+                    <li>The museum was founded in 1947 by former prisoners. Photos are allowed in most places, but not in the room holding victims' hair or in the cellars of Block 11.</li>
+                    <li>Poles are rightly sensitive about the phrase "Polish death camps" &mdash; this was a German Nazi camp in occupied Poland.</li>
+                </ul>
+                <h4 class="text-slate-700">Kazimierz in the evening</h4>
+                <ul>
+                    <li>Founded in 1335 by King Casimir the Great as a <strong>separate town on an island</strong>. The river branch was filled in around 1880 and is now ul. Dietla &mdash; the wide street you cross to get there.</li>
+                    <li>Kraków's Jews were moved here from 1495 and it stayed the heart of Jewish life for 450 years; before the war Jews were about a quarter of the city's population.</li>
+                    <li>Spielberg shot <strong>Schindler's List</strong> here in 1993, although the real wartime ghetto was across the river in Podgórze (Saturday).</li>
+                    <li>The round building on <strong>Plac Nowy</strong> (the Okrąglak, 1900) was a kosher poultry slaughterhouse from 1927. Its hatches now sell Kraków's most famous zapiekanki.</li>
+                    <li><strong>Starka</strong>, tonight's restaurant, is named after an oak-aged rye vodka; the house-flavoured vodkas are the thing to try.</li>
+                </ul>
+                <h4 class="text-slate-700">On in town</h4>
+                <ul>
+                    <li><a href="https://www.unsound.pl/en" target="_blank" rel="noopener">Unsound</a> (8&ndash;11 Oct, theme "Soft Power") opens tonight: one of Europe's best-known experimental and club music festivals, in churches, concert halls and the brutalist Hotel Forum across the river from Wawel.</li>
+                </ul>
+            </details>
         </div>
 
         <!-- ============================================== -->
@@ -396,6 +450,48 @@
                     </a>
                 </div>
             </div>
+
+            <!-- Talking points: collapsed so the schedule stays the focus -->
+            <details class="trivia bg-white rounded-lg shadow-sm p-4 text-sm text-slate-600">
+                <summary class="text-slate-700"><span><i class="fa-solid fa-comments mr-2 text-slate-400"></i> Something to talk about: dragons, salt &amp; a trumpet</span><i class="fa-solid fa-chevron-down text-xs text-slate-400"></i></summary>
+                <h4 class="text-slate-700">Wawel</h4>
+                <ul>
+                    <li>The <strong>Sigismund Bell</strong> (1520) weighs over 12 tonnes with its fittings, takes twelve people to ring and is heard only on major holidays. Touching the clapper with your left hand is said to bring luck in love.</li>
+                    <li>The huge <strong>bones chained up</strong> by the Cathedral door are "the dragon's" &mdash; in fact mammoth, rhino and whale. Legend says the world ends when they fall.</li>
+                    <li>The <strong>dragon statue</strong> below the hill (Bronisław Chromy, 1972) breathes real fire every few minutes. A genuine Triassic predator dug up in Poland was later named <em>Smok wawelski</em> after it. Full legend on the Trivia tab.</li>
+                    <li>In the Cathedral crypt lies King <strong>Jan III Sobieski</strong>, who broke the siege of Vienna in 1683 &mdash; and was the great-grandfather of Bonnie Prince Charlie.</li>
+                    <li>During the war the Nazi governor Hans Frank ruled occupied Poland from the castle. Its Renaissance tapestries had been evacuated to Canada and only came home in 1961.</li>
+                </ul>
+                <h4 class="text-slate-700">Wieliczka Salt Mine</h4>
+                <ul>
+                    <li>Salt was mined here from the 13th century until 1996, and once brought in around a third of the royal treasury's income.</li>
+                    <li>The mine goes down <strong>327 m</strong> with nearly 300 km of tunnels. Your 3 km route sees under 2% of it.</li>
+                    <li><strong>St Kinga's Chapel</strong>, 101 m down, is carved entirely from salt by miners &mdash; floor, altar, Last Supper relief, even the chandelier crystals.</li>
+                    <li>The legend: Hungarian princess <strong>Kinga</strong> threw her engagement ring into a salt mine back home, and it turned up inside the first lump of salt dug at Wieliczka.</li>
+                    <li>Horses worked underground here for centuries; the last one retired only in 2002.</li>
+                    <li>It was on UNESCO's <strong>very first World Heritage list</strong> in 1978, alongside Kraków's Old Town &mdash; two of the original twelve sites. And yes, you may lick the walls.</li>
+                </ul>
+                <h4 class="text-slate-700">St Mary's &amp; the Main Square</h4>
+                <ul>
+                    <li>The <strong>hejnał</strong> bugle call stops mid-note &mdash; the story goes that a Tatar arrow hit the trumpeter in the throat as he raised the alarm in 1241. Twist: the earliest written version of that tale is an American children's novel from 1928.</li>
+                    <li>It is played live by firefighters, to all four sides of the tower, every hour round the clock, and has gone out on Polish Radio at noon since 1927. Wave &mdash; the trumpeter waves back.</li>
+                    <li>The towers are different heights (about 81 m and 69 m). Legend blames <strong>two brother builders</strong>: one killed the other out of jealousy, and the knife still hangs in the Cloth Hall passage.</li>
+                    <li>Veit Stoss's <strong>altarpiece</strong> (1477&ndash;89) is the largest Gothic altarpiece in the world. The Nazis carted it off to Nuremberg; it came back in 1946.</li>
+                    <li>The square is roughly 200 × 200 m, laid out in 1257 &mdash; the <strong>largest medieval town square in Europe</strong>.</li>
+                    <li>At <strong>Collegium Maius</strong>, where Copernicus studied in the 1490s, the courtyard clock parades its wooden figures every two hours &mdash; 17:00 is the last showing.</li>
+                </ul>
+                <h4 class="text-slate-700">On the plate</h4>
+                <ul>
+                    <li><strong>Bar Uniwersytecki</strong> is a <em>bar mleczny</em>, a "milk bar": the cheap canteens of communist Poland, some still subsidised. Order at the till, collect from the hatch, clear your own tray.</li>
+                    <li><strong>Maczanka</strong> is slow-cooked pork in caraway gravy in a soaked bun, sold to 19th-century Kraków cabbies &mdash; locals like to call it the burger's grandfather.</li>
+                </ul>
+                <h4 class="text-slate-700">On in town</h4>
+                <ul>
+                    <li><a href="https://karnet.krakowculture.pl/55870-krakow-14-noc-poezji" target="_blank" rel="noopener">Noc Poezji</a> (Poetry Night, 9&ndash;11 Oct) starts today: 80+ readings, walks and slams with a crime theme, marking 30 years since Kraków's own Wisława Szymborska won the Nobel Prize. Mostly in Polish.</li>
+                    <li>The <strong>7xGospel</strong> festival also starts tonight (to 18 Oct).</li>
+                    <li>Football: <strong>Wieczysta Kraków v Wisła Płock</strong>, 18:00 at the Reymana stadium, 20 minutes' walk west of the square. Kraków has three top-flight clubs this season.</li>
+                </ul>
+            </details>
         </div>
 
         <!-- ============================================== -->
@@ -498,6 +594,38 @@
                     </a>
                 </div>
             </div>
+
+            <!-- Talking points: collapsed so the schedule stays the focus -->
+            <details class="trivia bg-white rounded-lg shadow-sm p-4 text-sm text-slate-600">
+                <summary class="text-slate-700"><span><i class="fa-solid fa-comments mr-2 text-slate-400"></i> Something to talk about: steel, Lenin &amp; Schindler</span><i class="fa-solid fa-chevron-down text-xs text-slate-400"></i></summary>
+                <h4 class="text-slate-700">Nowa Huta</h4>
+                <ul>
+                    <li>The name means "New Steelworks": begun in 1949 as a <strong>model socialist city</strong> around the vast Lenin Steelworks. The popular theory is that it was put here to dilute bourgeois, Catholic Kraków. It backfired &mdash; Nowa Huta became a stronghold of Solidarity.</li>
+                    <li>Your meeting point has officially been <strong>Ronald Reagan Central Square</strong> since 2004; the council vote was 19 to 17. Everyone still says "Centralny".</li>
+                    <li>A 7-tonne <strong>Lenin</strong> stood on Aleja Róż from 1973. A bomb in 1979 blew out the neighbours' windows but only cost him a heel. He came down in December 1989 and was sold to a Swedish millionaire &mdash; he now stands in a wild-west theme park in Sweden.</li>
+                    <li>The city was planned <strong>without a church</strong>. Residents fought for one for years (there were riots over a cross in 1960), and the Arka Pana, "Lord's Ark", was finally consecrated in 1977 by Cardinal Wojtyła, a year before he became pope. Its tabernacle is said to hold a fragment of Moon rock.</li>
+                    <li>Nowa Huta also has the <strong>Wanda Mound</strong>, grave of the legendary princess who preferred the river to a German husband (see the Trivia tab).</li>
+                </ul>
+                <h4 class="text-slate-700">Between the two</h4>
+                <ul>
+                    <li>The <strong>obwarzanek</strong> has EU-protected status and was first recorded in 1394. The name means "parboiled" &mdash; it is boiled, then baked &mdash; and it goes stale within hours, so every one on a street cart was made that morning.</li>
+                    <li>Its cousin the <strong>bagel</strong> also gets its first written mention in Kraków, in 1610.</li>
+                </ul>
+                <h4 class="text-slate-700">Podgórze</h4>
+                <ul>
+                    <li>Schindler's factory, "Emalia", made enamel pots and later shell casings. Around <strong>1,200 Jews</strong> survived on his list. The museum is really the story of Kraków under occupation, not a shrine to Schindler.</li>
+                    <li><strong>Ghetto Heroes Square</strong>, on the walk in, has 70 empty bronze chairs: this was where ghetto residents were assembled for deportation. The pharmacy on the corner was run by Tadeusz Pankiewicz, the only non-Jewish Pole who lived and worked inside the ghetto.</li>
+                    <li>A surviving stretch of <strong>ghetto wall</strong> on ul. Lwowska has a scalloped top, deliberately shaped like Jewish gravestones. Roman Polański escaped this ghetto as a boy.</li>
+                    <li><strong>Krakus Mound</strong> is about 16 m high, probably 7th&ndash;8th century, and by legend the grave of King Krak, the city's founder. From the top you look down into the Liban quarry, where Spielberg built his camp set.</li>
+                    <li>The <strong>Blue Nysa</strong>: two men in white coats have been grilling sausages over a wood fire beside the same communist-era van since 1991. Evenings only, never on Sundays.</li>
+                </ul>
+                <h4 class="text-slate-700">On in town</h4>
+                <ul>
+                    <li>Football: <strong>Cracovia v Zagłębie Lubin</strong>, 14:45, by the Błonia meadow. Cracovia (1906) is Poland's oldest surviving football club, and was John Paul II's team.</li>
+                    <li><strong>MOCAK</strong>, next to Schindler's, has a Kiki Smith retrospective on until 25 Oct.</li>
+                    <li>Saturday is the big night for both <a href="https://www.unsound.pl/en" target="_blank" rel="noopener">Unsound</a> (club nights at Hotel Forum) and <a href="https://karnet.krakowculture.pl/55870-krakow-14-noc-poezji" target="_blank" rel="noopener">Noc Poezji</a>.</li>
+                </ul>
+            </details>
         </div>
 
         <!-- ============================================== -->
@@ -542,6 +670,18 @@
 
                 </div>
             </div>
+
+            <!-- Talking points: collapsed so the schedule stays the focus -->
+            <details class="trivia bg-white rounded-lg shadow-sm p-4 text-sm text-slate-600">
+                <summary class="text-slate-700"><span><i class="fa-solid fa-comments mr-2 text-slate-400"></i> For the airport queue</span><i class="fa-solid fa-chevron-down text-xs text-slate-400"></i></summary>
+                <ul>
+                    <li>Today is <strong>Papal Day</strong> in Poland, held on the Sunday before the anniversary of Wojtyła's election on 16 October 1978 &mdash; a fitting day to fly out of John Paul II airport.</li>
+                    <li>Most shops in Poland are <strong>closed on Sundays</strong> by law. Żabka corner shops and the airport are the exceptions.</li>
+                    <li>Last-minute souvenirs: <strong>Żubrówka</strong> bison-grass vodka (with apple juice it becomes a <em>szarlotka</em>, "apple pie"), <em>krówki</em> fudge, <em>ptasie mleczko</em> chocolates and vacuum-packed oscypek cheese.</li>
+                    <li>Spend your coins: nobody in Scotland will change leftover złoty.</li>
+                    <li>Quiz for the flight: Why does the bugle call stop? Whose bones hang by the Cathedral door? Where did Nowa Huta's Lenin end up? Who was Bonnie Prince Charlie's great-grandfather?</li>
+                </ul>
+            </details>
         </div>
 
         <!-- ============================================== -->
@@ -573,6 +713,23 @@
                     <div><p class="font-bold text-amber-900 text-sm">🥃 Nalewka</p><p class="text-xs text-amber-800 mt-1">Potent fruit/spice infused local vodka.</p></div>
                 </div>
             </div>
+
+            <!-- Talking points: collapsed so the schedule stays the focus -->
+            <details class="trivia bg-white rounded-lg shadow-sm p-4 text-sm text-slate-600">
+                <summary class="text-slate-700"><span><i class="fa-solid fa-lightbulb mr-2 text-slate-400"></i> Food for thought</span><i class="fa-solid fa-chevron-down text-xs text-slate-400"></i></summary>
+                <ul>
+                    <li><strong>Pierogi</strong> is already plural &mdash; one is a <em>pieróg</em>. And <em>ruskie</em> means Ruthenian, not Russian: the recipe comes from what is now western Ukraine.</li>
+                    <li><strong>Milk bars</strong> began in 1896 with a Warsaw dairy farmer and boomed under communism as subsidised canteens. Order at the till, collect at the hatch, clear your own tray.</li>
+                    <li>The <strong>zapiekanka</strong> &mdash; half a baguette with mushrooms and cheese &mdash; is a 1970s communist-era invention. Plac Nowy is its unofficial capital.</li>
+                    <li><strong>Oscypek</strong> is EU-protected and may only be made from May to October, from Tatra mountain sheep's milk, so you are catching the end of the season. Eat it grilled with cranberry.</li>
+                    <li><strong>Żurek</strong> gets its tang from a fermented rye starter, much like sourdough.</li>
+                    <li>The cream slice became <strong>kremówka papieska</strong> ("papal") in 1999, after John Paul II reminisced in his home town about clubbing together for cream cakes after school exams.</li>
+                    <li>On Fat Thursday, before Lent, Poles get through around <strong>100 million pączki</strong> in a day. The classic filling is rose-hip jam.</li>
+                    <li>The toast is <strong>"Na zdrowie"</strong> (nah ZDRO-vyeh). Vodka is drunk cold, neat and in one. The earliest written use of the word <em>wódka</em> is in Polish court records from 1405.</li>
+                    <li><strong>Kaszanka</strong> is black pudding made with buckwheat &mdash; the Scots at the table will feel at home.</li>
+                    <li>Beer <em>z sokiem</em> comes with a shot of raspberry syrup and, traditionally, a straw.</li>
+                </ul>
+            </details>
 
             <!-- Category 1: Traditional Polish & Milk Bars -->
             <div class="space-y-3 pt-2">
@@ -924,6 +1081,23 @@
                     <p class="text-xs font-bold whitespace-nowrap"><i class="fa-solid fa-circle-check mr-1"></i> Seen <span id="sights-done">0</span> of <span id="sights-total">27</span></p>
                 </div>
             </div>
+
+            <!-- Talking points: collapsed so the schedule stays the focus -->
+            <details class="trivia bg-white rounded-lg shadow-sm p-4 text-sm text-slate-600">
+                <summary class="text-slate-700"><span><i class="fa-solid fa-lightbulb mr-2 text-slate-400"></i> Sights small print</span><i class="fa-solid fa-chevron-down text-xs text-slate-400"></i></summary>
+                <ul>
+                    <li>Kraków's Old Town and the Wieliczka mine were both on UNESCO's <strong>first-ever World Heritage list</strong> in 1978 &mdash; two of just twelve sites worldwide.</li>
+                    <li>People have traded in the <strong>Cloth Hall</strong> since the 13th century, which is why it gets called the world's oldest shopping mall.</li>
+                    <li>The <strong>Town Hall Tower</strong> leans by about half a metre. The rest of the town hall was demolished in 1820.</li>
+                    <li>The <strong>Florian Gate and Barbican</strong> survived the demolition of the walls thanks to a professor who argued that, without them, north winds would blow up ladies' skirts on the way to church.</li>
+                    <li>Leonardo's <strong>Lady with an Ermine</strong> (Czartoryski Museum) is one of only four portraits of women he painted. During the war Hans Frank hung it in his office. Poland bought the whole Czartoryski collection in 2016 for €100 million, a fraction of its value.</li>
+                    <li>The poet on the big statue in the square, <strong>Adam Mickiewicz</strong>, never set foot in Kraków while alive. He is now buried at Wawel.</li>
+                    <li>In <strong>St Francis' Basilica</strong>, Wyspiański's "God the Father" stained-glass window is the one to look up at. Across the street is the "Pope's window" from which John Paul II bantered with crowds.</li>
+                    <li>The acrobats balancing on wires over the <strong>Bernatek Footbridge</strong> are sculptures by Jerzy Kędziora.</li>
+                    <li>Kraków has four big mounds: two prehistoric (Krakus, Wanda) and two modern (Kościuszko, Piłsudski). <strong>Kościuszko's</strong> was raised in 1820&ndash;23 by volunteers, using soil from his battlefields.</li>
+                    <li>The giant bandaged bronze head lying in the square is <em>Eros Bendato</em> by Igor Mitoraj. Yes, people climb inside.</li>
+                </ul>
+            </details>
 
             <div class="space-y-3 pt-2">
                 <h3 class="text-lg font-bold text-slate-800 border-b pb-2 flex items-center justify-between gap-2">
@@ -1391,16 +1565,144 @@
             </div>
         </div>
 
+        <!-- ============================================== -->
+        <!-- TRIVIA TAB                                     -->
+        <!-- ============================================== -->
+        <div id="trivia" class="tab-content space-y-4 hidden">
+            <div class="bg-slate-800 text-white p-4 rounded-lg shadow-md">
+                <h2 class="text-lg font-bold"><i class="fa-solid fa-comments mr-2"></i> Kraków Trivia &amp; Legends</h2>
+                <p class="text-xs text-slate-300">Nothing to book or tick off here &mdash; just things to talk about between stops.</p>
+            </div>
+
+            <!-- Talking points: collapsed so the schedule stays the focus -->
+            <details class="trivia bg-white rounded-lg shadow-sm p-4 text-sm text-slate-600" open>
+                <summary class="text-slate-700"><span><i class="fa-solid fa-city mr-2 text-slate-400"></i> Kraków in a nutshell</span><i class="fa-solid fa-chevron-down text-xs text-slate-400"></i></summary>
+                <ul>
+                    <li>Poland's <strong>second city</strong>: about 800,000 people, well over 100,000 of them students.</li>
+                    <li><strong>Capital until 1596</strong>; kings were crowned and buried at Wawel. Warsaw has the government, Kraków has the attitude.</li>
+                    <li>The Mongols burned it in 1241. The rebuild of 1257 gave the Old Town the grid and the huge square you walk today.</li>
+                    <li>The <strong>Jagiellonian University</strong> (1364) is the second oldest in Central Europe. Copernicus and John Paul II both studied here.</li>
+                    <li>From 1795 to 1918 there was no Poland on the map. Kraków was mostly under <strong>Austria</strong>, hence the coffee houses, the cream cakes and a lingering fondness for Emperor Franz Joseph.</li>
+                    <li>Unlike Warsaw it came through the Second World War <strong>physically intact</strong>: the Germans made it the capital of occupied Poland. Its Jewish community of over 60,000 was almost entirely murdered.</li>
+                    <li>After the war the communists gave it <strong>Nowa Huta</strong>. In 1978 its archbishop became Pope John Paul II, and the regime never quite recovered.</li>
+                    <li>A city of writers: Nobel laureates <strong>Wisława Szymborska</strong> and Czesław Miłosz both lived here, Joseph Conrad grew up here and sci-fi giant Stanisław Lem wrote here. Helena Rubinstein was born in Kazimierz.</li>
+                    <li>The Vistula, Poland's longest river, is <strong>Wisła</strong> (VEES-wah).</li>
+                </ul>
+            </details>
+
+            <!-- Talking points: collapsed so the schedule stays the focus -->
+            <details class="trivia bg-white rounded-lg shadow-sm p-4 text-sm text-slate-600">
+                <summary class="text-slate-700"><span><i class="fa-solid fa-language mr-2 text-slate-400"></i> Say it like a local</span><i class="fa-solid fa-chevron-down text-xs text-slate-400"></i></summary>
+                <h4 class="text-slate-700">The rules in ten seconds</h4>
+                <ul>
+                    <li><strong>w</strong> = v, <strong>ł</strong> = w, <strong>j</strong> = y, <strong>c</strong> = ts, <strong>ch</strong> = h, <strong>sz</strong> = sh, <strong>cz</strong> = ch, <strong>ż / rz</strong> = the "s" in "measure", <strong>ó</strong> = oo.</li>
+                    <li>The stress nearly always falls on the <strong>second-to-last syllable</strong>.</li>
+                </ul>
+                <h4 class="text-slate-700">Places on the plan</h4>
+                <ul>
+                    <li><strong>Kraków</strong> &mdash; KRAH-koof (not "crack-ow")</li>
+                    <li><strong>Wawel</strong> &mdash; VAH-vel</li>
+                    <li><strong>Wieliczka</strong> &mdash; vyeh-LEECH-kah</li>
+                    <li><strong>Oświęcim</strong> &mdash; osh-VYEN-cheem</li>
+                    <li><strong>Kazimierz</strong> &mdash; kah-ZHEE-myesh</li>
+                    <li><strong>Podgórze</strong> &mdash; pod-GOO-zheh</li>
+                    <li><strong>Nowa Huta</strong> &mdash; NO-vah HOO-tah</li>
+                    <li><strong>Rynek Główny</strong> (Main Square) &mdash; RIH-nek GWOOV-nih</li>
+                    <li><strong>Sukiennice</strong> (Cloth Hall) &mdash; soo-kyen-NEE-tseh</li>
+                    <li><strong>Pawia</strong> (the hotel's street) &mdash; PAH-vyah</li>
+                </ul>
+                <h4 class="text-slate-700">Enough to be polite</h4>
+                <ul>
+                    <li><strong>Dzień dobry</strong> (jen DOB-rih) &mdash; hello. Say it when you walk into any shop, lift or train compartment.</li>
+                    <li><strong>Cześć</strong> (cheshch) &mdash; hi and bye, for friends.</li>
+                    <li><strong>Dziękuję</strong> (jen-KOO-yeh) &mdash; thank you.</li>
+                    <li><strong>Proszę</strong> (PRO-sheh) &mdash; please, here you go, you're welcome, and "pardon?".</li>
+                    <li><strong>Przepraszam</strong> (psheh-PRAH-shahm) &mdash; sorry / excuse me.</li>
+                    <li><strong>Tak / Nie</strong> (tahk / nyeh) &mdash; yes / no. Careful: a casual <strong>"no"</strong> in Polish means "yeah".</li>
+                    <li><strong>Poproszę piwo</strong> (po-PRO-sheh PEE-vo) &mdash; a beer, please.</li>
+                    <li><strong>Na zdrowie!</strong> (nah ZDRO-vyeh) &mdash; cheers. <strong>Smacznego!</strong> (smach-NEH-go) &mdash; enjoy your meal.</li>
+                    <li><strong>Rachunek poproszę</strong> (rah-HOO-nek) &mdash; the bill, please.</li>
+                </ul>
+                <h4 class="text-slate-700">On the menu</h4>
+                <ul>
+                    <li><strong>pierogi</strong> &mdash; pyeh-RO-ghee &nbsp;·&nbsp; <strong>żurek</strong> &mdash; ZHOO-rek &nbsp;·&nbsp; <strong>pączki</strong> &mdash; PONCH-kee</li>
+                    <li><strong>obwarzanek</strong> &mdash; ob-vah-ZHAH-nek &nbsp;·&nbsp; <strong>zapiekanka</strong> &mdash; zah-pyeh-KAHN-kah &nbsp;·&nbsp; <strong>maczanka</strong> &mdash; mah-CHAHN-kah</li>
+                </ul>
+                <h4 class="text-slate-700">Only in Kraków</h4>
+                <ul>
+                    <li>A local is a <strong>Krakus</strong> (KRAH-koos).</li>
+                    <li>Krakovians go out <strong>"na pole"</strong> ("to the field"). The rest of Poland goes out "na dwór" ("to the manor") and never stops teasing them about it.</li>
+                    <li>Blueberries are <strong>borówki</strong> here and <em>jagody</em> everywhere else &mdash; a reliable way to start an argument between Poles.</li>
+                    <li>Kraków adds <strong>-że</strong> to commands for emphasis: <em>chodźże!</em> (come on, then!), <em>weźże!</em> (oh, go on!).</li>
+                    <li>Titles matter in this town: a waiter may well address a regular as <em>Panie Profesorze</em>.</li>
+                </ul>
+            </details>
+
+            <!-- Talking points: collapsed so the schedule stays the focus -->
+            <details class="trivia bg-white rounded-lg shadow-sm p-4 text-sm text-slate-600">
+                <summary class="text-slate-700"><span><i class="fa-solid fa-dragon mr-2 text-slate-400"></i> Legends for the walk in between</span><i class="fa-solid fa-chevron-down text-xs text-slate-400"></i></summary>
+                <ul>
+                    <li><strong>The Wawel Dragon</strong> (foot of Wawel hill, Fri). The dragon in the cave ate livestock and maidens until a cobbler's apprentice, Skuba, left out a sheep stuffed with sulphur. The dragon ate it, drank half the Vistula to put out the fire and burst. In the oldest version, c. 1200, King Krak's sons did the deed &mdash; and then one murdered the other for the credit.</li>
+                    <li><strong>The broken bugle call</strong> (St Mary's, every hour). The trumpeter sounding the alarm in 1241 took a Tatar arrow in the throat, so the tune still stops dead mid-phrase.</li>
+                    <li><strong>The two towers</strong> (St Mary's). Two brothers each built a tower. The elder, seeing his brother's would be taller, stabbed him, then threw himself from his own tower in remorse. The knife hangs in the middle passage of the Cloth Hall.</li>
+                    <li><strong>The pigeons</strong> (Main Square). Duke Henryk Probus needed gold to go to Rome and be crowned. A witch turned his knights into pigeons; the pebbles they pecked from St Mary's turned to gold. He squandered it on the way, never came back, and the knights are still waiting.</li>
+                    <li><strong>Pan Twardowski</strong> (Main Square &amp; Podgórze, Sat). Poland's Faust, a Kraków nobleman who sold his soul for magic powers, with a clause that the devil could only collect in Rome. The devil caught him in an inn called "Rome". He escaped by praying and ended up stranded on the Moon, where he remains. His sorcery school was said to be in the rocks near Krakus Mound.</li>
+                    <li><strong>Queen Wanda</strong> (Nowa Huta, Sat). Krak's daughter refused to marry a German prince who threatened invasion and threw herself into the Vistula to save the city. Every Polish child knows her as "Wanda who didn't want a German".</li>
+                    <li><strong>St Kinga's ring</strong> (Wieliczka, Fri). The princess's engagement ring, dropped into a Hungarian salt mine, was found in the first block of salt dug at Wieliczka. She is the patron saint of salt miners.</li>
+                    <li><strong>The Wawel chakra</strong> (castle courtyard, Fri). The god Shiva is said to have thrown seven sacred stones across the world; one landed under Wawel. Look for people leaning against the wall in the north-west corner. The castle authorities are not amused.</li>
+                    <li><strong>The dragon's bones</strong> (Wawel Cathedral door, Fri). While they hang, the world goes on.</li>
+                    <li><strong>The Lajkonik</strong> (souvenir stalls everywhere). The bearded rider on a hobby horse commemorates raftsmen who ambushed a Tatar camp and rode back into town dressed in the khan's clothes. He parades through the city every June; a tap from his mace brings a year of luck.</li>
+                </ul>
+            </details>
+
+            <!-- Talking points: collapsed so the schedule stays the focus -->
+            <details class="trivia bg-white rounded-lg shadow-sm p-4 text-sm text-slate-600">
+                <summary class="text-slate-700"><span><i class="fa-solid fa-handshake mr-2 text-slate-400"></i> Kraków &amp; Scotland</span><i class="fa-solid fa-chevron-down text-xs text-slate-400"></i></summary>
+                <ul>
+                    <li>Edinburgh and Kraków have been <strong>partner cities</strong> since 3 April 1995. Both Old Towns are UNESCO World Heritage Sites, and both are UNESCO Cities of Literature &mdash; Edinburgh was the world's first (2004), Kraków followed in 2013.</li>
+                    <li><strong>Scots were here 450 years ago.</strong> By the 1600s an estimated 30,000&ndash;40,000 Scots lived in Poland-Lithuania, mostly traders and pedlars &mdash; so many that <em>szot</em> became a Polish word for a travelling pedlar. King Stephen Báthory's grant of 1576 assigned them a district in Kraków, and Scottish merchants supplied the royal court at Wawel.</li>
+                    <li>Becoming a citizen of Kraków could cost a Scot <strong>a musket and gunpowder</strong>, or a promise to marry within a year and a day.</li>
+                    <li>A Scot, Alexander Chalmers ("Czamer"), was elected <strong>mayor of Warsaw</strong> four times around 1700. Polonised Scottish surnames survive: Machlejd (MacLeod), Ramzy, Czamer.</li>
+                    <li><strong>Bonnie Prince Charlie was a quarter Polish.</strong> His mother, Maria Clementina Sobieska, was the granddaughter of King Jan III Sobieski, who lies in the Wawel Cathedral crypt you visit on Friday.</li>
+                    <li><strong>Same joke, both ways.</strong> Krakovians are Poland's proverbial tightwads, nicknamed <em>centusie</em> (penny-pinchers). The classic Polish joke: "Who are the Scots? Krakovians banished for extravagance."</li>
+                    <li><strong>Wojtek the soldier bear</strong> carried shells for the Polish army at Monte Cassino and retired to Edinburgh Zoo, where he died in 1963. He has a statue in Princes Street Gardens (2015) and another in Kraków's Jordan Park (2014), 20 minutes' walk west of the Old Town.</li>
+                    <li>The <strong>Great Polish Map of Scotland</strong> at Barony Castle near Peebles &mdash; a 50-metre concrete relief model &mdash; was the idea of Kraków-born veteran Jan Tomasik and was built in the 1970s by a team from Kraków's Jagiellonian University.</li>
+                    <li>In November 1939 the Germans arrested over 180 Kraków professors in a single afternoon. Two years later the <strong>University of Edinburgh</strong> opened its Polish School of Medicine (1941&ndash;49), a Polish faculty teaching in exile while universities at home were shut.</li>
+                    <li>Glasgow-born poet <strong>Thomas Campbell</strong> wrote the line "And Freedom shriek'd &mdash; as Kosciusko fell!" in 1799. Kościuszko swore his oath to the nation on Kraków's Main Square (there is a plaque in the paving) and has his own mound above the city.</li>
+                    <li>A shared patron: Kraków's oldest surviving church, on ul. Grodzka, is <strong>St Andrew's</strong>. Its fortress walls sheltered townspeople from the Mongols in 1241. Poles mark St Andrew's Eve (<em>Andrzejki</em>) with fortune-telling in molten wax.</li>
+                    <li><strong>Auld Reekie, meet Kraków</strong>: both cities were notorious for smoke. Kraków banned burning coal and wood in 2019.</li>
+                    <li>Today Poles are the largest foreign-born community in Scotland &mdash; which is partly why there is a direct Edinburgh flight.</li>
+                </ul>
+            </details>
+
+            <!-- Talking points: collapsed so the schedule stays the focus -->
+            <details class="trivia bg-white rounded-lg shadow-sm p-4 text-sm text-slate-600">
+                <summary class="text-slate-700"><span><i class="fa-solid fa-circle-info mr-2 text-slate-400"></i> Unwritten rules</span><i class="fa-solid fa-chevron-down text-xs text-slate-400"></i></summary>
+                <ul>
+                    <li><strong>Tipping</strong> is about 10% in restaurants. Trap: saying "dziękuję" as you hand over cash means "keep the change".</li>
+                    <li>Cards work almost everywhere. If a terminal or cash machine offers to charge you in pounds, <strong>always choose złoty</strong>.</li>
+                    <li><strong>Drinking alcohol in the street is illegal</strong> and fined on the spot, as is crossing on a red man &mdash; Poles really do wait.</li>
+                    <li>Trams always have right of way. Validate a paper ticket as soon as you board.</li>
+                    <li>Toilet doors: <strong>triangle = men, circle = women</strong>.</li>
+                    <li>Poles do not smile at strangers. It is not rudeness; smiling for no reason just looks odd here.</li>
+                    <li>Poland is <strong>Central</strong> Europe. Calling it Eastern Europe wins no friends.</li>
+                    <li>Churches are working churches: no wandering round during Mass, and hats off.</li>
+                    <li>Tap water is fine to drink.</li>
+                    <li>When someone sneezes or a glass is raised it is the same phrase: <strong>Na zdrowie</strong>.</li>
+                </ul>
+            </details>
+        </div>
+
     </main>
 
     <!-- Footer as requested -->
     <footer class="max-w-5xl mx-auto p-4 text-center text-slate-500 text-xs mt-4 mb-8">
-        Last updated: Sunday, 04/10/2026
+        Last updated: Monday, 05/10/2026
     </footer>
 
     <script>
         // Array of valid tab IDs
-        const validTabs = ['day1', 'day2', 'day3', 'day4', 'day5', 'food', 'sights'];
+        const validTabs = ['day1', 'day2', 'day3', 'day4', 'day5', 'food', 'sights', 'trivia'];
 
         // Function to switch tabs and update URL hash
         function showTab(tabId) {
