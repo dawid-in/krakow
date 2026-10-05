@@ -3,6 +3,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#0f172a">
+    <meta name="robots" content="noindex, nofollow">
     <script>
         // Apply the saved theme (or the device setting) before first paint to avoid a flash
         (function () {
@@ -33,9 +34,21 @@
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 
+        /* Tab bar: short labels on phones, and a faded edge wherever more tabs are off-screen (classes set by updateTabFade()) */
+        .tab-btn { flex-shrink: 0; }
+        @media (max-width: 639px) { .tab-long { display: none; } }
+        .tab-scroll {
+            --fade-left: #000; --fade-right: #000;
+            -webkit-mask-image: linear-gradient(to right, var(--fade-left), #000 3rem, #000 calc(100% - 3rem), var(--fade-right));
+            mask-image: linear-gradient(to right, var(--fade-left), #000 3rem, #000 calc(100% - 3rem), var(--fade-right));
+        }
+        .tab-scroll.more-left { --fade-left: transparent; }
+        .tab-scroll.more-right { --fade-right: transparent; }
+
         /* Fade transition */
         .fade-in { animation: fadeIn 0.3s ease-in-out; }
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @media (prefers-reduced-motion: reduce) { .fade-in { animation: none; } }
 
         /* ---------- Mobile ---------- */
         /* Finger-sized Map buttons on touch screens */
@@ -117,17 +130,17 @@
         </div>
     </header>
 
-    <div class="bg-white border-b sticky top-0 z-50 shadow-sm">
-        <div class="max-w-5xl mx-auto flex overflow-x-auto text-sm no-scrollbar">
-            <button onclick="showTab('day1')" class="tab-btn px-4 py-3 whitespace-nowrap" id="btn-day1">Day 1: Wed 7 Oct</button>
-            <button onclick="showTab('day2')" class="tab-btn px-4 py-3 whitespace-nowrap" id="btn-day2">Day 2: Thu 8 Oct</button>
-            <button onclick="showTab('day3')" class="tab-btn px-4 py-3 whitespace-nowrap" id="btn-day3">Day 3: Fri 9 Oct</button>
-            <button onclick="showTab('day4')" class="tab-btn px-4 py-3 whitespace-nowrap active" id="btn-day4">Day 4: Sat 10 Oct</button>
-            <button onclick="showTab('day5')" class="tab-btn px-4 py-3 whitespace-nowrap" id="btn-day5">Day 5: Sun 11 Oct</button>
-            <button onclick="showTab('food')" class="tab-btn px-4 py-3 whitespace-nowrap text-amber-700 font-semibold" id="btn-food"><i class="fa-solid fa-utensils mr-1"></i> Food &amp; Drink Map</button>
-            <button onclick="showTab('sights')" class="tab-btn px-4 py-3 whitespace-nowrap text-emerald-800 font-semibold" id="btn-sights"><i class="fa-solid fa-landmark mr-1"></i> Sights Map</button>
+    <nav aria-label="Trip days and maps" class="bg-white border-b sticky top-0 z-50 shadow-sm">
+        <div class="max-w-5xl mx-auto tab-scroll flex overflow-x-auto text-sm no-scrollbar">
+            <button onclick="showTab('day1')" class="tab-btn px-4 py-3 whitespace-nowrap" id="btn-day1"><span class="tab-long">Day 1: </span>Wed 7 Oct</button>
+            <button onclick="showTab('day2')" class="tab-btn px-4 py-3 whitespace-nowrap" id="btn-day2"><span class="tab-long">Day 2: </span>Thu 8 Oct</button>
+            <button onclick="showTab('day3')" class="tab-btn px-4 py-3 whitespace-nowrap" id="btn-day3"><span class="tab-long">Day 3: </span>Fri 9 Oct</button>
+            <button onclick="showTab('day4')" class="tab-btn px-4 py-3 whitespace-nowrap active" id="btn-day4"><span class="tab-long">Day 4: </span>Sat 10 Oct</button>
+            <button onclick="showTab('day5')" class="tab-btn px-4 py-3 whitespace-nowrap" id="btn-day5"><span class="tab-long">Day 5: </span>Sun 11 Oct</button>
+            <button onclick="showTab('food')" class="tab-btn px-4 py-3 whitespace-nowrap text-amber-700 font-semibold" id="btn-food"><i class="fa-solid fa-utensils mr-1"></i> Food<span class="tab-long"> &amp; Drink Map</span></button>
+            <button onclick="showTab('sights')" class="tab-btn px-4 py-3 whitespace-nowrap text-emerald-800 font-semibold" id="btn-sights"><i class="fa-solid fa-landmark mr-1"></i> Sights<span class="tab-long"> Map</span></button>
         </div>
-    </div>
+    </nav>
 
     <main class="max-w-5xl mx-auto p-4">
 
@@ -140,7 +153,7 @@
                     <h2 class="text-xl font-bold">Day 1: Wednesday 7 Oct — Arrival</h2>
                     <p class="text-xs text-slate-500">Flight FR6624 &amp; Airport Transit</p>
                 </div>
-                <a href="https://www.google.com/maps/dir/John+Paul+II+International+Airport+Krak%C3%B3w-Balice/Krak%C3%B3w+G%C5%82%C3%B3wny/ibis+budget+Krakow+Stare+Miasto/Kie%C5%82baski+z+Niebieskiej+Nyski" target="_blank" class="bg-blue-600 text-white px-3 py-2 rounded text-xs hover:bg-blue-700 flex items-center gap-1 font-medium shadow-sm transition-colors w-full sm:w-auto justify-center">
+                <a href="https://www.google.com/maps/dir/John+Paul+II+International+Airport+Krak%C3%B3w-Balice/Krak%C3%B3w+G%C5%82%C3%B3wny/ibis+budget+Krakow+Stare+Miasto" target="_blank" rel="noopener" class="bg-blue-600 text-white px-3 py-2 rounded text-xs hover:bg-blue-700 flex items-center gap-1 font-medium shadow-sm transition-colors w-full sm:w-auto justify-center">
                     <i class="fa-solid fa-map-location-dot"></i> Full Day 1 Route
                 </a>
             </div>
@@ -197,7 +210,7 @@
                     <h2 class="text-xl font-bold">Day 2: Thursday 8 Oct — Auschwitz-Birkenau</h2>
                     <p class="text-xs text-slate-500">Memorial Visit &amp; Evening in Kazimierz</p>
                 </div>
-                <a href="https://www.google.com/maps/dir/ibis+budget+Krakow+Stare+Miasto/Dobra+P%C4%85czkarnia,+Floria%C5%84ska+24/Krak%C3%B3w+G%C5%82%C3%B3wny/O%C5%9Bwi%C4%99cim+Station/Auschwitz-Birkenau+State+Museum/Starka+Restaurant" target="_blank" class="bg-blue-600 text-white px-3 py-2 rounded text-xs hover:bg-blue-700 flex items-center gap-1 font-medium shadow-sm transition-colors w-full sm:w-auto justify-center">
+                <a href="https://www.google.com/maps/dir/ibis+budget+Krakow+Stare+Miasto/Dobra+P%C4%85czkarnia,+Floria%C5%84ska+24/Krak%C3%B3w+G%C5%82%C3%B3wny/O%C5%9Bwi%C4%99cim+Station/Auschwitz-Birkenau+State+Museum/Starka+Restaurant" target="_blank" rel="noopener" class="bg-blue-600 text-white px-3 py-2 rounded text-xs hover:bg-blue-700 flex items-center gap-1 font-medium shadow-sm transition-colors w-full sm:w-auto justify-center">
                     <i class="fa-solid fa-map-location-dot"></i> Full Day 2 Route
                 </a>
             </div>
@@ -282,7 +295,7 @@
                     <h2 class="text-xl font-bold">Day 3: Friday 9 Oct — Wawel &amp; Salt Mine</h2>
                     <p class="text-xs text-slate-500">Castle, Underground Salt Mine &amp; Canteens</p>
                 </div>
-                <a href="https://www.google.com/maps/dir/ibis+budget+Krakow+Stare+Miasto/Cukiernia+Kawiarnia+Cichowscy/Wawel+Royal+Castle/Krak%C3%B3w+G%C5%82%C3%B3wny/Dani%C5%82owicza+10,+32-020+Wieliczka/St.+Mary's+Basilica/Bar+Uniwersytecki/Andrus+Maczanka+po+Krakowsku" target="_blank" class="bg-blue-600 text-white px-3 py-2 rounded text-xs hover:bg-blue-700 flex items-center gap-1 font-medium shadow-sm transition-colors w-full sm:w-auto justify-center">
+                <a href="https://www.google.com/maps/dir/ibis+budget+Krakow+Stare+Miasto/Cukiernia+Kawiarnia+Cichowscy/Wawel+Royal+Castle/Krak%C3%B3w+G%C5%82%C3%B3wny/Dani%C5%82owicza+10,+32-020+Wieliczka/St.+Mary's+Basilica/Bar+Uniwersytecki/Andrus+Maczanka+po+Krakowsku" target="_blank" rel="noopener" class="bg-blue-600 text-white px-3 py-2 rounded text-xs hover:bg-blue-700 flex items-center gap-1 font-medium shadow-sm transition-colors w-full sm:w-auto justify-center">
                     <i class="fa-solid fa-map-location-dot"></i> Full Day 3 Route
                 </a>
             </div>
@@ -348,7 +361,7 @@
                         <span class="font-mono text-xs bg-slate-100 text-slate-400 px-2 py-1 rounded mt-0.5">16:30</span>
                         <div>
                             <p class="text-sm font-medium"><i class="fa-solid fa-camera mr-1"></i> Optional: Collegium Maius &amp; Rynek Underground</p>
-                            <p class="text-xs text-slate-400">Peak into the medieval Jagiellonian University courtyard, or book the underground museum beneath the cloth hall.</p>
+                            <p class="text-xs text-slate-400">Peek into the medieval Jagiellonian University courtyard, or book the underground museum beneath the cloth hall.</p>
                         </div>
                     </div>
                     <div class="flex flex-wrap gap-2">
@@ -394,7 +407,7 @@
                     <h2 class="text-xl font-bold">Day 4: Saturday 10 Oct — Nowa Huta &amp; Podgórze</h2>
                     <p class="text-xs text-slate-500">Communist History, Food Bites &amp; Schindler's Factory</p>
                 </div>
-                <a href="https://www.google.com/maps/dir/ibis+budget+Krakow+Stare+Miasto/Plac+Centralny+im.+Ronalda+Reagana/Krakowski+Kumpir/Obwarzanki+Kraftowe/Oskar+Schindler's+Enamel+Factory/Rynek+G%C5%82%C3%B3wny/Kie%C5%82baski+z+Niebieskiej+Nyski" target="_blank" class="bg-blue-600 text-white px-3 py-2 rounded text-xs hover:bg-blue-700 flex items-center gap-1 font-medium shadow-sm transition-colors w-full sm:w-auto justify-center">
+                <a href="https://www.google.com/maps/dir/ibis+budget+Krakow+Stare+Miasto/Plac+Centralny+im.+Ronalda+Reagana/Krakowski+Kumpir/Obwarzanki+Kraftowe/Oskar+Schindler's+Enamel+Factory/Rynek+G%C5%82%C3%B3wny/Kie%C5%82baski+z+Niebieskiej+Nyski" target="_blank" rel="noopener" class="bg-blue-600 text-white px-3 py-2 rounded text-xs hover:bg-blue-700 flex items-center gap-1 font-medium shadow-sm transition-colors w-full sm:w-auto justify-center">
                     <i class="fa-solid fa-map-location-dot"></i> Full Day 4 Route
                 </a>
             </div>
@@ -496,7 +509,7 @@
                     <h2 class="text-xl font-bold">Day 5: Sunday 11 Oct — Home</h2>
                     <p class="text-xs text-slate-500">Return Flight FR6625 to Edinburgh</p>
                 </div>
-                <a href="https://www.google.com/maps/dir/ibis+budget+Krakow+Stare+Miasto/John+Paul+II+International+Airport+Krak%C3%B3w-Balice" target="_blank" class="bg-blue-600 text-white px-3 py-2 rounded text-xs hover:bg-blue-700 flex items-center gap-1 font-medium shadow-sm transition-colors w-full sm:w-auto justify-center">
+                <a href="https://www.google.com/maps/dir/ibis+budget+Krakow+Stare+Miasto/John+Paul+II+International+Airport+Krak%C3%B3w-Balice" target="_blank" rel="noopener" class="bg-blue-600 text-white px-3 py-2 rounded text-xs hover:bg-blue-700 flex items-center gap-1 font-medium shadow-sm transition-colors w-full sm:w-auto justify-center">
                     <i class="fa-solid fa-map-location-dot"></i> Full Day 5 Route
                 </a>
             </div>
@@ -524,7 +537,7 @@
                 <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 bg-blue-50 p-3 rounded-lg border border-blue-100 shadow-sm">
                     <div class="flex gap-3 items-start">
                         <span class="font-mono text-xs bg-blue-200 text-blue-900 px-2 py-1 rounded font-bold mt-0.5">09:05</span>
-                        <div><p class="font-bold text-sm text-blue-900"><i class="fa-solid fa-plane-departure mr-1"></i> Flight FR6625 Departs KRK → EDI</p><p class="text-xs text-blue-800 mt-1">Bag drop closes strictly at 08:25 (40 mins prior). Arrive by 10:55.</p></div>
+                        <div><p class="font-bold text-sm text-blue-900"><i class="fa-solid fa-plane-departure mr-1"></i> Flight FR6625 Departs KRK → EDI</p><p class="text-xs text-blue-800 mt-1">Bag drop closes strictly at 08:25 (40 mins prior).</p></div>
                     </div>
 
                 </div>
@@ -541,7 +554,7 @@
                             <p class="text-xs text-amber-100">Check off the spots you visit. Your progress saves automatically to this device!</p>
                         </div>
                         <!-- Google Maps OR search with each place quoted so no pin is dropped; includes the booked in-city activities (Schindler's, Nowa Huta) -->
-                        <a href="https://www.google.com/maps/search/%22Dobra+P%C4%85czkarnia+Krak%C3%B3w%22+OR+%22Bar+Uniwersytecki+Krak%C3%B3w%22+OR+%22Starka+Krak%C3%B3w%22+OR+%22Krakowski+Kumpir%22+OR+%22Alchemia+Krak%C3%B3w%22+OR+%22Kie%C5%82baski+z+Niebieskiej+Nyski%22+OR+%22Oskar+Schindler%27s+Enamel+Factory%22+OR+%22Plac+Centralny+Nowa+Huta+Krak%C3%B3w%22" target="_blank" class="bg-white text-amber-800 px-4 py-2 rounded-lg text-xs font-bold hover:bg-amber-50 flex items-center gap-2 shadow">
+                        <a href="https://www.google.com/maps/search/%22Dobra+P%C4%85czkarnia+Krak%C3%B3w%22+OR+%22Bar+Uniwersytecki+Krak%C3%B3w%22+OR+%22Starka+Krak%C3%B3w%22+OR+%22Krakowski+Kumpir%22+OR+%22Alchemia+Krak%C3%B3w%22+OR+%22Kie%C5%82baski+z+Niebieskiej+Nyski%22+OR+%22Oskar+Schindler%27s+Enamel+Factory%22+OR+%22Plac+Centralny+Nowa+Huta+Krak%C3%B3w%22" target="_blank" rel="noopener" class="bg-white text-amber-800 px-4 py-2 rounded-lg text-xs font-bold hover:bg-amber-50 flex items-center gap-2 shadow">
                             <i class="fa-solid fa-map-location-dot text-sm"></i> Open All Pins Map
                         </a>
                     </div>
@@ -573,7 +586,7 @@
                             <div class="peer-checked:opacity-40 peer-checked:line-through transition-all flex-1">
                                 <div class="flex justify-between items-start gap-2">
                                     <p class="font-bold text-slate-900 text-base">Bar Uniwersytecki</p>
-                                    <a href="https://www.google.com/maps/search/?api=1&amp;query=Bar+Uniwersytecki,+Czysta+5,+Krakow" target="_blank" class="text-xs bg-slate-100 hover:bg-blue-100 text-slate-600 hover:text-blue-700 px-2 py-1 rounded shadow-sm flex items-center gap-1 z-20 transition-colors border border-slate-200 hover:border-blue-300">
+                                    <a href="https://www.google.com/maps/search/?api=1&amp;query=Bar+Uniwersytecki,+Czysta+5,+Krakow" target="_blank" rel="noopener" class="text-xs bg-slate-100 hover:bg-blue-100 text-slate-600 hover:text-blue-700 px-2 py-1 rounded shadow-sm flex items-center gap-1 z-20 transition-colors border border-slate-200 hover:border-blue-300">
                                         <i class="fa-solid fa-map-location-dot"></i> Map
                                     </a>
                                 </div>
@@ -589,7 +602,7 @@
                             <div class="peer-checked:opacity-40 peer-checked:line-through transition-all flex-1">
                                 <div class="flex justify-between items-start gap-2">
                                     <p class="font-bold text-slate-900 text-base">Starka Restaurant</p>
-                                    <a href="https://www.google.com/maps/search/?api=1&amp;query=Starka+Restaurant,+Jozefa+14,+Krakow" target="_blank" class="text-xs bg-slate-100 hover:bg-blue-100 text-slate-600 hover:text-blue-700 px-2 py-1 rounded shadow-sm flex items-center gap-1 z-20 transition-colors border border-slate-200 hover:border-blue-300">
+                                    <a href="https://www.google.com/maps/search/?api=1&amp;query=Starka+Restaurant,+Jozefa+14,+Krakow" target="_blank" rel="noopener" class="text-xs bg-slate-100 hover:bg-blue-100 text-slate-600 hover:text-blue-700 px-2 py-1 rounded shadow-sm flex items-center gap-1 z-20 transition-colors border border-slate-200 hover:border-blue-300">
                                         <i class="fa-solid fa-map-location-dot"></i> Map
                                     </a>
                                 </div>
@@ -605,7 +618,7 @@
                             <div class="peer-checked:opacity-40 peer-checked:line-through transition-all flex-1">
                                 <div class="flex justify-between items-start gap-2">
                                     <p class="font-bold text-slate-900 text-base">Pod Temidą (Milk Bar)</p>
-                                    <a href="https://www.google.com/maps/search/?api=1&amp;query=Pod+Temida,+Grodzka+43,+Krakow" target="_blank" class="text-xs bg-slate-100 hover:bg-blue-100 text-slate-600 hover:text-blue-700 px-2 py-1 rounded shadow-sm flex items-center gap-1 z-20 transition-colors border border-slate-200 hover:border-blue-300">
+                                    <a href="https://www.google.com/maps/search/?api=1&amp;query=Pod+Temida,+Grodzka+43,+Krakow" target="_blank" rel="noopener" class="text-xs bg-slate-100 hover:bg-blue-100 text-slate-600 hover:text-blue-700 px-2 py-1 rounded shadow-sm flex items-center gap-1 z-20 transition-colors border border-slate-200 hover:border-blue-300">
                                         <i class="fa-solid fa-map-location-dot"></i> Map
                                     </a>
                                 </div>
@@ -621,7 +634,7 @@
                             <div class="peer-checked:opacity-40 peer-checked:line-through transition-all flex-1">
                                 <div class="flex justify-between items-start gap-2">
                                     <p class="font-bold text-slate-900 text-base">Pierogi Mr Vincent</p>
-                                    <a href="https://www.google.com/maps/search/?api=1&amp;query=Pierogi+Mr+Vincent,+Bozego+Ciala+12,+Krakow" target="_blank" class="text-xs bg-slate-100 hover:bg-blue-100 text-slate-600 hover:text-blue-700 px-2 py-1 rounded shadow-sm flex items-center gap-1 z-20 transition-colors border border-slate-200 hover:border-blue-300">
+                                    <a href="https://www.google.com/maps/search/?api=1&amp;query=Pierogi+Mr+Vincent,+Bozego+Ciala+12,+Krakow" target="_blank" rel="noopener" class="text-xs bg-slate-100 hover:bg-blue-100 text-slate-600 hover:text-blue-700 px-2 py-1 rounded shadow-sm flex items-center gap-1 z-20 transition-colors border border-slate-200 hover:border-blue-300">
                                         <i class="fa-solid fa-map-location-dot"></i> Map
                                     </a>
                                 </div>
@@ -645,7 +658,7 @@
                             <div class="peer-checked:opacity-40 peer-checked:line-through transition-all flex-1">
                                 <div class="flex justify-between items-start gap-2">
                                     <p class="font-bold text-slate-900 text-base">Sausages from the Blue Nysa</p>
-                                    <a href="https://www.google.com/maps/search/?api=1&amp;query=Kielbaski+z+Niebieskiej+Nyski,+Grzegorzecka+4,+Krakow" target="_blank" class="text-xs bg-slate-100 hover:bg-blue-100 text-slate-600 hover:text-blue-700 px-2 py-1 rounded shadow-sm flex items-center gap-1 z-20 transition-colors border border-slate-200 hover:border-blue-300">
+                                    <a href="https://www.google.com/maps/search/?api=1&amp;query=Kielbaski+z+Niebieskiej+Nyski,+Grzegorzecka+4,+Krakow" target="_blank" rel="noopener" class="text-xs bg-slate-100 hover:bg-blue-100 text-slate-600 hover:text-blue-700 px-2 py-1 rounded shadow-sm flex items-center gap-1 z-20 transition-colors border border-slate-200 hover:border-blue-300">
                                         <i class="fa-solid fa-map-location-dot"></i> Map
                                     </a>
                                 </div>
@@ -661,7 +674,7 @@
                             <div class="peer-checked:opacity-40 peer-checked:line-through transition-all flex-1">
                                 <div class="flex justify-between items-start gap-2">
                                     <p class="font-bold text-slate-900 text-base">Andrus Maczanka po Krakowsku</p>
-                                    <a href="https://www.google.com/maps/search/?api=1&amp;query=Andrus+Maczanka+po+Krakowsku,+Sw.+Wawrzynca+16,+Krakow" target="_blank" class="text-xs bg-slate-100 hover:bg-blue-100 text-slate-600 hover:text-blue-700 px-2 py-1 rounded shadow-sm flex items-center gap-1 z-20 transition-colors border border-slate-200 hover:border-blue-300">
+                                    <a href="https://www.google.com/maps/search/?api=1&amp;query=Andrus+Maczanka+po+Krakowsku,+Sw.+Wawrzynca+16,+Krakow" target="_blank" rel="noopener" class="text-xs bg-slate-100 hover:bg-blue-100 text-slate-600 hover:text-blue-700 px-2 py-1 rounded shadow-sm flex items-center gap-1 z-20 transition-colors border border-slate-200 hover:border-blue-300">
                                         <i class="fa-solid fa-map-location-dot"></i> Map
                                     </a>
                                 </div>
@@ -677,7 +690,7 @@
                             <div class="peer-checked:opacity-40 peer-checked:line-through transition-all flex-1">
                                 <div class="flex justify-between items-start gap-2">
                                     <p class="font-bold text-slate-900 text-base">Krakowski Kumpir</p>
-                                    <a href="https://www.google.com/maps/search/?api=1&amp;query=Krakowski+Kumpir,+Grzegorzecka+3/29,+Krakow" target="_blank" class="text-xs bg-slate-100 hover:bg-blue-100 text-slate-600 hover:text-blue-700 px-2 py-1 rounded shadow-sm flex items-center gap-1 z-20 transition-colors border border-slate-200 hover:border-blue-300">
+                                    <a href="https://www.google.com/maps/search/?api=1&amp;query=Krakowski+Kumpir,+Grzegorzecka+3/29,+Krakow" target="_blank" rel="noopener" class="text-xs bg-slate-100 hover:bg-blue-100 text-slate-600 hover:text-blue-700 px-2 py-1 rounded shadow-sm flex items-center gap-1 z-20 transition-colors border border-slate-200 hover:border-blue-300">
                                         <i class="fa-solid fa-map-location-dot"></i> Map
                                     </a>
                                 </div>
@@ -693,7 +706,7 @@
                             <div class="peer-checked:opacity-40 peer-checked:line-through transition-all flex-1">
                                 <div class="flex justify-between items-start gap-2">
                                     <p class="font-bold text-slate-900 text-base">Endzior / Plac Nowy Zapiekanki</p>
-                                    <a href="https://www.google.com/maps/search/?api=1&amp;query=Endzior,+Plac+Nowy,+Krakow" target="_blank" class="text-xs bg-slate-100 hover:bg-blue-100 text-slate-600 hover:text-blue-700 px-2 py-1 rounded shadow-sm flex items-center gap-1 z-20 transition-colors border border-slate-200 hover:border-blue-300">
+                                    <a href="https://www.google.com/maps/search/?api=1&amp;query=Endzior,+Plac+Nowy,+Krakow" target="_blank" rel="noopener" class="text-xs bg-slate-100 hover:bg-blue-100 text-slate-600 hover:text-blue-700 px-2 py-1 rounded shadow-sm flex items-center gap-1 z-20 transition-colors border border-slate-200 hover:border-blue-300">
                                         <i class="fa-solid fa-map-location-dot"></i> Map
                                     </a>
                                 </div>
@@ -709,7 +722,7 @@
                             <div class="peer-checked:opacity-40 peer-checked:line-through transition-all flex-1">
                                 <div class="flex justify-between items-start gap-2">
                                     <p class="font-bold text-slate-900 text-base">ZAPIEKANKI SmacznyKrakowski</p>
-                                    <a href="https://www.google.com/maps/search/?api=1&amp;query=ZAPIEKANKI+SmacznyKrakowski,+plac+Inwalidow,+Krakow" target="_blank" class="text-xs bg-slate-100 hover:bg-blue-100 text-slate-600 hover:text-blue-700 px-2 py-1 rounded shadow-sm flex items-center gap-1 z-20 transition-colors border border-slate-200 hover:border-blue-300">
+                                    <a href="https://www.google.com/maps/search/?api=1&amp;query=ZAPIEKANKI+SmacznyKrakowski,+plac+Inwalidow,+Krakow" target="_blank" rel="noopener" class="text-xs bg-slate-100 hover:bg-blue-100 text-slate-600 hover:text-blue-700 px-2 py-1 rounded shadow-sm flex items-center gap-1 z-20 transition-colors border border-slate-200 hover:border-blue-300">
                                         <i class="fa-solid fa-map-location-dot"></i> Map
                                     </a>
                                 </div>
@@ -733,7 +746,7 @@
                             <div class="peer-checked:opacity-40 peer-checked:line-through transition-all flex-1">
                                 <div class="flex justify-between items-start gap-2">
                                     <p class="font-bold text-slate-900 text-base">Dobra Pączkarnia</p>
-                                    <a href="https://www.google.com/maps/search/?api=1&amp;query=Dobra+Paczkarnia,+Florianska+24,+Krakow" target="_blank" class="text-xs bg-slate-100 hover:bg-blue-100 text-slate-600 hover:text-blue-700 px-2 py-1 rounded shadow-sm flex items-center gap-1 z-20 transition-colors border border-slate-200 hover:border-blue-300">
+                                    <a href="https://www.google.com/maps/search/?api=1&amp;query=Dobra+Paczkarnia,+Florianska+24,+Krakow" target="_blank" rel="noopener" class="text-xs bg-slate-100 hover:bg-blue-100 text-slate-600 hover:text-blue-700 px-2 py-1 rounded shadow-sm flex items-center gap-1 z-20 transition-colors border border-slate-200 hover:border-blue-300">
                                         <i class="fa-solid fa-map-location-dot"></i> Map
                                     </a>
                                 </div>
@@ -749,7 +762,7 @@
                             <div class="peer-checked:opacity-40 peer-checked:line-through transition-all flex-1">
                                 <div class="flex justify-between items-start gap-2">
                                     <p class="font-bold text-slate-900 text-base">Cukiernia Kawiarnia Cichowscy</p>
-                                    <a href="https://www.google.com/maps/search/?api=1&amp;query=Cukiernia+Kawiarnia+Cichowscy,+Starowislna+21,+Krakow" target="_blank" class="text-xs bg-slate-100 hover:bg-blue-100 text-slate-600 hover:text-blue-700 px-2 py-1 rounded shadow-sm flex items-center gap-1 z-20 transition-colors border border-slate-200 hover:border-blue-300">
+                                    <a href="https://www.google.com/maps/search/?api=1&amp;query=Cukiernia+Kawiarnia+Cichowscy,+Starowislna+21,+Krakow" target="_blank" rel="noopener" class="text-xs bg-slate-100 hover:bg-blue-100 text-slate-600 hover:text-blue-700 px-2 py-1 rounded shadow-sm flex items-center gap-1 z-20 transition-colors border border-slate-200 hover:border-blue-300">
                                         <i class="fa-solid fa-map-location-dot"></i> Map
                                     </a>
                                 </div>
@@ -765,7 +778,7 @@
                             <div class="peer-checked:opacity-40 peer-checked:line-through transition-all flex-1">
                                 <div class="flex justify-between items-start gap-2">
                                     <p class="font-bold text-slate-900 text-base">Creamy Bite</p>
-                                    <a href="https://www.google.com/maps/search/?api=1&amp;query=Creamy+Bite,+Grzegorzecka+3/25,+Krakow" target="_blank" class="text-xs bg-slate-100 hover:bg-blue-100 text-slate-600 hover:text-blue-700 px-2 py-1 rounded shadow-sm flex items-center gap-1 z-20 transition-colors border border-slate-200 hover:border-blue-300">
+                                    <a href="https://www.google.com/maps/search/?api=1&amp;query=Creamy+Bite,+Grzegorzecka+3/25,+Krakow" target="_blank" rel="noopener" class="text-xs bg-slate-100 hover:bg-blue-100 text-slate-600 hover:text-blue-700 px-2 py-1 rounded shadow-sm flex items-center gap-1 z-20 transition-colors border border-slate-200 hover:border-blue-300">
                                         <i class="fa-solid fa-map-location-dot"></i> Map
                                     </a>
                                 </div>
@@ -781,7 +794,7 @@
                             <div class="peer-checked:opacity-40 peer-checked:line-through transition-all flex-1">
                                 <div class="flex justify-between items-start gap-2">
                                     <p class="font-bold text-slate-900 text-base">Obwarzanki Kraftowe</p>
-                                    <a href="https://www.google.com/maps/search/?api=1&amp;query=Obwarzanki+Kraftowe,+Dietla,+Krakow" target="_blank" class="text-xs bg-slate-100 hover:bg-blue-100 text-slate-600 hover:text-blue-700 px-2 py-1 rounded shadow-sm flex items-center gap-1 z-20 transition-colors border border-slate-200 hover:border-blue-300">
+                                    <a href="https://www.google.com/maps/search/?api=1&amp;query=Obwarzanki+Kraftowe,+Dietla,+Krakow" target="_blank" rel="noopener" class="text-xs bg-slate-100 hover:bg-blue-100 text-slate-600 hover:text-blue-700 px-2 py-1 rounded shadow-sm flex items-center gap-1 z-20 transition-colors border border-slate-200 hover:border-blue-300">
                                         <i class="fa-solid fa-map-location-dot"></i> Map
                                     </a>
                                 </div>
@@ -797,7 +810,7 @@
                             <div class="peer-checked:opacity-40 peer-checked:line-through transition-all flex-1">
                                 <div class="flex justify-between items-start gap-2">
                                     <p class="font-bold text-slate-900 text-base">Good Lood Ice Cream</p>
-                                    <a href="https://www.google.com/maps/search/?api=1&amp;query=Good+Lood,+Plac+Wolnica,+Krakow" target="_blank" class="text-xs bg-slate-100 hover:bg-blue-100 text-slate-600 hover:text-blue-700 px-2 py-1 rounded shadow-sm flex items-center gap-1 z-20 transition-colors border border-slate-200 hover:border-blue-300">
+                                    <a href="https://www.google.com/maps/search/?api=1&amp;query=Good+Lood,+Plac+Wolnica,+Krakow" target="_blank" rel="noopener" class="text-xs bg-slate-100 hover:bg-blue-100 text-slate-600 hover:text-blue-700 px-2 py-1 rounded shadow-sm flex items-center gap-1 z-20 transition-colors border border-slate-200 hover:border-blue-300">
                                         <i class="fa-solid fa-map-location-dot"></i> Map
                                     </a>
                                 </div>
@@ -813,7 +826,7 @@
                             <div class="peer-checked:opacity-40 peer-checked:line-through transition-all flex-1">
                                 <div class="flex justify-between items-start gap-2">
                                     <p class="font-bold text-slate-900 text-base">Charlotte Bakery</p>
-                                    <a href="https://www.google.com/maps/search/?api=1&amp;query=Charlotte,+Plac+Szczepanski+2,+Krakow" target="_blank" class="text-xs bg-slate-100 hover:bg-blue-100 text-slate-600 hover:text-blue-700 px-2 py-1 rounded shadow-sm flex items-center gap-1 z-20 transition-colors border border-slate-200 hover:border-blue-300">
+                                    <a href="https://www.google.com/maps/search/?api=1&amp;query=Charlotte,+Plac+Szczepanski+2,+Krakow" target="_blank" rel="noopener" class="text-xs bg-slate-100 hover:bg-blue-100 text-slate-600 hover:text-blue-700 px-2 py-1 rounded shadow-sm flex items-center gap-1 z-20 transition-colors border border-slate-200 hover:border-blue-300">
                                         <i class="fa-solid fa-map-location-dot"></i> Map
                                     </a>
                                 </div>
@@ -837,7 +850,7 @@
                             <div class="peer-checked:opacity-40 peer-checked:line-through transition-all flex-1">
                                 <div class="flex justify-between items-start gap-2">
                                     <p class="font-bold text-slate-900 text-base">Karakter</p>
-                                    <a href="https://www.google.com/maps/search/?api=1&amp;query=Karakter,+Brzozowa+17,+Krakow" target="_blank" class="text-xs bg-slate-100 hover:bg-blue-100 text-slate-600 hover:text-blue-700 px-2 py-1 rounded shadow-sm flex items-center gap-1 z-20 transition-colors border border-slate-200 hover:border-blue-300">
+                                    <a href="https://www.google.com/maps/search/?api=1&amp;query=Karakter,+Brzozowa+17,+Krakow" target="_blank" rel="noopener" class="text-xs bg-slate-100 hover:bg-blue-100 text-slate-600 hover:text-blue-700 px-2 py-1 rounded shadow-sm flex items-center gap-1 z-20 transition-colors border border-slate-200 hover:border-blue-300">
                                         <i class="fa-solid fa-map-location-dot"></i> Map
                                     </a>
                                 </div>
@@ -853,7 +866,7 @@
                             <div class="peer-checked:opacity-40 peer-checked:line-through transition-all flex-1">
                                 <div class="flex justify-between items-start gap-2">
                                     <p class="font-bold text-slate-900 text-base">Alchemia</p>
-                                    <a href="https://www.google.com/maps/search/?api=1&amp;query=Alchemia,+Estery+5,+Krakow" target="_blank" class="text-xs bg-slate-100 hover:bg-blue-100 text-slate-600 hover:text-blue-700 px-2 py-1 rounded shadow-sm flex items-center gap-1 z-20 transition-colors border border-slate-200 hover:border-blue-300">
+                                    <a href="https://www.google.com/maps/search/?api=1&amp;query=Alchemia,+Estery+5,+Krakow" target="_blank" rel="noopener" class="text-xs bg-slate-100 hover:bg-blue-100 text-slate-600 hover:text-blue-700 px-2 py-1 rounded shadow-sm flex items-center gap-1 z-20 transition-colors border border-slate-200 hover:border-blue-300">
                                         <i class="fa-solid fa-map-location-dot"></i> Map
                                     </a>
                                 </div>
@@ -869,7 +882,7 @@
                             <div class="peer-checked:opacity-40 peer-checked:line-through transition-all flex-1">
                                 <div class="flex justify-between items-start gap-2">
                                     <p class="font-bold text-slate-900 text-base">Mercy Brown Dive Bar</p>
-                                    <a href="https://www.google.com/maps/search/?api=1&amp;query=Mercy+Brown,+Straszewskiego+28,+Krakow" target="_blank" class="text-xs bg-slate-100 hover:bg-blue-100 text-slate-600 hover:text-blue-700 px-2 py-1 rounded shadow-sm flex items-center gap-1 z-20 transition-colors border border-slate-200 hover:border-blue-300">
+                                    <a href="https://www.google.com/maps/search/?api=1&amp;query=Mercy+Brown,+Straszewskiego+28,+Krakow" target="_blank" rel="noopener" class="text-xs bg-slate-100 hover:bg-blue-100 text-slate-600 hover:text-blue-700 px-2 py-1 rounded shadow-sm flex items-center gap-1 z-20 transition-colors border border-slate-200 hover:border-blue-300">
                                         <i class="fa-solid fa-map-location-dot"></i> Map
                                     </a>
                                 </div>
@@ -885,7 +898,7 @@
                             <div class="peer-checked:opacity-40 peer-checked:line-through transition-all flex-1">
                                 <div class="flex justify-between items-start gap-2">
                                     <p class="font-bold text-slate-900 text-base">Bunkier Café</p>
-                                    <a href="https://www.google.com/maps/search/?api=1&amp;query=Bunkier+Cafe,+Plac+Szczepanski+3a,+Krakow" target="_blank" class="text-xs bg-slate-100 hover:bg-blue-100 text-slate-600 hover:text-blue-700 px-2 py-1 rounded shadow-sm flex items-center gap-1 z-20 transition-colors border border-slate-200 hover:border-blue-300">
+                                    <a href="https://www.google.com/maps/search/?api=1&amp;query=Bunkier+Cafe,+Plac+Szczepanski+3a,+Krakow" target="_blank" rel="noopener" class="text-xs bg-slate-100 hover:bg-blue-100 text-slate-600 hover:text-blue-700 px-2 py-1 rounded shadow-sm flex items-center gap-1 z-20 transition-colors border border-slate-200 hover:border-blue-300">
                                         <i class="fa-solid fa-map-location-dot"></i> Map
                                     </a>
                                 </div>
@@ -1381,7 +1394,7 @@
     </main>
 
     <!-- Footer as requested -->
-    <footer class="max-w-5xl mx-auto p-4 text-center text-slate-400 text-xs mt-4 mb-8">
+    <footer class="max-w-5xl mx-auto p-4 text-center text-slate-500 text-xs mt-4 mb-8">
         Last updated: Sunday, 04/10/2026
     </footer>
 
@@ -1397,7 +1410,10 @@
                 el.classList.remove('fade-in');
             });
             // Reset active state on buttons
-            document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(el => {
+                el.classList.remove('active');
+                el.removeAttribute('aria-current');
+            });
 
             // Show target tab
             const targetTab = document.getElementById(tabId);
@@ -1410,6 +1426,7 @@
                 // Set active styling on nav button
                 const btn = document.getElementById('btn-' + tabId);
                 if(btn) btn.classList.add('active');
+                if(btn) btn.setAttribute('aria-current', 'true');
 
                 // Keep the active tab visible in the scrolling tab bar (phones only fit 3-4 tabs)
                 if(btn) btn.scrollIntoView({ block: 'nearest', inline: 'center' });
@@ -1422,6 +1439,13 @@
                 // Update URL hash WITHOUT jumping/scrolling
                 history.replaceState(null, null, '#' + tabId);
             }
+        }
+
+        // Fade the tab bar's edges while there are more tabs to scroll to on that side
+        function updateTabFade() {
+            const bar = document.querySelector('.tab-scroll');
+            bar.classList.toggle('more-left', bar.scrollLeft > 4);
+            bar.classList.toggle('more-right', bar.scrollLeft + bar.clientWidth < bar.scrollWidth - 4);
         }
 
         function updateSightProgress() {
@@ -1513,6 +1537,12 @@
             updateThemeIcon();
             loadWeather();
 
+            // Offline support (see sw.js)
+            if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js').catch(() => {});
+
+            document.querySelector('.tab-scroll').addEventListener('scroll', updateTabFade, { passive: true });
+            window.addEventListener('resize', updateTabFade);
+
             // 1. Tab Routing Logic
             let hash = window.location.hash.substring(1);
             if (validTabs.includes(hash)) {
@@ -1525,14 +1555,15 @@
             const checkboxes = document.querySelectorAll('.food-checkbox, .sight-checkbox');
             checkboxes.forEach(checkbox => {
                 // Retrieve saved state
-                const savedState = localStorage.getItem(checkbox.id);
+                let savedState = null;
+                try { savedState = localStorage.getItem(checkbox.id); } catch (e) {}
                 if (savedState === 'true') {
                     checkbox.checked = true;
                 }
 
                 // Save state on change
                 checkbox.addEventListener('change', (e) => {
-                    localStorage.setItem(e.target.id, e.target.checked);
+                    try { localStorage.setItem(e.target.id, e.target.checked); } catch (err) {}
                     updateSightProgress();
                 });
 
@@ -1548,6 +1579,7 @@
                 }
             });
             updateSightProgress();
+            updateTabFade();
         });
     </script>
 
